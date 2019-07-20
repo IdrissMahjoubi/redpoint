@@ -1,0 +1,7 @@
+front_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+
+index:
+    path:     /index
+    defaults: { _controller: FrontBundle:Home:index }

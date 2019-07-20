@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{asset('assets/jquery/2.1.1/jquery.min.js')}}"></script>
+            <script src="{{asset('assets/bootstrap/3.3.1/js/bootstrap.min.js')}}"></script>
+            <script src="{{asset('assets/js/rs-slider.js')}}"></script>
+            <div id="_include_main_plugins"></div>
+            <div id="_include_owl_carousel"></div>
+
+            <script src="{{asset('assets/js/script.js')}}"></script>{% endblock %}
+    </body>
+</html>
