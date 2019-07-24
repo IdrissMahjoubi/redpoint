@@ -1,0 +1,109 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% include 'front/headers/header.html.twig' %}
+
+
+    <div class="push-top"></div>
+    <section class="section-intro bg-img bg17 stellar" data-stellar-background-ratio="0.4">
+        <div class="bg-overlay op6"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-8">
+                    <h1 class="intro-title mb20">User account</h1>
+                    <p class="intro-p mb20">This is your account informations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="pull-right">
+                    <div class="shop-account-image"><img src="images/demo/team1.jpg" alt="person"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section shop-account mb20">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row mb60">
+                        <div class="col-sm-5 xs-box3">
+                            <h3 class="title-small br-bottom">Contact informations</h3>
+                            <ul>
+                                <li>First Name <span>John</span></li>
+                                <li>Last Name <span>Doe</span></li>
+                                <li>Phone Number <span>0-800-455-199</span></li>
+                                <li>Email <span><a href="http://abusinesstheme.com/cdn-cgi/l/email-protection#5832373036763c373d18283934392b763b3735"><span class="__cf_email__" data-cfemail="365c595e58185259537646575a57451855595b">[email&#160;protected]</span></a></span></li>
+                            </ul>
+                            <a href="#" class="edit">Edit contact</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3 class="title-small br-bottom">Shipping Address</h3>
+                            <ul>
+                                <li>Address <span>2200 Art Street </span></li>
+                                <li>Zip/Postal Code <span>407555</span></li>
+                                <li>City <span>Los Angeles</span></li>
+                                <li>Country <span>United States of America</span></li>
+                            </ul>
+                            <a href="#" class="edit">Edit address</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="title-small mb20 br-bottom">Orders History</h3>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Order</th>
+                                        <th>Date</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="#">#45006</a></td>
+                                        <td>Sunday 18th March, 2015</td>
+                                        <td>275$</td>
+                                        <td class="text-success">Delivered</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="#">#46440</a></td>
+                                        <td>Monday 14th April, 2015</td>
+                                        <td>575$</td>
+                                        <td class="text-danger">Canceled</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="#">#48700</a></td>
+                                        <td>Friday 28th April, 2015</td>
+                                        <td>205$</td>
+                                        <td class="text-success">Delivered</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="#">#51280</a></td>
+                                        <td>Sunday 26th June, 2015</td>
+                                        <td>455$</td>
+                                        <td class="text-success">Delivered</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'front/footers/footer.html.twig' %}
+{% endblock %}

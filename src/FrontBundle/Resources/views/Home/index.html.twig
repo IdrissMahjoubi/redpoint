@@ -1,7 +1,311 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}FrontBundle:Home:index{% endblock %}
-
+{% extends "base.html.twig" %}
 {% block body %}
-<h1>Welcome to the Home:index page</h1>
+{#<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palas | Bootstrap Multipurpose HTML5 Template</title>
+    <meta name="author" content="abusinesstheme">
+    <meta name="description" content="Palas is a Business HTML Template developed with the the latest HTML5 and CSS3 technologies.">
+
+    <script src="../../cdn-cgi/apps/head/ZY9A0AAlwdpt2cO4aZb21XgSNxg.js"></script><link href='../../../fonts.googleapis.com/cssb83a.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic|Montserrat:400,700' rel='stylesheet'>
+    <link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/void.css" id="_include_elegant_font">
+    <link rel="stylesheet" href="plugins/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" href="css/void.css" id="_include_owl_carousel">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>#}
+{#{% include 'front/headers/header.html.twig' %}#}
+<body>
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+<div id="wrapper">
+
+   {% include 'front/headers/header.html.twig' %}
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="tp-banner-container rs_boxed">
+                        <div class="tp-banner">
+                            <ul>
+
+                                <li data-transition="fade" data-masterspeed="500" data-slotamount="7" data-delay="8000" data-title="Slide 1">
+
+                                    <img src="{{ asset('assets/images/demo/bg05.jpg')}}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" alt="">
+                                    <div class="bg-overlay op6"></div>
+                                    <div class="tp-caption sft stt" data-x="center" data-hoffset="0" data-y="center" data-voffset="-50" data-speed="600" data-start="300" data-endspeed="400" data-end="7950" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h3 class="title-slider-small uppercased mb10">an easy way to build a website</h3>
+                                        <div class="br-bottom-center"></div>
+                                    </div>
+                                    <div class="tp-caption sfb stb" data-x="center" data-hoffset="0" data-y="center" data-voffset="60" data-speed="600" data-start="400" data-endspeed="400" data-end="7950" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h2 class="title-slider-large uppercased bordered">with <span class="color-main">p</span>alas</h2>
+                                    </div>
+                                </li>
+
+                                <li data-transition="fade" data-slotamount="7" data-delay="8000" data-title="Slide 2">
+
+                                    <img src="{{ asset('assets/images/demo/bg07.jpg') }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" alt="">
+                                    <div class="bg-overlay op6"></div>
+                                    <div class="tp-caption sfb stt" data-x="center" data-hoffset="0" data-y="center" data-voffset="25" data-speed="400" data-start="400" data-endspeed="450" data-end="2500" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h2 class="title-slider-large uppercased">free updates</h2>
+                                    </div>
+                                    <div class="tp-caption sfb stt" data-x="center" data-hoffset="0" data-y="center" data-voffset="25" data-speed="400" data-start="3000" data-endspeed="450" data-end="5500" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h2 class="title-slider-large uppercased">top notch support</h2>
+                                    </div>
+                                    <div class="tp-caption sfb stt" data-x="center" data-hoffset="0" data-y="center" data-voffset="25" data-speed="400" data-start="6000" data-endspeed="450" data-end="7950" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h2 class="title-slider-large uppercased">premium plugins</h2>
+                                    </div>
+                                </li>
+
+                                <li data-transition="fade" data-slotamount="7" data-delay="8000" data-title="Slide 3">
+
+                                    <img src="{{ asset('assets/images/demo/bg09.jpg') }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" alt="">
+                                    <div class="bg-overlay op6"></div>
+                                    <div class="tp-caption sft stt" data-x="center" data-hoffset="0" data-y="center" data-voffset="-30" data-speed="500" data-start="300" data-endspeed="600" data-end="7950" data-easing="Power3.easeInOut" data-endeasing="" style="z-index: 4">
+                                        <h4 class="title-slider-small uppercased">create a stunning website with palas</h4>
+                                    </div>
+                                    <div class="tp-caption sfb stb" data-x="center" data-hoffset="0" data-y="center" data-voffset="60" data-speed="400" data-start="500" data-endspeed="450" data-end="7970" data-easing="Power4.easeOut" style="z-index: 3">
+                                        <h2 class="title-slider-large uppercased br-top-bottom">customizable</h2>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row col-p30">
+                <div class="col-sm-4 xs-box2 br-box">
+                    <div class="box-services-c">
+                        <i class="fa icon_star_alt fa-style3 circle"></i>
+                        <h3 class="title-small br-bottom-center">Free updates</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi? Beatae cumque maiores.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 xs-box2 br-box">
+                    <div class="box-services-c">
+                        <i class="fa icon_lifesaver fa-style1 circle"></i>
+                        <h3 class="title-small br-bottom-center">Premium Support</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi? Beatae cumque maiores.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 br-box-last">
+                    <div class="box-services-c">
+                        <i class="fa icon_key_alt fa-style3 circle"></i>
+                        <h3 class="title-small br-bottom-center">Easy to use</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi? Beatae cumque maiores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-bg section-large section-dark mb0">
+        <div class="container">
+            <div class="row col-p30 mt20">
+                <div class="col-sm-12 col-md-4 sm-box3">
+                    <div class="box-services-d box-services-e br2">
+                        <div class="bg-overlay"></div>
+                        <div class="row col-p0 p0">
+                            <div class="col-sm-12 p0">
+                                <h3 class="title-medium title-shadow-a">Premium Plugins</h3>
+                                <p class="mb0 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit cum recusandae!</p>
+                                <i class="fa icon_gift_alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 xs-box2">
+                    <div class="mt10"></div>
+                    <i class="icon_piechart color-on-dark fa-4x op8"></i>
+                    <h3 class="title-uppercased color-on-dark title-shadow-a mt20 mb10">We did that</h3>
+                    <div class="br-bottom mb20"></div>
+                    <p class="color-on-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, ipsa, itaque. Vel dolorem voluptate quae.</p>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="mt10"></div>
+                    <i class="icon_box-checked color-on-dark fa-4x op8"></i>
+                    <h3 class="title-uppercased color-on-dark title-shadow-a mt20 mb10">We do this</h3>
+                    <div class="br-bottom mb20"></div>
+                    <p class="color-on-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, ipsa, itaque. Vel dolorem voluptate quae.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-bg section-larger bg-img bg11 m0 stellar" data-stellar-background-ratio="0.4">
+        <div class="bg-overlay op8"></div>
+        <div class="container">
+            <div class="row mt20 mb20">
+                <div class="col-sm-10 col-md-6 col-sm-offset-1 col-md-offset-3">
+                    <h2 class="title-large mb30 text-center color-on-img title-shadow-b">Uncountable features</h2>
+                    <div class="br-bottom-center mb30"></div>
+                    <p class="p-large mb40 text-center color-on-img">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod quidem ab beatae, repellendus sed quo explicabo hic dolorum at architecto.</p>
+                    <div class="text-center"><a href="#" class="btn-slider">Get a quote</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section p0 max_height sm_max_height">
+        <div class="row col-p0">
+            <div class="col-sm-12 col-md-4">
+                <div class="box-services-d box-services-e el_max_height">
+                    <div class="bg-overlay"></div>
+                    <div class="row col-p0 mt20 mb20">
+                        <div class="col-sm-12">
+                            <h3 class="title-medium small title-shadow-a">Responsive Design <a href="#" class="link-read-more">read more</a></h3>
+                            <p class="mb0 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum recusandae sequi atque voluptatum saepe suscipit veritatis voluptas dolorum amet sit alert!</p>
+                            <!-- <i class="fa icon_mobile"></i>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="box-services-d box-services-e transparent el_max_height">
+                    <div class="row col-p0 mt20 mb20">
+                        <div class="col-sm-12">
+                            <h3 class="title-medium mb20 color-default">Unlimited colors</h3>
+                            <div class="br-bottom mb20"></div>
+                            <p class="mb0 color-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum recusandae sequi atque voluptatum saepe!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 sm-box">
+                <div class="box-services-d box-services-e transparent el_max_height sm-pt0">
+                    <div class="row col-p0 mt20 mb20">
+                        <div class="col-sm-12">
+                            <h3 class="title-medium mb20 color-default">Bootstrap Based</h3>
+                            <div class="br-bottom mb20"></div>
+                            <p class="mb0 color-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum recusandae sequi atque voluptatum saepe!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row mb20 mt20">
+                <div class="col-sm-12">
+                    <div class="section-testimonials">
+                        <div class="owl-carousel owl-portfolio">
+                            <div class="owl-el">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam? Quia, facere nobis fuga. Voluptas, sit maxime accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam?</p>
+                                    <footer>
+                                        <h5>John Doe <span> ThemeForest </span></h5>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                            <div class="owl-el">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam? Quia, facere nobis fuga. Voluptas, sit maxime accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam?</p>
+                                    <footer>
+                                        <h5>Alex Doe <span> CodeCanyon </span></h5>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                            <div class="owl-el">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam? Quia, facere nobis fuga. Voluptas, sit maxime accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, quidem nesciunt totam?</p>
+                                    <footer>
+                                        <h5>Justin Doe <span> PhotoDune </span></h5>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <i class="fa icon_quotations"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-bg section-gray mb0">
+        <div class="container">
+            <div class="row mb30 mt20">
+                <div class="col-sm-12 col-md-6 sm-box3">
+                    <h2 class="title-medium">Latest Posts</h2>
+                    <div class="br-bottom mb40"></div>
+                    <div class="row mb30">
+                        <div class="col-sm-3 xs-box">
+                            <img src="{{ asset('assets/images/demo/p07.jpg') }}" alt="" class="img-rounded">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="box-services-b">
+                                <h3 class="title-small mt10 mb0">Above and beyond <a href="#" class="link-read-more xs-mt0">read more</a></h3>
+                                <small><i class="fa fa-clock-o mr10"></i> 15 March 2015</small>
+                                <span class="py10"> / </span>
+                                <small>by <a href="#">John Doe</a></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb30">
+                        <div class="col-sm-3 xs-box">
+                            <img src="{{ asset('assets/images/demo/p11.jpg') }}" alt="" class="img-rounded">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="box-services-b">
+                                <h3 class="title-small mt10 mb0">Imagine Dragons <a href="#" class="link-read-more xs-mt0">read more</a></h3>
+                                <small><i class="fa fa-clock-o mr10"></i> 15 March 2015</small>
+                                <span class="py10"> / </span>
+                                <small>by <a href="#">John Doe</a></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 xs-box">
+                            <img src="{{ asset('assets/images/demo/p05.jpg') }}" alt="" class="img-rounded">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="box-services-b">
+                                <h3 class="title-small mt10 mb0">Upside Down <a href="#" class="link-read-more xs-mt0">read more</a></h3>
+                                <small><i class="fa fa-clock-o mr10"></i> 15 March 2015</small>
+                                <span class="py10"> / </span>
+                                <small>by <a href="#">John Doe</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="br-bottom mb10"></div>
+                    <h2 class="title-uppercased mb20">Happy Clients</h2>
+                    <p class="mb40">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur numquam voluptatum laudantium beatae temporibus inventore eveniet esse soluta vel eum porro.</p>
+                    <h3 class="title-small br-bottom mb20">Clients</h3>
+                    <div class="row mb20 page-clients text-left">
+                        <div class="col-sm-4 xs-box">
+                            <a href="#" data-toggle="tooltip" title="Envato"><img src="{{ asset('assets/images/demo/client01.png')}}" alt="client"></a>
+                        </div>
+                        <div class="col-sm-4 xs-box">
+                            <a href="#" data-toggle="tooltip" title="Woocommerce"><img src="{{ asset('assets/images/demo/client02.png')}}" alt="client"></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" data-toggle="tooltip" title="Shopify"><img src="{{ asset('assets/images/demo/client03.png')}}" alt="client"></a>
+                        </div>
+                    </div>
+                    <div class="row page-clients text-left">
+                        <div class="col-sm-4 xs-box">
+                            <a href="#" data-toggle="tooltip" title="Envato"><img src="{{ asset('assets/images/demo/client04.png')}}" alt="client"></a>
+                        </div>
+                        <div class="col-sm-4 xs-box">
+                            <a href="#" data-toggle="tooltip" title="Woocommerce"><img src="{{ asset('assets/images/demo/client05.png')}}" alt="client"></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" data-toggle="tooltip" title="Shopify"><img src="{{ asset('assets/images/demo/client06.png')}}" alt="client"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        {% include 'front/footers/footer.html.twig' %}
+
+</div>
+
 {% endblock %}

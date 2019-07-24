@@ -33,38 +33,61 @@ class __TwigTemplate_4714053891f4a19b9f7d37452205dae66501471c749d657b9662162194b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "front/headers/header.html.twig"));
 
         // line 1
-        echo "<script src=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/js/head.js"), "html", null, true);
-        echo "\"></script>
-<link href=\"";
-        // line 2
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/cssb83a.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic|Montserrat:400,700"), "html", null, true);
-        echo "\" rel='stylesheet'>
-<link rel=\"stylesheet\" href=\"";
-        // line 3
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/bootstrap.min.css"), "html", null, true);
-        echo "\">
-<link href=\"";
-        // line 4
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/font-awesome.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-<link rel=\"stylesheet\" href=\"";
-        // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/void.css"), "html", null, true);
-        echo "\" id=\"_include_elegant_font\">
-<link rel=\"stylesheet\" href=\"";
+        echo "<header class=\"header-wrapper header-dark\">
+    <div class=\"main-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-sm-12 col-md-2\">
+                    <a href=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/settings.css"), "html", null, true);
-        echo "\" media=\"screen\">
-<link rel=\"stylesheet\" href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/void.css"), "html", null, true);
-        echo "\" id=\"_include_owl_carousel\">
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("index");
+        echo "\" class=\"logo\"></a>
+                </div>
+                <div class=\"col-sm-12 col-md-10\">
+                    <nav class=\"navbar-right\">
+                        <ul class=\"menu\">
 
-<link rel=\"stylesheet\" href=\"";
-        // line 9
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("assets/css/style.css"), "html", null, true);
-        echo "\">";
+                            <li class=\"toggle-menu\"> <i class=\"fa icon_menu\"></i></li>
+
+                            <li class=\"first\">
+                                <a href=\"";
+        // line 15
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("index");
+        echo "\">Home</a>
+
+                            </li>
+                            <li>
+                                <a href=\"#\">Shop</a>
+                                <ul class=\"submenu\">
+
+                                    <li><a href=\"";
+        // line 22
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("shop_product");
+        echo "\">Product </a></li>
+                                    <li><a href=\"";
+        // line 23
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("shop_account");
+        echo "\">Account</a></li>
+                                    <li><a href=\"";
+        // line 24
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("shop_cart");
+        echo "\">Cart</a></li>
+                                    <li><a href=\"";
+        // line 25
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("pricing");
+        echo "\">Pricing</a></li>
+
+                                    <li><a href=\"shop_checkout.html\">Checkout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -85,7 +108,7 @@ class __TwigTemplate_4714053891f4a19b9f7d37452205dae66501471c749d657b9662162194b
 
     public function getDebugInfo()
     {
-        return array (  66 => 9,  61 => 7,  57 => 6,  53 => 5,  49 => 4,  45 => 3,  41 => 2,  36 => 1,);
+        return array (  77 => 25,  73 => 24,  69 => 23,  65 => 22,  55 => 15,  43 => 6,  36 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -98,14 +121,42 @@ class __TwigTemplate_4714053891f4a19b9f7d37452205dae66501471c749d657b9662162194b
 
     public function getSourceContext()
     {
-        return new Source("<script src=\"{{asset('assets/js/head.js')}}\"></script>
-<link href=\"{{asset('assets/css/cssb83a.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic|Montserrat:400,700')}}\" rel='stylesheet'>
-<link rel=\"stylesheet\" href=\"{{asset('assets/css/bootstrap.min.css')}}\">
-<link href=\"{{asset('assets/css/font-awesome.min.css')}}\" rel=\"stylesheet\">
-<link rel=\"stylesheet\" href=\"{{asset('assets/css/void.css')}}\" id=\"_include_elegant_font\">
-<link rel=\"stylesheet\" href=\"{{asset('assets/css/settings.css')}}\" media=\"screen\">
-<link rel=\"stylesheet\" href=\"{{asset('assets/css/void.css')}}\" id=\"_include_owl_carousel\">
+        return new Source("<header class=\"header-wrapper header-dark\">
+    <div class=\"main-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-sm-12 col-md-2\">
+                    <a href=\"{{ path('index') }}\" class=\"logo\"></a>
+                </div>
+                <div class=\"col-sm-12 col-md-10\">
+                    <nav class=\"navbar-right\">
+                        <ul class=\"menu\">
 
-<link rel=\"stylesheet\" href=\"{{asset('assets/css/style.css')}}\">", "front/headers/header.html.twig", "C:\\wamp64\\www\\redpoint\\app\\Resources\\views\\front\\headers\\header.html.twig");
+                            <li class=\"toggle-menu\"> <i class=\"fa icon_menu\"></i></li>
+
+                            <li class=\"first\">
+                                <a href=\"{{ path('index') }}\">Home</a>
+
+                            </li>
+                            <li>
+                                <a href=\"#\">Shop</a>
+                                <ul class=\"submenu\">
+
+                                    <li><a href=\"{{ path('shop_product') }}\">Product </a></li>
+                                    <li><a href=\"{{ path('shop_account') }}\">Account</a></li>
+                                    <li><a href=\"{{ path('shop_cart') }}\">Cart</a></li>
+                                    <li><a href=\"{{ path('pricing') }}\">Pricing</a></li>
+
+                                    <li><a href=\"shop_checkout.html\">Checkout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>", "front/headers/header.html.twig", "C:\\wamp64\\www\\redpoint\\app\\Resources\\views\\front\\headers\\header.html.twig");
     }
 }

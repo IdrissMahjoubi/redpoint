@@ -97,11 +97,13 @@ class __TwigTemplate_42b9a829488949e1820e20826dd148b595ab49404eac0ad54936c3f8aee
                 </div>
 
             </div>
-           ";
-        // line 68
-        echo "        </div>
+            <div class=\"col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4\">
+                <p class=\"copyright\">&copy; Copyright 2010 - 2015 abusinesstheme</p>
+            </div>
+        </div>
     </div>
-</footer>";
+</footer>
+";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -117,7 +119,7 @@ class __TwigTemplate_42b9a829488949e1820e20826dd148b595ab49404eac0ad54936c3f8aee
 
     public function getDebugInfo()
     {
-        return array (  102 => 68,  36 => 1,);
+        return array (  36 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -194,11 +196,12 @@ class __TwigTemplate_42b9a829488949e1820e20826dd148b595ab49404eac0ad54936c3f8aee
                 </div>
 
             </div>
-           {# <div class=\"col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4\">
+            <div class=\"col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4\">
                 <p class=\"copyright\">&copy; Copyright 2010 - 2015 abusinesstheme</p>
-            </div>#}
+            </div>
         </div>
     </div>
-</footer>", "front/footers/footer.html.twig", "C:\\wamp64\\www\\redpoint\\app\\Resources\\views\\front\\footers\\footer.html.twig");
+</footer>
+", "front/footers/footer.html.twig", "C:\\wamp64\\www\\redpoint\\app\\Resources\\views\\front\\footers\\footer.html.twig");
     }
 }

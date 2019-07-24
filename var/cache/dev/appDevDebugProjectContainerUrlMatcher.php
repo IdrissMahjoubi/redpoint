@@ -107,24 +107,29 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // front_homepage
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::indexAction',  '_route' => 'front_homepage',);
-            if ('/' === substr($pathinfo, -1)) {
-                // no-op
-            } elseif ('GET' !== $canonicalMethod) {
-                goto not_front_homepage;
-            } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'front_homepage'));
-            }
-
-            return $ret;
+        // shop_account
+        if ('/account' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\HomeController::shopAccountAction',  '_route' => 'shop_account',);
         }
-        not_front_homepage:
 
         // index
         if ('/index' === $pathinfo) {
             return array (  '_controller' => 'FrontBundle\\Controller\\HomeController::indexAction',  '_route' => 'index',);
+        }
+
+        // shop_product
+        if ('/product' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\HomeController::shopProductAction',  '_route' => 'shop_product',);
+        }
+
+        // pricing
+        if ('/pricing' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\HomeController::pricingAction',  '_route' => 'pricing',);
+        }
+
+        // shop_cart
+        if ('/cart' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\HomeController::shopCartAction',  '_route' => 'shop_cart',);
         }
 
         if ('/' === $pathinfo && !$allow) {
