@@ -1,0 +1,51 @@
+<html lang="en"><!-- Mirrored from coderthemes.com/simulor/vertical/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Oct 2018 14:50:17 GMT --><head>
+    <meta charset="utf-8">
+    <title>Simulor - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
+    <meta content="Coderthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets_back/assets/images/favicon.ico') }}">
+
+    <!-- App css -->
+    <link href="{{ asset('assets_back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/app.min.css') }}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+
+
+
+
+
+
+{% block content %}
+    {% block fos_user_content %}
+
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        <div class="alert alert-primary" role="alert">
+                            {{ message }}
+                        </div>
+                    </div> <!-- end col-->
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
+{% endblock %}
+
+<!-- App js -->
+<script src="{{ asset('assets_back/js/vendor.min.js') }}"></script>
+<script src="{{ asset('assets_back/js/app.min.js') }}"></script>
+
+
+
+<!-- Mirrored from coderthemes.com/simulor/vertical/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Oct 2018 14:50:17 GMT -->
+</body>
+</html>
