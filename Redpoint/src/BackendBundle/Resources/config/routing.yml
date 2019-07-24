@@ -1,0 +1,128 @@
+back_homepage:
+    path:     /
+    defaults: { _controller: BackendBundle:Dashboard:index }
+SocialMedia_show:
+    path:     SocialMedia/show/
+    defaults: { _controller: BackendBundle:SocialMedia:showContact}
+
+video_add:
+    path:     video/add/
+    defaults: { _controller: BackendBundle:Video:addVideo}
+video_show:
+    path:     video/show/
+    defaults: { _controller: BackendBundle:Video:showVideo}
+video_edit:
+    path:     video/edit/{id}/
+    defaults: { _controller: BackendBundle:Video:editVideo}
+video_delete:
+    path:     video/delete/{id}/
+    defaults: { _controller: BackendBundle:Video:deleteVideo}
+
+contact_show:
+    path:     contact/show/
+    defaults: { _controller: BackendBundle:Contact:showContact}
+contact_edit:
+    path:     contact/edit/{id}/
+    defaults: { _controller: BackendBundle:Contact:editContact}
+
+about:
+    path:     about/
+    defaults: { _controller: BackendBundle:About:About}
+
+slider_add:
+    path:     slider/add/
+    defaults: { _controller: BackendBundle:Slider:addSlider}
+slider_show:
+    path:     slider/show/
+    defaults: { _controller: BackendBundle:Slider:showSlider}
+slider_edit:
+    path:     slider/edit/{id}
+    defaults: { _controller: BackendBundle:Slider:editSlider}
+slider_delete:
+    path:     slider/delete/{id}
+    defaults: { _controller: BackendBundle:Slider:deleteSlider}
+
+gallery_add:
+    path:     gallery/add/
+    defaults: { _controller: BackendBundle:Gallery:addGallery}
+gallery_show:
+    path:     gallery/show/
+    defaults: { _controller: BackendBundle:Gallery:showGallery}
+gallery_edit:
+    path:     gallery/edit/{id}/
+    defaults: { _controller: BackendBundle:Gallery:editGallery}
+gallery_delete:
+    path:     gallery/delete/{id}/
+    defaults: { _controller: BackendBundle:Gallery:deleteGallery}
+
+
+gallery_front_add:
+    path:     gallery/front/add/
+    defaults: { _controller: BackendBundle:GalleryFront:addGallery}
+gallery_front_show:
+    path:     gallery/front/show/
+    defaults: { _controller: BackendBundle:GalleryFront:showGallery}
+gallery_front_edit:
+    path:     gallery/front/edit/{id}/
+    defaults: { _controller: BackendBundle:GalleryFront:editGallery}
+gallery_front_delete:
+    path:     gallery/front/delete/{id}/
+    defaults: { _controller: BackendBundle:GalleryFront:deleteGallery}
+
+prof_add:
+    path:     prof/add/
+    defaults: { _controller: BackendBundle:Prof:addProf}
+prof_show:
+    path:     prof/show/
+    defaults: { _controller: BackendBundle:Prof:showProf}
+prof_edit:
+    path:     prof/edit/{id}/
+    defaults: { _controller: BackendBundle:Prof:editProf}
+prof_delete:
+    path:     prof/delete/{id}/
+    defaults: { _controller: BackendBundle:Prof:deleteProf}
+
+
+partenaire_add:
+    path:     partenaire/add/
+    defaults: { _controller: BackendBundle:Partenaire:addPartenaire}
+partenaire_show:
+    path:     partenaire/show/
+    defaults: { _controller: BackendBundle:Partenaire:showPartenaire}
+partenaire_edit:
+    path:     partenaire/edit/{id}/
+    defaults: { _controller: BackendBundle:Partenaire:editPartenaire}
+partenaire_delete:
+    path:     partenaire/delete/{id}/
+    defaults: { _controller: BackendBundle:Partenaire:deletePartenaire}
+
+testimony_add:
+    path:     testimony/add/
+    defaults: { _controller: BackendBundle:Testimony:addTestimony}
+testimony_show:
+    path:     testimony/show/
+    defaults: { _controller: BackendBundle:Testimony:showTestimony}
+testimony_edit:
+    path:     testimony/edit/{id}/
+    defaults: { _controller: BackendBundle:Testimony:editTestimony}
+testimony_delete:
+    path:     testimony/delete/{id}/
+    defaults: { _controller: BackendBundle:Testimony:deleteTestimony}
+users_show:
+    path:     users/show/
+    defaults: { _controller: BackendBundle:User:showUsers}
+
+
+
+categories_add:
+    path:     categories/add/
+    defaults: { _controller: BackendBundle:Categories:addCategories}
+categories_show:
+    path:     categories/show/
+    defaults: { _controller: BackendBundle:Categories:showCategories}
+categories_edit:
+    path:     categories/edit/{id}/
+    defaults: { _controller: BackendBundle:Categories:editCategories}
+categories_delete:
+    path:     categories/delete/{id}/
+    defaults: { _controller: BackendBundle:Categories:deleteCategories}

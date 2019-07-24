@@ -1,0 +1,5 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+profile_edit:
+    path:     profile/edit/
+    defaults: { _controller: fos_user.profile.controller:editAction}

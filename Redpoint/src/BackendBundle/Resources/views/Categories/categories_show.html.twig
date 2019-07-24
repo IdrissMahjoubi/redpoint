@@ -1,0 +1,45 @@
+{% extends 'back_base.html.twig' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="header-title">Categories</h4>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-hover table-centered mb-0">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>image</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+
+
+                <tbody>
+                {% for item in categories %}
+                    <tr>
+                        <td>
+                            {{ item.name }}
+                        </td>
+
+                        <td>
+                            <img src="{{ asset( item.image.AssetPath | imagine_filter('produit') ) }}" alt="contact-img" height="40" width="40" title="contact-img" class="rounded-circle float-left mr-2">
+                        </td>
+
+                        <td>
+                            <div class="btn-group dropdown">
+                                <a href="javascript: void(0);" class="dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="{{ path('categories_edit',{ 'id': item.id }) }}"><i class="mdi mdi-pencil mr-1 text-muted"></i>Edit</a>
+                                    <a class="dropdown-item" href="{{ path('categories_delete',{ 'id': item.id }) }}"><i class="mdi mdi-delete mr-1 text-muted"></i>Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
