@@ -3,117 +3,93 @@
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Media
- *
- * @ORM\Table(name="media")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\MediaRepository")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Media
 {
-
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @var \DateTime
-     *
-     * @ORM\COlumn(name="updated_at",type="datetime", nullable=true)
-     */
-    private $updateAt;
+
+    // ..... other fields
 
     /**
-     * @ORM\PostLoad()
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="image_upload", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     * @return Media
      * @throws \Exception
      */
-    public function postLoad()
+    public function setImageFile(File $image = null)
     {
-        $this->updateAt = new \DateTime();
-    }
+        $this->imageFile = $image;
 
-    /*
-     * @ORM\Column(type="string",length=255)
-     * @Assert\NotBlank
+        if ($image) {
 
-    private $name;
-    */
-
-    /**
-     * @ORM\Column(type="string",length=255, nullable=true)
-     */
-    private $path;
-
-    public $file;
-
-    public function getUploadRootDir()
-    {
-        return __dir__.'/../../../web/uploads';
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
-    }
-
-    public function getAssetPath()
-    {
-        return 'uploads/'.$this->path;
-    }
-
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-        $this->tempFile = $this->getAbsolutePath();
-        $this->oldFile = $this->getPath();
-        $this->updateAt = new \DateTime();
-
-        if (null !== $this->file)
-            $this->path = sha1(uniqid(mt_rand(),true)).'.'.$this->file->guessExtension();
-    }
-
-    /**
-     * @ORM\postPersist()
-     * @ORM\postUpdate()
-     */
-    public function upload()
-    {
-        if (null === $this->file) {
-            return;
+            $this->updatedAt = new \DateTime('now');
         }
-        if (null !== $this->file) {
-            $this->file->move($this->getUploadRootDir(),$this->path);
-            unset($this->file);
 
-            if ($this->oldFile != null) unlink($this->tempFile);
-        }
+        return $this;
     }
 
     /**
-     * @ORM\PreRemove()
+     * @return File
      */
-    public function preRemoveUpload()
+    public function getImageFile()
     {
-        $this->tempFile = $this->getAbsolutePath();
+        return $this->imageFile;
     }
 
     /**
-     * @ORM\PostRemove()
+     * @param string $imageName
+     *
+     * @return Media
      */
-    public function removeUpload()
+    public function setImageName($imageName)
     {
-        if (file_exists($this->tempFile)) unlink($this->tempFile);
+        $this->imageName = $imageName;
+
+        return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
     /**
      * Get id
      *
@@ -124,67 +100,29 @@ class Media
         return $this->id;
     }
 
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /*
-    public function getName()
-    {
-       // var_dump($this->name);
-        return $this->name;
-    }
-*/
     /**
-     * Set updateAt
+     * Set updatedAt
      *
-     * @param \DateTime $updateAt
+     * @param \DateTime $updatedAt
      *
      * @return Media
      */
-    public function setUpdateAt($updateAt)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get updateAt
+     * Get updatedAt
      *
      * @return \DateTime
      */
-    public function getUpdateAt()
+    public function getUpdatedAt()
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
-    /*
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Media
 
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }  */
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     *
-     * @return Media
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
 }

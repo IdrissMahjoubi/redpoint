@@ -30,12 +30,9 @@ class Categories
 
 
     /**
-     *
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
-     *
+     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist", "remove"})
      */
-     private $image;
+    private $image;
 
 
     /**

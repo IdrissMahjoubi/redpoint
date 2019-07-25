@@ -3,11 +3,10 @@
 namespace BackendBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use BackendBundle\Entity\Media;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class MediaType extends AbstractType
 {
@@ -16,13 +15,8 @@ class MediaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-       // $builder->add('path')->add('alt');
         $builder
-            ->add('file', FileType::class, array('data_class' => null , 'required' => false))
-           // ->add('name', TextType::class)
-        ;
-
-
+            ->add('imageFile', VichImageType::class,['label'=>false,'allow_delete' => false,'download_link' => false,'required' => false]);
     }/**
      * {@inheritdoc}
      * {@inheritdoc}
@@ -39,7 +33,7 @@ class MediaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BackendBundle_media';
+        return 'backend_bundle_media_type';
     }
 
 

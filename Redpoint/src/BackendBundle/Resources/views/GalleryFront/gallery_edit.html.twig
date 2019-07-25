@@ -33,7 +33,7 @@
             <div class="col-sm-10">
                 <div class="input-group">
                     <div class="custom-file">
-                {{ form_widget(form.image,{'attr': {'class': 'form-control input-rounded'} }) }}
+                {{ form_widget(form.image.imageFile,{'attr': {'class': 'form-control input-rounded'} }) }}
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="col-sm-10">
                 <div class="card">
                     <div class="card-body">
-                        <img width="300" src="{{ asset(gallery.image.AssetPath | imagine_filter('produit'))}}" alt="{{ gallery.description }}">
+                        <img width="300" src="{{ asset('/uploads/'~ item.image.imageName)}}" alt="{{ gallery.description }}">
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div>

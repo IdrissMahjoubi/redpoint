@@ -28,91 +28,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/back/sidebar.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/GalleryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
+            <state relative-caret-position="-702">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="33" column="81" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="81" />
               <folding>
-                <element signature="e#163#176#0#Twig" expanded="true" />
-                <element signature="e#1114#1124#0#Twig" expanded="true" />
-                <element signature="e#1282#1287#0#Twig" expanded="true" />
-                <element signature="e#1843#1855#0#Twig" expanded="true" />
-                <element signature="e#2365#2375#0#Twig" expanded="true" />
-                <element signature="e#2499#2510#0#Twig" expanded="true" />
-                <element signature="e#3028#3042#0#Twig" expanded="true" />
-                <element signature="e#3161#3176#0#Twig" expanded="true" />
-                <element signature="e#3680#3691#0#Twig" expanded="true" />
-                <element signature="e#3814#3826#0#Twig" expanded="true" />
-                <element signature="e#4341#4358#0#Twig" expanded="true" />
-                <element signature="e#4481#4499#0#Twig" expanded="true" />
-                <element signature="e#5010#5024#0#Twig" expanded="true" />
-                <element signature="e#5147#5162#0#Twig" expanded="true" />
-                <element signature="e#5677#5690#0#Twig" expanded="true" />
-                <element signature="e#5813#5827#0#Twig" expanded="true" />
-                <element signature="e#6332#6348#0#Twig" expanded="true" />
-                <element signature="e#6848#6857#0#Twig" expanded="true" />
-                <element signature="e#6980#6990#0#Twig" expanded="true" />
+                <element signature="e#12#31#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="35" column="82" selection-start-line="35" selection-start-column="82" selection-end-line="35" selection-end-column="82" />
+              <folding>
+                <element signature="e#12#31#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
+              <folding>
+                <element signature="e#12#31#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="25" column="82" selection-start-line="25" selection-start-column="82" selection-end-line="25" selection-end-column="82" />
+              <folding>
+                <element signature="e#12#31#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/fos/user.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/CategoriesController.php">
+        <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-              <folding>
-                <element signature="e#44#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Media.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="88" column="26" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Listeners/CacheImageListener.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="30" />
-              <folding>
-                <element signature="e#42#84#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Categories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+            <state relative-caret-position="157">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -135,6 +120,8 @@
       <find>im</find>
       <find>gall</find>
       <find>tes</find>
+      <find>ApiCapable</find>
+      <find>ga</find>
     </findStrings>
     <replaceStrings>
       <replace>BackendBundle</replace>
@@ -151,30 +138,30 @@
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
       <command text="s doctrine:schema:update --force " />
-      <command text="s fos:user:create" />
       <command text="s cache:clear" />
+      <command text="c install " />
+      <command text="c update " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="s cache:clear" />
+      <command text="s doctrine:schema:update --force " />
+      <command text="c clear-cache" />
+      <command text="s doctrine:schema:update --force " />
+      <command text="c install " />
+      <command text="c clear-cache" />
+      <command text="s cache:clear" />
+      <command text="c clear-cache" />
+      <command text="s doctrine:schema:update --force " />
+      <command text="c update " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="c clear-cache" />
+      <command text="s cache:clear" />
+      <command text="c require vich/uploader-bundle" />
       <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:schema:validate" />
-      <command text="c require liip/imagine-bundle" />
-      <command text="c install " />
-      <command text="s doctrine:schema:update --force " />
-      <command text="c require liip/imagine-bundle" />
       <command text="s doctrine:schema:update --force " />
       <command text="s cache:clear" />
-      <command text="c install " />
-      <command text="c update " />
-      <command text="s doctrine:schema:update --force " />
-      <command text="s cache:clear" />
-      <command text="s doctrine:schema:update --force " />
-      <command text="c clear-cache" />
-      <command text="s doctrine:schema:update --force " />
-      <command text="c install " />
-      <command text="c clear-cache" />
-      <command text="s cache:clear" />
-      <command text="c clear-cache" />
       <command text="s doctrine:schema:update --force " />
       <command text="c update " />
-      <command text="s doctrine:schema:update --force " />
     </commandsHistory>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -183,57 +170,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BackendBundle/Controller/VideoController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/back_base.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Security/login.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/users_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Users/contact_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Controller/DashboardController.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Repository/MediaRepository.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Repository/CategoriesRepository.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Controller/CategeoriesController.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Form/MediaType.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Form/CategoriesType.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_add.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Form/GalleryType.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Form/VideoType.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Entity/Gallery.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Entity/Video.php" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Prof/prof_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Prof/rof_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/About/about_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_show.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Controller/ProfController.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Prof/prof_show.html.twig" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/back/sidebar.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Listeners/ImageListener.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/BackendBundle/Entity/Categories.php" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Listeners/CacheImageListener.php" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Service/AppService.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/back_base.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Listener/CacheImageListener.php" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Entity/Media.php" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_show.html.twig" />
         <option value="$PROJECT_DIR$/src/BackendBundle/Controller/CategoriesController.php" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Entity/Categories.php" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Form/MediaType.php" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_show.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_show.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_show.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_show.html.twig" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/About/about_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/About/about_add.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_show.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_show.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/fos/user.yml" />
       </list>
     </option>
   </component>
@@ -292,14 +279,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
-      <path value="$PROJECT_DIR$/vendor/liip/imagine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
-    <option name="height" value="721" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -317,30 +304,7 @@
             <path>
               <item name="Redpoint" type="b2602c69:ProjectViewProjectNode" />
               <item name="Redpoint" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Redpoint" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Redpoint" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Redpoint" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Redpoint" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BackendBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Redpoint" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Redpoint" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BackendBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Listeners" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Redpoint" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Redpoint" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -355,15 +319,15 @@
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/BackendBundle/Form" />
+      <recent name="$PROJECT_DIR$/src/BackendBundle/Service" />
+      <recent name="$PROJECT_DIR$/src/BackendBundle" />
+      <recent name="$PROJECT_DIR$/src/BackendBundle/Resources/views" />
+      <recent name="$PROJECT_DIR$/src/BackendBundle/Controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/global_assets/images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/BackendBundle/Resources/views" />
-      <recent name="$PROJECT_DIR$/src/BackendBundle/Form" />
-      <recent name="$PROJECT_DIR$/src/BackendBundle/Controller" />
-      <recent name="$PROJECT_DIR$/src/BackendBundle/Repository" />
-      <recent name="$PROJECT_DIR$/src/BackendBundle/Entity" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -390,22 +354,22 @@
       <updated>1563784828838</updated>
       <workItem from="1563784830186" duration="2627000" />
       <workItem from="1563787972448" duration="7369000" />
-      <workItem from="1563871500675" duration="10069000" />
+      <workItem from="1563871500675" duration="19211000" />
+      <workItem from="1564043813776" duration="2867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20065000" />
+    <option name="totallyTimeSpent" value="32074000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25767368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3457189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32896653" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -414,7 +378,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.43813682" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.25909752" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32896653" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -427,149 +391,99 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/liip/imagine-bundle/Resources/config/imagine.xml">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Listener/LifeCycleListener.php" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/2310f2e57f0b12bc16bb8c6bbf9efae69a7c9074.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/c0488344368a08f4a8a5d617e2c92f421b366e1c.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/media/cache/produit/uploads/1e88d45115d6958186886367a73b8184cb910657.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/media/cache/produit/uploads/25075aa693fd57c55cb53edfbd612b2e6eaba72e.png" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/d09dc7a3f18e0602234882153296474690e5c2a2.png" />
+    <entry file="file://$PROJECT_DIR$/web/media/cache/produit/uploads/d09dc7a3f18e0602234882153296474690e5c2a2.png" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/06bed033af2a7760fa5a0045875ba16d13c7cfb6.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/27f655d40fba506117e2273231b00c7d4b35337b.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/dd17516f57d74a69139d59d4c1b5589cd4277ecd.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/media/cache/produit/uploads/06eabebf03c75ba153c877aa558d7f91e2995efc.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/06eabebf03c75ba153c877aa558d7f91e2995efc.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/uploads/68618557c6771af5ff333b6856e7ebc12e2989a7.png" />
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Listener/CacheImageListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+        <state relative-caret-position="420">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/ContactType.php">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/MailerType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/CategoriesType.php">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Media.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="17" column="68" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="68" />
+        <state relative-caret-position="207">
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+          <folding>
+            <element signature="e#38#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="10" selection-start-line="10" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/MediaType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="18" column="106" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
           <folding>
             <element signature="e#38#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/GalleryType.php">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="259">
+          <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/ImageType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/MailerType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/SocialmediaType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Form/VideoType.php">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/CategoriesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3318">
-          <caret line="198" column="16" lean-forward="true" selection-start-line="198" selection-start-column="16" selection-end-line="198" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Video.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/AboutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/GalleryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+        <state relative-caret-position="167">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="19" />
           <folding>
-            <element signature="e#1011#1051#0#PHP" expanded="true" />
-            <element signature="e#1292#1333#0#PHP" expanded="true" />
-            <element signature="e#1910#1951#0#PHP" expanded="true" />
+            <element signature="e#44#80#0#PHP" expanded="true" />
+            <element signature="e#1956#2003#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_add.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="49" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="48">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/25075aa693fd57c55cb53edfbd612b2e6eaba72e.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="96" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="35" column="94" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="94" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="46" column="107" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="107" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Prof/prof_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="45" column="104" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="104" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="50" column="106" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="106" />
+        <state relative-caret-position="132">
+          <caret line="25" column="81" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="81" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
@@ -578,18 +492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Prof/prof_show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+        <state relative-caret-position="659">
+          <caret line="35" column="81" selection-start-line="35" selection-start-column="81" selection-end-line="35" selection-end-column="81" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
@@ -598,28 +502,126 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        <state relative-caret-position="-62">
+          <caret line="37" column="81" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_edit.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+        <state relative-caret-position="794">
+          <caret line="35" column="71" lean-forward="true" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_edit.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="35" column="120" selection-start-line="35" selection-start-column="120" selection-end-line="35" selection-end-column="120" />
+        <state relative-caret-position="137">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/About/about_add.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
@@ -628,45 +630,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/About/about_edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/ProfController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="-39">
+          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Partenaire/partenaire_edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+        <state relative-caret-position="78">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Slider/slider_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Testimony/testimony_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/GalleryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-702">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/GalleryFront/gallery_show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="81" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="81" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="35" column="82" selection-start-line="35" selection-start-column="82" selection-end-line="35" selection-end-column="82" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Gallery/gallery_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
@@ -675,149 +714,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Video/video_show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="25" column="96" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="96" />
+        <state relative-caret-position="225">
+          <caret line="25" column="82" selection-start-line="25" selection-start-column="82" selection-end-line="25" selection-end-column="82" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/7579b8103080877c0bbda26d54c9e45b0d1e2fdb.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/35a6791912b20d480e0d2f1c26ff7933ed85fd1e.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/032e0ce92be2da2d4dda5b8acc883354a28e5b69.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/5ce14b7b67899cf34e4203bacaabbf8c54ad16b2.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/4de73726bd99b1157f034f81fa31e1e613a1639b.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/1e88d45115d6958186886367a73b8184cb910657.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/bd1f96d3df31a9ea587c140d666fd170b724a47e.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/dabc24a0f9620b6d9e9e612b6d66491b22c65b4c.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Resources/views/Categories/categories_edit.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/fos/user.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="138">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/back/sidebar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
-          <folding>
-            <element signature="e#163#176#0#Twig" expanded="true" />
-            <element signature="e#1114#1124#0#Twig" expanded="true" />
-            <element signature="e#1282#1287#0#Twig" expanded="true" />
-            <element signature="e#1843#1855#0#Twig" expanded="true" />
-            <element signature="e#2365#2375#0#Twig" expanded="true" />
-            <element signature="e#2499#2510#0#Twig" expanded="true" />
-            <element signature="e#3028#3042#0#Twig" expanded="true" />
-            <element signature="e#3161#3176#0#Twig" expanded="true" />
-            <element signature="e#3680#3691#0#Twig" expanded="true" />
-            <element signature="e#3814#3826#0#Twig" expanded="true" />
-            <element signature="e#4341#4358#0#Twig" expanded="true" />
-            <element signature="e#4481#4499#0#Twig" expanded="true" />
-            <element signature="e#5010#5024#0#Twig" expanded="true" />
-            <element signature="e#5147#5162#0#Twig" expanded="true" />
-            <element signature="e#5677#5690#0#Twig" expanded="true" />
-            <element signature="e#5813#5827#0#Twig" expanded="true" />
-            <element signature="e#6332#6348#0#Twig" expanded="true" />
-            <element signature="e#6848#6857#0#Twig" expanded="true" />
-            <element signature="e#6980#6990#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/PreUpdate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Listeners/CacheImageListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="30" />
-          <folding>
-            <element signature="e#42#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/PostUpdate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="88" column="26" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Entity/Categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackendBundle/Controller/CategoriesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-          <folding>
-            <element signature="e#44#80#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="157">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>

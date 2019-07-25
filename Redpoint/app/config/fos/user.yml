@@ -4,9 +4,9 @@ fos_user:
     user_class: UserBundle\Entity\User
     registration:
         confirmation:
-            enabled: true
+            enabled: false
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift # this lines
     from_email:
-        address:        marmodesignpage@gmail.com
-        sender_name:    Marmo Design
+        address:        redpointdeals@gmail.com
+        sender_name:    RedPointDeals
