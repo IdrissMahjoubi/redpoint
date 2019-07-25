@@ -1,7 +1,10 @@
-front:
-    resource: "@FrontBundle/Resources/config/routing.yml"
+backend:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /admin
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /
+#  _liip_imagine
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation

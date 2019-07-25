@@ -1,24 +1,53 @@
-# To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
 security:
 
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+        UserBundle\Bundle\Entity\User: bcrypt
+
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_USER
+
     providers:
-        in_memory:
-            memory: ~
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
         main:
-            anonymous: ~
-            # activate different ways to authenticate
+            pattern: ^/
+            user_checker: security.user_checker
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                require_previous_session: false
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+                # NEW BITS
+                # the login form will POST here on submit
+                # the default value would be /login_check
+                check_path: fos_user_security_check
+
+                # the user is redirected here when they need to log in
+                # the default would be /login
+                login_path: fos_user_security_login
+
+                # We will fix this shortly, but for now, the default
+                # would be '/', but we would need it to be e.g.
+                # /en/
+                default_target_path: /fr/admin
+
+            logout:
+                path: fos_user_security_logout
+                target: fos_user_security_login
+            anonymous:    true
+            logout_on_user_change: true
+            remember_me:
+                secret: '%secret%'
+
+    access_control:
+        - { path: ^/fr/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/fr/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/fr/register, role: ROLE_USER }
+        - { path: ^/fr/admin/, role: ROLE_USER }
