@@ -1,0 +1,33 @@
+{% extends 'back_base.html.twig' %}
+{% trans_default_domain 'back' %}
+
+{% block body %}
+    <div class="card-body">
+        <h4 class="header-title">Social Media</h4>
+        <p class="text-muted font-14">
+            tous les champs sont obligatoires.
+        </p>
+
+        {{ form_start(form) }}
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                  <h3>  <i class="mdi mdi-facebook-box"></i> Facebook</h3>
+
+                {{ form_widget(form.facebook,{ 'attr': {'class' : 'form-control input-rounded','placeholder' : 'Facebook'} }) }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <h3>    <i class="mdi mdi-instagram"></i> Instagram</h3>
+                {{ form_widget(form.instagram,{ 'attr': {'class': 'form-control input-rounded','placeholder' : 'Instagram'} }) }}
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-block btn-primary" value="Valider">
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
+
