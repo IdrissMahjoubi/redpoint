@@ -1,0 +1,42 @@
+{% extends "@User/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+            {{ parent() }}
+<body class="authentication-bg">
+
+<div class="account-pages mt-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="text-center w-75 m-auto">
+                            <a href="#">
+                                <span> <img style="margin-bottom: 20px" src="{{ asset('assets_back/assets/images/logo.png') }} " alt="" height="22"></span>
+                            </a>
+                            <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+                            {% if targetUrl %}
+                                <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                            {% endif %}
+                            <div class="form-group mb-0 text-center">
+                                <a class="btn btn-primary btn-block" href="{{ path('fos_user_security_login') }}">{{ 'security.login.submit'|trans }}</a>
+                            </div>
+                        </div>
+
+                    </div> <!-- end card-body -->
+                </div>
+                <!-- end card -->
+
+                <!-- end row -->
+
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end page -->
+
+{% endblock fos_user_content %}
