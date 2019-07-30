@@ -27,10 +27,10 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=125)
+     * @ORM\Column(name="name", type="string", length=125)
      * @Assert\NotBlank()
      */
-    private $nom;
+    private $name;
 
     /**
      * @var string
@@ -43,23 +43,13 @@ class Product
     /**
      * @var float
      *
-     * @ORM\Column(name="prix", type="float")
+     * @ORM\Column(name="price", type="float")
      */
-    private $prix;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="disponible", type="boolean")
-     */
-    private $disponible;
-
-
+    private $price;
 
     /**
      *
-     *
-     * @ORM\OneToOne(targetEntity="Ben\EcommerceBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist","remove"})
      * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
      *
      */
@@ -68,15 +58,7 @@ class Product
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Ben\EcommerceBundle\Entity\Tva",cascade={"persist"} )
-     * @ORM\JoinColumn(name="tva_id",referencedColumnName="id")
-     *
-     */
-    private $tva;
-
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="Ben\EcommerceBundle\Entity\Categories",cascade={"persist"} )
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Categories",cascade={"persist"} )
      * @ORM\JoinColumn(name="categorie_id",referencedColumnName="id")
      *
      */
@@ -94,46 +76,22 @@ class Product
     }
 
     /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Product
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Product
+     * @param string $name
      */
-    public function setDescription($description)
+    public function setName($name)
     {
-        $this->description = $description;
-
-        return $this;
+        $this->name = $name;
     }
 
     /**
-     * Get description
-     *
      * @return string
      */
     public function getDescription()
@@ -142,61 +100,39 @@ class Product
     }
 
     /**
-     * Set prix
-     *
-     * @param float $prix
-     *
-     * @return Product
+     * @param string $description
      */
-    public function setPrix($prix)
+    public function setDescription($description)
     {
-        $this->prix = $prix;
-
-        return $this;
+        $this->description = $description;
     }
 
     /**
-     * Get prix
-     *
      * @return float
      */
-    public function getPrix()
+    public function getPrice()
     {
-        return $this->prix;
+        return $this->price;
     }
 
     /**
-     * Set disponible
+     * @param float $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+
+
+    /**
+     * Set image.
      *
-     * @param boolean $disponible
+     * @param \BackendBundle\Entity\Media|null $image
      *
      * @return Product
      */
-    public function setDisponible($disponible)
-    {
-        $this->disponible = $disponible;
-
-        return $this;
-    }
-
-    /**
-     * Get disponible
-     *
-     * @return bool
-     */
-    public function getDisponible()
-    {
-        return $this->disponible;
-    }
-
-    /**
-     * Set image
-     *
-     * @param \Ben\EcommerceBundle\Entity\Media $image
-     *
-     * @return Product
-     */
-    public function setImage(\Ben\EcommerceBundle\Entity\Media $image = null)
+    public function setImage(\BackendBundle\Entity\Media $image = null)
     {
         $this->image = $image;
 
@@ -204,9 +140,9 @@ class Product
     }
 
     /**
-     * Get image
+     * Get image.
      *
-     * @return \Ben\EcommerceBundle\Entity\Media
+     * @return \BackendBundle\Entity\Media|null
      */
     public function getImage()
     {
@@ -214,37 +150,13 @@ class Product
     }
 
     /**
-     * Set tva
+     * Set categorie.
      *
-     * @param \Ben\EcommerceBundle\Entity\Tva $tva
-     *
-     * @return Product
-     */
-    public function setTva(\Ben\EcommerceBundle\Entity\Tva $tva = null)
-    {
-        $this->tva = $tva;
-
-        return $this;
-    }
-
-    /**
-     * Get tva
-     *
-     * @return int
-     */
-    public function getTva()
-    {
-        return $this->tva;
-    }
-
-    /**
-     * Set categorie
-     *
-     * @param \Ben\EcommerceBundle\Entity\Categories $categorie
+     * @param \BackendBundle\Entity\Categories|null $categorie
      *
      * @return Product
      */
-    public function setCategorie(\Ben\EcommerceBundle\Entity\Categories $categorie = null)
+    public function setCategorie(\BackendBundle\Entity\Categories $categorie = null)
     {
         $this->categorie = $categorie;
 
@@ -252,9 +164,9 @@ class Product
     }
 
     /**
-     * Get categorie
+     * Get categorie.
      *
-     * @return \Ben\EcommerceBundle\Entity\Categories
+     * @return \BackendBundle\Entity\Categories|null
      */
     public function getCategorie()
     {

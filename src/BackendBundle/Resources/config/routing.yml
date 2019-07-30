@@ -29,6 +29,10 @@ about:
     path:     about/
     defaults: { _controller: BackendBundle:About:About}
 
+publicity:
+    path:     publicity/
+    defaults: { _controller: BackendBundle:Publicity:Publicity}
+
 slider_add:
     path:     slider/add/
     defaults: { _controller: BackendBundle:Slider:addSlider}

@@ -580,7 +580,7 @@ ul.sub-menu {
 }
 
 .item {
-  padding-left: 100px;
+  padding: auto;
 }
 
 
@@ -1148,7 +1148,7 @@ h2.title {
 
 
 #similar-product {
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 

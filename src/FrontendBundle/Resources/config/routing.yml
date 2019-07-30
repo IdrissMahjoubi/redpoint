@@ -8,7 +8,7 @@ homepage:
 
 
 front_product:
-    path:     /product
+    path:     /product/{id}
     defaults: { _controller: FrontendBundle:Home:product }
 
 front_cart:

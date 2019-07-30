@@ -3,6 +3,7 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Gallery;
+use BackendBundle\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class HomeController extends Controller
@@ -12,18 +13,27 @@ class HomeController extends Controller
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type'=>'slider']);
+        $products = $em->getRepository(Product::class)->findAll();
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
 
-        return $this->render('@Frontend/Home/index.html.twig',['sliderOne' => $sliders[0],'sliderTwo' => $sliders[1],'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig',['publicity'=> $publicity,'products'=> $products,'sliderOne' => $sliders[0],'sliderTwo' => $sliders[1],'sliderThree' => $sliders[2]]);
     }
 
     public function shopAction()
     {
-        return $this->render('@Frontend/Home/shop.html.twig');
+        $em = $this->getDoctrine();
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
+
+        return $this->render('@Frontend/Home/shop.html.twig',['publicity'=> $publicity]);
     }
 
-    public function productAction()
+    public function productAction(Product $product)
     {
-        return $this->render('@Frontend/Home/product.html.twig');
+        $em = $this->getDoctrine();
+        $productDetails = $em->getRepository(Product::class)->find($product);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
+
+        return $this->render('@Frontend/Home/product.html.twig',['publicity'=> $publicity,'product'=>$productDetails]);
     }
 
     public function cartAction()
