@@ -130,3 +130,16 @@ categories_edit:
 categories_delete:
     path:     categories/delete/{id}/
     defaults: { _controller: BackendBundle:Categories:deleteCategories}
+
+sub_category_add:
+    path:     sub_category/add/
+    defaults: { _controller: BackendBundle:SubCategory:addSubCategory}
+sub_category_show:
+    path:     sub_category/show/
+    defaults: { _controller: BackendBundle:SubCategory:showSubCategory}
+sub_category_edit:
+    path:     sub_category/edit/{id}/
+    defaults: { _controller: BackendBundle:SubCategory:editSubCategory}
+sub_category_delete:
+    path:     categories/delete/{id}/
+    defaults: { _controller: BackendBundle:SubCategory:deleteSubCategory}

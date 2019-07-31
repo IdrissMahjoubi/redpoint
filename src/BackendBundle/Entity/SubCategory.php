@@ -5,12 +5,12 @@ namespace BackendBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categories
+ * SubCategory
  *
- * @ORM\Table(name="Categories")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\CategoriesRepository")
+ * @ORM\Table(name="sub_category")
+ * @ORM\Entity(repositoryClass="BackendBundle\Repository\SubCategoryRepository")
  */
-class Categories
+class SubCategory
 {
     /**
      * @var int
@@ -24,19 +24,20 @@ class Categories
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=125)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
-
     /**
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist", "remove"})
+     * @var int
+     *
+     * @ORM\Column(name="category_id", type="integer")
      */
-    private $image;
+    private $categoryId;
 
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -46,11 +47,11 @@ class Categories
     }
 
     /**
-     * Set nom
+     * Set name.
      *
      * @param string $name
      *
-     * @return Categories
+     * @return SubCategory
      */
     public function setName($name)
     {
@@ -60,7 +61,7 @@ class Categories
     }
 
     /**
-     * Get nom
+     * Get name.
      *
      * @return string
      */
@@ -70,31 +71,26 @@ class Categories
     }
 
     /**
-     * Set image
+     * Set categoryId.
      *
-     * @param Media $image
+     * @param int $categoryId
      *
-     * @return Categories
+     * @return SubCategory
      */
-    public function setImage(Media $image = null)
+    public function setCategoryId($categoryId)
     {
-        $this->image = $image;
+        $this->categoryId = $categoryId;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get categoryId.
      *
-     * @return Media
+     * @return int
      */
-    public function getImage()
+    public function getCategoryId()
     {
-        return $this->image;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
+        return $this->categoryId;
     }
 }
