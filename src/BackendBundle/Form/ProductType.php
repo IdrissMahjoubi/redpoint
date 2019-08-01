@@ -2,29 +2,28 @@
 
 namespace BackendBundle\Form;
 
+use BackendBundle\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use BackendBundle\Entity\Media;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class MediaType extends AbstractType
+class ProductType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('imageFile', VichImageType::class,[ 'label'=>false,'allow_delete' => false,'download_link' => false,'required' => false]);
+        $builder->add('name')->add('description')->add('price')
+            ->add('images', MediaType::class)
+            ->add('categorie');
     }/**
-     * {@inheritdoc}
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Media::class
+            'data_class' => Product::class
         ));
     }
 
@@ -33,7 +32,7 @@ class MediaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backend_bundle_media_type';
+        return 'backend_bundle_product';
     }
 
 

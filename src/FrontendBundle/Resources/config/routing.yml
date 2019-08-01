@@ -6,6 +6,17 @@ homepage:
     path:     /
     defaults: { _controller: FrontendBundle:Home:index }
 
+front_wishlist:
+    path:     /wishlist
+    defaults: { _controller: FrontendBundle:Home:wishlist }
+
+front_account:
+    path:     /account
+    defaults: { _controller: FrontendBundle:Home:account }
+
+front_post_product:
+    path:     /post
+    defaults: { _controller: FrontendBundle:Home:postProduct }
 
 front_product:
     path:     /product/{id}

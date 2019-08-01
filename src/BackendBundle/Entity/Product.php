@@ -2,6 +2,7 @@
 
 namespace BackendBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -11,10 +12,14 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="BackendBundle\Repository\ProductRepository")
- * @UniqueEntity(fields="nom", message="Ce projuit existe déjà avec ce nom.")
  */
 class Product
 {
+
+    function __construct() {
+        $this->images = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -48,12 +53,10 @@ class Product
     private $price;
 
     /**
-     *
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist","remove"})
-     * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
-     *
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist"})
      */
-    private $image;
+    private $images;
 
 
     /**
@@ -124,29 +127,38 @@ class Product
     }
 
 
-
     /**
-     * Set image.
+     * Add image
      *
-     * @param \BackendBundle\Entity\Media|null $image
+     * @param Media $image
      *
      * @return Product
      */
-    public function setImage(\BackendBundle\Entity\Media $image = null)
+    public function addImage(Media $image)
     {
-        $this->image = $image;
+        $this->images[] = $image;
 
         return $this;
     }
 
     /**
-     * Get image.
+     * Remove image
      *
-     * @return \BackendBundle\Entity\Media|null
+     * @param Media$image
      */
-    public function getImage()
+    public function removeImage(Media $image)
     {
-        return $this->image;
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 
     /**
@@ -172,4 +184,6 @@ class Product
     {
         return $this->categorie;
     }
+
+
 }

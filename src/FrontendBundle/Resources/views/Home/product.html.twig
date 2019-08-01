@@ -16,22 +16,12 @@
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
-                                    <div class="item active">
-                                        <a href=""><img src="{{ asset('uploads/'~product.image.imageName)}}" alt=""></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="{{ asset('uploads/'~product.image.imageName)}}" alt=""></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="{{ asset('uploads/'~product.image.imageName)}}" alt=""></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="{{ asset('uploads/'~product.image.imageName)}}" alt=""></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href=""><img src="{{ asset('uploads/'~product.image.imageName)}}" alt=""></a>
-                                    </div>
 
+                                    {% for image in product.images %}
+                                    <div class="item {% if loop.first %}active{% endif %}">
+                                        <img src="{{ asset('uploads/'~image.imageName)}}" alt="">
+                                    </div>
+                                    {% endfor %}
                                 </div>
 
                                 <!-- Controls -->

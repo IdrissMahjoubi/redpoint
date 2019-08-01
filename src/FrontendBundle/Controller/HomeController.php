@@ -4,7 +4,9 @@ namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Gallery;
 use BackendBundle\Entity\Product;
+use BackendBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
@@ -19,12 +21,56 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/index.html.twig',['publicity'=> $publicity,'products'=> $products,'sliderOne' => $sliders[0],'sliderTwo' => $sliders[1],'sliderThree' => $sliders[2]]);
     }
 
+    public function postProductAction(Request $request)
+    {
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+
+        if ($request->getMethod() == Request::METHOD_POST) {
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine();
+                $em->getManager()->persist($product);
+                $em->getManager()->flush();
+
+                var_dump($product->getImages());
+
+//                foreach ($arrayImage as $index => $img)
+//                {
+//                    $getImage = $em->getRepository('BackendBundle:Media')->findOneBy(array('imageName'=>$img->getImageName()));
+//                    if (!empty($getImage)) {
+//                        $getImage->setProduct($product);
+//                        $em->getManager()->persist($getImage);
+//                    }
+//                    //$em->getRepository('BackendBundle:Media')->updateImage($getImage->getId(), $product->getId());
+//
+//                }
+               //return $this->redirectToRoute('homepage');
+            }
+        }
+
+        return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView()]);
+
+    }
+
     public function shopAction()
     {
         $em = $this->getDoctrine();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
 
         return $this->render('@Frontend/Home/shop.html.twig',['publicity'=> $publicity]);
+    }
+
+    public function wishlistAction()
+    {
+        return $this->render('@Frontend/Home/wishlist.html.twig',[]);
+
+    }
+
+    public function accountAction()
+    {
+        return $this->render('@Frontend/Home/account.html.twig',[]);
+
     }
 
     public function productAction(Product $product)
