@@ -36,7 +36,7 @@ class PublicityType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BackendBundle_gallery';
+        return 'backendbundle_gallery';
     }
 
 

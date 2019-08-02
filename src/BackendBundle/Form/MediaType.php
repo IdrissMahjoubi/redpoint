@@ -16,7 +16,12 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imageFile', VichImageType::class,[ 'label'=>false,'allow_delete' => false,'download_link' => false,'required' => false]);
+            ->add('imageFile', VichImageType::class,['label'=>false,'allow_delete' => false,'download_link' => false,'required' => false,
+                'attr' => array(
+                'type' => 'file',
+                'data-preview-file-type' => 'text',
+                'data-allowed-file-extensions' => '["jpeg", "png", "jpg"]',
+            )]);
     }/**
      * {@inheritdoc}
      * {@inheritdoc}
@@ -33,7 +38,7 @@ class MediaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backend_bundle_media_type';
+        return 'backendbundle_media';
     }
 
 

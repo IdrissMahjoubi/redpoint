@@ -31,7 +31,7 @@ class MailerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontbundle_mailer';
+        return 'backendbundle_mailer';
     }
 
 

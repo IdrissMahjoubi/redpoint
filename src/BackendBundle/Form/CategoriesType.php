@@ -31,7 +31,7 @@ class CategoriesType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BackendBundle_categories';
+        return 'backendbundle_categories';
     }
 
 

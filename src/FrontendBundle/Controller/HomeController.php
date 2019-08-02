@@ -14,38 +14,27 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine();
 
-        $sliders = $em->getRepository(Gallery::class)->findBy(['type'=>'slider']);
+        $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
         $products = $em->getRepository(Product::class)->findAll();
-        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
-        return $this->render('@Frontend/Home/index.html.twig',['publicity'=> $publicity,'products'=> $products,'sliderOne' => $sliders[0],'sliderTwo' => $sliders[1],'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+//        dump($request);die();
 
         if ($request->getMethod() == Request::METHOD_POST) {
-            $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine();
                 $em->getManager()->persist($product);
                 $em->getManager()->flush();
-
-                var_dump($product->getImages());
-
-//                foreach ($arrayImage as $index => $img)
-//                {
-//                    $getImage = $em->getRepository('BackendBundle:Media')->findOneBy(array('imageName'=>$img->getImageName()));
-//                    if (!empty($getImage)) {
-//                        $getImage->setProduct($product);
-//                        $em->getManager()->persist($getImage);
-//                    }
-//                    //$em->getRepository('BackendBundle:Media')->updateImage($getImage->getId(), $product->getId());
-//
-//                }
-               //return $this->redirectToRoute('homepage');
+                return $this->redirectToRoute('homepage');
             }
         }
 
@@ -56,20 +45,20 @@ class HomeController extends Controller
     public function shopAction()
     {
         $em = $this->getDoctrine();
-        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
-        return $this->render('@Frontend/Home/shop.html.twig',['publicity'=> $publicity]);
+        return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity]);
     }
 
     public function wishlistAction()
     {
-        return $this->render('@Frontend/Home/wishlist.html.twig',[]);
+        return $this->render('@Frontend/Home/wishlist.html.twig', []);
 
     }
 
     public function accountAction()
     {
-        return $this->render('@Frontend/Home/account.html.twig',[]);
+        return $this->render('@Frontend/Home/account.html.twig', []);
 
     }
 
@@ -77,9 +66,9 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine();
         $productDetails = $em->getRepository(Product::class)->find($product);
-        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type'=>'publicity']);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
-        return $this->render('@Frontend/Home/product.html.twig',['publicity'=> $publicity,'product'=>$productDetails]);
+        return $this->render('@Frontend/Home/product.html.twig', ['publicity' => $publicity, 'product' => $productDetails]);
     }
 
     public function cartAction()
@@ -104,8 +93,6 @@ class HomeController extends Controller
 //
 //        return $this->render('@Frontend/Home/pricing.html.twig', ['princings' => $pricings]);
 //    }
-
-
 
 
 }

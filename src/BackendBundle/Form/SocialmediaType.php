@@ -29,7 +29,7 @@ class SocialmediaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BackendBundle_socialmedia';
+        return 'backendbundle_socialmedia';
     }
 
 

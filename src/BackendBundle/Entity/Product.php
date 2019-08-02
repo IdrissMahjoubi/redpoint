@@ -4,8 +4,8 @@ namespace BackendBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
@@ -136,6 +136,7 @@ class Product
      */
     public function addImage(Media $image)
     {
+        $image->setProduct($this);
         $this->images[] = $image;
 
         return $this;
@@ -144,17 +145,18 @@ class Product
     /**
      * Remove image
      *
-     * @param Media$image
+     * @param Media $image
      */
     public function removeImage(Media $image)
     {
+        $image->setProduct(null);
         $this->images->removeElement($image);
     }
 
     /**
      * Get images
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return ArrayCollection
      */
     public function getImages()
     {

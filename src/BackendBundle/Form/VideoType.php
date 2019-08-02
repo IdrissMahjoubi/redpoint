@@ -30,7 +30,7 @@ class VideoType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'frontbundle_video';
+        return 'backendbundle_video';
     }
 
 

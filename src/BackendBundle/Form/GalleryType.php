@@ -42,7 +42,7 @@ class GalleryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'BackendBundle_gallery';
+        return 'backendbundle_gallery';
     }
 
 

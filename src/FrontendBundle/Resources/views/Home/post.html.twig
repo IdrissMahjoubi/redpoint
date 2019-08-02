@@ -8,8 +8,13 @@
                     <div class="login-form"><!--login form-->
                         <h2>Make a post</h2>
                             {{ form_start(form) }}
-                            {{ form_widget(form.images.vars.prototype.imageFile)}}
-                            <button type="submit" class="btn btn-default">Post</button>
+                        {{ form_widget(form.images)}}
+                                                   {{ form_widget(form.name)}}
+                                                   {{ form_widget(form.description)}}
+                                                   {{ form_widget(form.price)}}
+                                                   {{ form_widget(form.categorie)}}
+
+                        <button type="submit" class="btn btn-default">Post</button>
                             {{ form_end(form) }}
                     </div><!--/login form-->
                 </div>
