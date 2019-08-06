@@ -22,7 +22,7 @@ class AboutController extends Controller
 
         $about=$this->getDoctrine()->getRepository(Gallery::class)->findOneBy(['type'=>'about']);
 
-        if($about == null)
+        if($about === null)
         {
             $gallery = new Gallery();
             $form = $this->createForm(GalleryType::class, $gallery, array(
@@ -30,7 +30,7 @@ class AboutController extends Controller
             ));
 
 
-            if ($request->getMethod() == Request::METHOD_POST) {
+            if ($request->getMethod() === Request::METHOD_POST) {
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
                     $gallery->setType('about');
@@ -42,23 +42,24 @@ class AboutController extends Controller
             }
 
             return $this->render('@Backend/About/about_add.html.twig', ['form' => $form->createView()]);
-        }else
-        {
-            $form = $this->createForm(GalleryType::class, $about, array(
-                'attr' => array('class' => 'form-horizontal'),
-            ));
-            if ($request->getMethod() == Request::METHOD_POST) {
-                $form->handleRequest($request);
-                if ($form->isSubmitted() && $form->isValid())
+        }
 
-                    $this->getDoctrine()->getManager()->flush();
-                return $this->redirectToRoute('about');
+        $form = $this->createForm(GalleryType::class, $about, array(
+            'attr' => array('class' => 'form-horizontal'),
+        ));
+
+        if ($request->getMethod() === Request::METHOD_POST) {
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
             }
+            return $this->redirectToRoute('about');
+        }
 
-            return $this->render('@Backend/About/about_edit.html.twig', array(
-                'about' => $about,
-                'form' => $form->createView(),
-            ));        }
+        return $this->render('@Backend/About/about_edit.html.twig', array(
+            'about' => $about,
+            'form' => $form->createView(),
+        ));
 
     }
 

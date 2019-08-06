@@ -7,15 +7,38 @@
                 <div class="col-sm-8">
                     <div class="login-form"><!--login form-->
                         <h2>Make a post</h2>
-                            {{ form_start(form) }}
-                        {{ form_widget(form.images)}}
-                                                   {{ form_widget(form.name)}}
-                                                   {{ form_widget(form.description)}}
-                                                   {{ form_widget(form.price)}}
-                                                   {{ form_widget(form.categorie)}}
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
 
-                        <button type="submit" class="btn btn-default">Post</button>
-                            {{ form_end(form) }}
+                        {# The Folder.name field #}
+                        <div class="row form-group">
+                            {{ form_label(form.name, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            <div class="col col-md-10">{{ form_widget(form.name) }}</div>
+                            <div class="form_errors col-md-12">
+                                {{ form_errors(form.name) }}
+                            </div>
+                        </div>
+
+                        {# The Prototype to use for generating items of the Folder.documents collection #}
+                        <div id="filesProto" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"></div>
+
+                        {# An empty (fro now) div which will later hold the generated document fields #}
+                        <div class="row">
+                            <div class="col col-xs-12" id="filesBox">
+                            </div>
+                        </div>
+
+                        {# Submit part #}
+                        <div class="row form-group">
+                            <div class="form_cancel col-md-offset-8 col-md-2 col-xs-4">
+                                <a href="{{ path('homepage') }}" class="btn btn-default btn-block">Cancel</a>
+                            </div>
+                            <div class="form_submit col-md-2 col-xs-8">
+                                <input type="submit" value="Validate" class="btn btn-warning btn-block" />
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
                     </div><!--/login form-->
                 </div>
             </div>
@@ -23,3 +46,65 @@
     </section><!--/form-->
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let fileCount = '{{ form.images|length }}';
+        let removeButton = "<button type='button' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";
+
+        function removeFile(ob)
+        {
+            ob.parent().parent().remove();
+        }
+
+        function createAddFile(fileCount)
+        {
+            // grab the prototype template
+            let newWidget = $("#filesProto").attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            newWidget = newWidget.replace(/__name__/g, fileCount);
+
+            newWidget = "<div style='display:none'>" + newWidget + "</div>";
+
+            hideStuff = "";
+            hideStuff += "<div class='col col-xs-1' id='jsRemove" + fileCount + "' style='display: none;'>";
+            hideStuff += removeButton;
+            hideStuff += "</div>";
+
+            hideStuff += "<div class='col col-xs-11' id='jsPreview" + fileCount + "'>";
+            hideStuff += "</div>";
+
+            hideStuff += "<div class='col col-xs-12'>";
+            hideStuff += "<button type='button' id='jsBtnUpload" + fileCount + "' class='btn btn-warning'>";
+            hideStuff += "<i class='fa fa-plus'></i> Images";
+            hideStuff += "</button>";
+            hideStuff += "</div>";
+
+            $("#filesBox").append("<div class='row'>" + hideStuff + newWidget + "</div>");
+
+            // On click => Simulate file behaviour
+            $("#jsBtnUpload" + fileCount).on('click', function(e){
+                $('#backendbundle_product_images_' + fileCount + '_file').trigger('click');
+            });
+
+            // Once the file is added
+            $('#backendbundle_product_images_' + fileCount + '_file').on('change', function() {
+                // Show its name
+                fileName = $(this).prop('files')[0].name;
+                $("#jsPreview" + fileCount).append(fileName);
+                // Hide the add file button
+                $("#jsBtnUpload" + fileCount).hide();
+                // Show the remove file button
+                $("#jsRemove" + fileCount).show();
+
+                // Create another instance of add file button and company
+                createAddFile(parseInt(fileCount)+1);
+            });
+        }
+
+        $(document).ready(function(){
+            createAddFile(fileCount);
+            fileCount++;
+        });
+    </script>
+{% endblock %}

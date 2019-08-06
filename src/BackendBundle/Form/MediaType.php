@@ -3,10 +3,11 @@
 namespace BackendBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use BackendBundle\Entity\Media;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Validator\Constraints\File;
 
 class MediaType extends AbstractType
 {
@@ -16,12 +17,13 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imageFile', VichImageType::class,['label'=>false,'allow_delete' => false,'download_link' => false,'required' => false,
-                'attr' => array(
-                'type' => 'file',
-                'data-preview-file-type' => 'text',
-                'data-allowed-file-extensions' => '["jpeg", "png", "jpg"]',
-            )]);
+            ->add('file', FileType::class, array(
+                'label' 	=> false,
+                'required' 	=> true,
+                'constraints' => array(
+                    new File(),
+                ),
+            ));
     }/**
      * {@inheritdoc}
      * {@inheritdoc}

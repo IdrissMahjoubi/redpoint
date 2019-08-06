@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new FrontendBundle\FrontendBundle(),
         ];
 

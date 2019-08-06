@@ -74,16 +74,16 @@ sensio_framework_extra:
     router:
         annotations: false
 
-vich_uploader:
-    db_driver: orm
-    mappings:
-        image_upload:
-            uri_prefix: /images
-            upload_destination: '%kernel.root_dir%/../web/uploads'
-            namer: vich_uploader.namer_uniqid
-            inject_on_load: false
-            delete_on_update: false
-            delete_on_remove: true
+#vich_uploader:
+#    db_driver: orm
+#    mappings:
+#        image_upload:
+#            uri_prefix: /images
+#            upload_destination: '%kernel.root_dir%/../web/uploads'
+#            namer: vich_uploader.namer_uniqid
+#            inject_on_load: false
+#            delete_on_update: false
+#            delete_on_remove: true
 
 jms_i18n_routing:
     default_locale: "%locale%"

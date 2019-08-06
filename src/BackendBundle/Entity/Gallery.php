@@ -59,8 +59,8 @@ class Gallery
     }
 
     /**
-     *
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist","remove"})
+     * @var Media
+     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist"}, orphanRemoval=true)
      * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
      *
      */
@@ -72,32 +72,6 @@ class Gallery
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="filter", type="string", length=255)
-     */
-    private $filter;
-
-
-
-    /**
-     * @return string
-     */
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-
-    /**
-     * @param string $filter
-     */
-    public function setFilter($filter)
-    {
-        $this->filter = $filter;
-    }
-
 
     /**
      * Get id
@@ -184,9 +158,9 @@ class Gallery
     /**
      * Set image
      *
-     * @param Media $image
+     * @param Media|null $image
      *
-     * @return Categories
+     * @return Gallery
      */
     public function setImage(Media $image = null)
     {
@@ -198,7 +172,7 @@ class Gallery
     /**
      * Get image
      *
-     * @return Media
+     * @return \BackendBundle\Entity\Media|null
      */
     public function getImage()
     {

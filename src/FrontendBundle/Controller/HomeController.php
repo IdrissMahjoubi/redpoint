@@ -4,12 +4,25 @@ namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Gallery;
 use BackendBundle\Entity\Product;
+use BackendBundle\Form\MediaType;
 use BackendBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
+    protected $entityManager;
+    protected $translator;
+    protected $repository;
+
+    // Set up all necessary variable
+    protected function initialise()
+    {
+        $this->entityManager = $this->getDoctrine()->getManager();
+        $this->repository = $this->entityManager->getRepository('BackendBundle:Product');
+        $this->translator = $this->get('translator');
+    }
+
     public function indexAction()
     {
         $em = $this->getDoctrine();
@@ -23,24 +36,53 @@ class HomeController extends Controller
 
     public function postProductAction(Request $request)
     {
+        // Set up required variables
+        $this->initialise();
+
+        // New object
         $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
-        $form->handleRequest($request);
 
-//        dump($request);die();
+        // Build the form
+        $form = $this->get('form.factory')->create(ProductType::class, $product);
 
-        if ($request->getMethod() == Request::METHOD_POST) {
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine();
-                $em->getManager()->persist($product);
-                $em->getManager()->flush();
+        if ($request->isMethod('POST'))
+        {
+            $form->handleRequest($request);
+            // Check form data is valid
+            if ($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($product);
+                $em->flush();
+
+                // Redirect to view page
                 return $this->redirectToRoute('homepage');
             }
         }
-
         return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView()]);
 
     }
+
+//    public function postProductAction(Request $request)
+//    {
+//        $product = new Product();
+//        $form = $this->createForm(ProductType::class, $product);
+//        $form->handleRequest($request);
+//
+////        dump($request);die();
+//
+//        if ($request->getMethod() == Request::METHOD_POST) {
+//            if ($form->isSubmitted() && $form->isValid()) {
+//                $em = $this->getDoctrine();
+//                $em->getManager()->persist($product);
+//                $em->getManager()->flush();
+//                return $this->redirectToRoute('homepage');
+//            }
+//        }
+//
+//        return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView()]);
+//
+//    }
 
     public function shopAction()
     {

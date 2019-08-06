@@ -2,6 +2,7 @@
 
 namespace BackendBundle\Entity;
 
+use BackendBundle\Entity\Categories;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -54,7 +55,7 @@ class Product
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist"}, orphanRemoval=true)
      */
     private $images;
 
@@ -166,11 +167,11 @@ class Product
     /**
      * Set categorie.
      *
-     * @param \BackendBundle\Entity\Categories|null $categorie
+     * @param Categories|null $categorie
      *
      * @return Product
      */
-    public function setCategorie(\BackendBundle\Entity\Categories $categorie = null)
+    public function setCategorie(Categories $categorie = null)
     {
         $this->categorie = $categorie;
 
@@ -180,7 +181,7 @@ class Product
     /**
      * Get categorie.
      *
-     * @return \BackendBundle\Entity\Categories|null
+     * @return Categories|null
      */
     public function getCategorie()
     {

@@ -19,7 +19,7 @@
 
                                     {% for image in product.images %}
                                     <div class="item {% if loop.first %}active{% endif %}">
-                                        <img src="{{ asset('uploads/'~image.imageName)}}" alt="">
+                                        <img src="{{ asset('uploads/'~image.url)}}" alt="">
                                     </div>
                                     {% endfor %}
                                 </div>

@@ -17,13 +17,13 @@ class ProductType extends AbstractType
     {
         $builder->add('name')->add('description')->add('price')
             ->add('images', CollectionType::class, array(
-                'entry_type' => MediaType::class,
-                'label' => false,
-                'allow_add'    => true,
-                'allow_delete' => true,
-                'prototype'    => true,
-                'required'     => false,
-                'by_reference' => false,
+                'entry_type'   		=> MediaType::class,
+                'prototype'			=> true,
+                'allow_add'			=> true,
+                'allow_delete'		=> true,
+                'by_reference' 		=> false,
+                'required'			=> false,
+                'label'			=> false,
             ))
             ->add('categorie');
     }/**

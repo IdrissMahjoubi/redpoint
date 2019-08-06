@@ -4,11 +4,11 @@ namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
- * @Vich\Uploadable
+ * @ORM\Entity(repositoryClass="BackendBundle\Repository\MediaRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Media
@@ -20,87 +20,31 @@ class Media
      */
     private $id;
 
-    // ..... other fields
-
     /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var string
      *
-     * @Vich\UploadableField(mapping="image_upload", fileNameProperty="imageName")
-     *
-     * @var File
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $imageFile;
+    private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Product", inversedBy="images", cascade={"persist"})
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=255)
+     */
+    private $extension;
+
+    /**
+     * Many Images have one (the same) Product
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Product", inversedBy="images")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
-    protected $product;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     * @var string
-     */
-    private $imageName;
-
-    /**
-     * @ORM\Column(type="datetime")
-     *
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-
-    /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
-     * @return Media
-     * @throws \Exception
-     */
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-        if ($image) {
-
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param string $imageName
-     *
-     * @return Media
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
+    private $product;
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -108,31 +52,55 @@ class Media
     }
 
     /**
-     * Set updatedAt
+     * Set name
      *
-     * @param \DateTime $updatedAt
+     * @param string $name
      *
      * @return Media
      */
-    public function setUpdatedAt($updatedAt)
+    public function setName($name)
     {
-        $this->updatedAt = $updatedAt;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get name
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getUpdatedAt()
+    public function getName()
     {
-        return $this->updatedAt;
+        return $this->name;
     }
 
     /**
-     * Set product
+     * Set extension
+     *
+     * @param string $extension
+     *
+     * @return Media
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
+     * Set folder
      *
      * @param Product $product
      *
@@ -146,12 +114,127 @@ class Media
     }
 
     /**
-     * Get product
+     * Get folder
      *
      * @return Product
      */
     public function getProduct()
     {
         return $this->product;
+    }
+
+
+    private $file;
+
+    // Temporary store the file name
+    private $tempFilename;
+
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+
+        // Replacing a file ? Check if we already have a file for this entity
+        if (null !== $this->extension)
+        {
+            // Save file extension so we can remove it later
+            $this->tempFilename = $this->extension;
+
+            // Reset values
+            $this->extension = null;
+            $this->name = null;
+        }
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        // If no file is set, do nothing
+        if (null === $this->file)
+        {
+            return;
+        }
+
+        // The file name is the entity's ID
+        // We also need to store the file extension
+        $this->extension = $this->file->guessExtension();
+
+        // And we keep the original name
+        $this->name = $this->file->getClientOriginalName();
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        // If no file is set, do nothing
+        if (null === $this->file)
+        {
+            return;
+        }
+
+        // A file is present, remove it
+        if (null !== $this->tempFilename)
+        {
+            $oldFile = $this->getUploadRootDir().'/'.$this->id.'.'.$this->tempFilename;
+            if (file_exists($oldFile))
+            {
+                unlink($oldFile);
+            }
+        }
+
+        // Move the file to the upload folder
+        $this->file->move(
+            $this->getUploadRootDir(),
+            $this->id.'.'.$this->extension
+        );
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function preRemoveUpload()
+    {
+        // Save the name of the file we would want to remove
+        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->extension;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        // PostRemove => We no longer have the entity's ID => Use the name we saved
+        if (file_exists($this->tempFilename))
+        {
+            // Remove file
+            unlink($this->tempFilename);
+        }
+    }
+
+    public function getUploadDir()
+    {
+        // Upload directory
+        return 'uploads/';
+        // This means /web/uploads/documents/
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getUrl()
+    {
+        return $this->id.'.'.$this->extension;
     }
 }
