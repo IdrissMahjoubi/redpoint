@@ -10,7 +10,6 @@
                 <tr>
                     <th>Titre</th>
                     <th>desc1</th>
-                    <th>filter</th>
                     <th>image</th>
                     <th>Action</th>
                 </tr>
@@ -28,12 +27,10 @@
                             {{ item.description }}
                         </td>
 
-                        <td>
-                            {{ item.filter }}
-                        </td>
+
 
                         <td>
-                            <img src="{{ asset('/uploads/'~ item.image.imageName) }}" alt="contact-img" height="40" width="40" title="contact-img" class="rounded-circle float-left mr-2">
+                            <img src="{{ asset('/uploads/'~ item.image.url) }}" alt="contact-img" height="40" width="40" title="contact-img" class="rounded-circle float-left mr-2">
                         </td>
 
                         <td>
