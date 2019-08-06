@@ -2,72 +2,72 @@
 {% block body %}
 
 
-    {#<section id="slider"><!--slider-->#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<div class="col-sm-12">#}
-                    {#<div id="slider-carousel" class="carousel slide" data-ride="carousel">#}
-                        {#<ol class="carousel-indicators">#}
-                            {#<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>#}
-                            {#<li data-target="#slider-carousel" data-slide-to="1"></li>#}
-                            {#<li data-target="#slider-carousel" data-slide-to="2"></li>#}
-                        {#</ol>#}
+    <section id="slider"><!--slider-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider-carousel" data-slide-to="1"></li>
+                            <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        </ol>
 
-                        {#<div class="carousel-inner">#}
-                            {#<div class="item active">#}
-                                {#<div class="col-sm-6">#}
-                                    {#<h1>{{ sliderOne.name }}</h1>#}
-                                    {#<h2>{{ sliderOne.description }}</h2>#}
-                                    {#<p>{{ sliderOne.description2 }}</p>#}
-                                    {#<button type="button" class="btn btn-default get">Make an account</button>#}
-                                {#</div>#}
-                                {#<div class="col-sm-6">#}
-                                    {#<img src="{{ asset('uploads/'~sliderOne.image.imageName)}}" class="girl img-responsive" alt="" />#}
-                                {#</div>#}
-                            {#</div>#}
-                            {#<div class="item">#}
-                                {#<div class="col-sm-6">#}
-                                    {#<h1>{{ sliderTwo.name }}</h1>#}
-                                    {#<h2>{{ sliderTwo.description }}</h2>#}
-                                    {#<p>{{ sliderTwo.description2 }}</p>#}
-                                    {#<button type="button" class="btn btn-default get">Make an account</button>#}
-                                {#</div>#}
-                                {#<div class="col-sm-6">#}
-                                    {#<img src="{{ asset('uploads/'~sliderTwo.image.imageName)}}" class="girl img-responsive" alt="" />#}
-                                {#</div>#}
-                            {#</div>#}
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-6">
+                                    <h1>{{ sliderOne.name }}</h1>
+                                    <h2>{{ sliderOne.description }}</h2>
+                                    <p>{{ sliderOne.description2 }}</p>
+                                    <button type="button" class="btn btn-default get">Make an account</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ asset('uploads/'~sliderOne.image.url)}}" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1>{{ sliderTwo.name }}</h1>
+                                    <h2>{{ sliderTwo.description }}</h2>
+                                    <p>{{ sliderTwo.description2 }}</p>
+                                    <button type="button" class="btn btn-default get">Make an account</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ asset('uploads/'~sliderTwo.image.url)}}" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
 
-                            {#<div class="item">#}
-                                {#<div class="col-sm-6">#}
-                                    {#<h1>{{ sliderThree.name }}</h1>#}
-                                    {#<h2>{{ sliderThree.description }}</h2>#}
-                                    {#<p>{{ sliderThree.description2 }}</p>#}
-                                    {#<button type="button" class="btn btn-default get">Make an account</button>#}
-                                {#</div>#}
-                                {#<div class="col-sm-6">#}
-                                    {#<img src="{{ asset('uploads/'~sliderThree.image.imageName)}}" class="girl img-responsive" alt="" />#}
-                                {#</div>#}
-                            {#</div>#}
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1>{{ sliderThree.name }}</h1>
+                                    <h2>{{ sliderThree.description }}</h2>
+                                    <p>{{ sliderThree.description2 }}</p>
+                                    <button type="button" class="btn btn-default get">Make an account</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ asset('uploads/'~sliderThree.image.url)}}" class="girl img-responsive" alt="" />
+                                </div>
+                            </div>
 
-                        {#</div>#}
+                        </div>
 
-                        {#<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">#}
-                            {#<i class="fa fa-angle-left"></i>#}
-                        {#</a>#}
-                        {#<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">#}
-                            {#<i class="fa fa-angle-right"></i>#}
-                        {#</a>#}
-                    {#</div>#}
+                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
 
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</section><!--/slider-->#}
+                </div>
+            </div>
+        </div>
+    </section><!--/slider-->
 
     <section>
         <div class="container">
             <div class="row">
-            {#{% include('@Frontend/Default/sidebar.html.twig') %}#}
+            {% include('@Frontend/Default/sidebar.html.twig') %}
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
