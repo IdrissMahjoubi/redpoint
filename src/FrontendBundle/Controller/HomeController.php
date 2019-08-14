@@ -5,6 +5,9 @@ namespace FrontendBundle\Controller;
 use BackendBundle\Entity\Gallery;
 use BackendBundle\Entity\Media;
 use BackendBundle\Entity\Product;
+use BackendBundle\Entity\SubCategory;
+use BackendBundle\Entity\Categories;
+
 use BackendBundle\Form\MediaType;
 use BackendBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -77,7 +80,21 @@ class HomeController extends Controller
         $products = $em->getRepository(Product::class)->findAll();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
-        return $this->render('@Frontend/Home/index.html.twig', ['publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        $categories = $em->getRepository(Categories::class)->findAll();
+        foreach ($categories as $item)
+        {
+            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
+
+        }
+
+        /*foreach ($subcategories as $key => $item) {
+            dump('cat '. $key);
+            foreach ($item as $fuck => $value) {
+                dump( ' sub ' . $value->getName());
+            }
+        }
+        die();*/
+        return $this->render('@Frontend/Home/index.html.twig', ['subCategories' => $subcategories, 'categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
@@ -91,12 +108,10 @@ class HomeController extends Controller
         // Build the form
         $form = $this->get('form.factory')->create(ProductType::class, $product);
 
-        if ($request->isMethod('POST'))
-        {
+        if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             // Check form data is valid
-            if ($form->isValid())
-            {
+            if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($product);
                 $em->flush();
@@ -146,7 +161,9 @@ class HomeController extends Controller
 
     public function accountAction()
     {
-        return $this->render('@Frontend/Home/account.html.twig', []);
+        $user = $this->getUser();
+
+        return $this->render('@Frontend/Home/account.html.twig', ['user' => $user]);
 
     }
 

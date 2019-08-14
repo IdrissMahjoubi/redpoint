@@ -10,4 +10,5 @@ namespace BackendBundle\Repository;
  */
 class CategoriesRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

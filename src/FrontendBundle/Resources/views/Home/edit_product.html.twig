@@ -91,6 +91,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+
         let fileCount = '{{ form.images|length }}';
         let removeButton = "<button type='button' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";
 

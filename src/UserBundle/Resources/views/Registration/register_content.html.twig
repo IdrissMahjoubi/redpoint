@@ -2,6 +2,20 @@
 
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<!-- Account Type -->
+<div class="form-group mb-3">
+    <div>
+
+        <input type="radio" name="account-type-radio" id="company-radio" class="account-type-radio"  value="company" checked/>
+        <label for="company-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Company</label>
+    </div>
+
+    <div>
+
+        <input type="radio" name="account-type-radio" id="member-radio" class="account-type-radio" value="member"/>
+        <label for="member-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Member</label>
+    </div>
+</div>
     <div class="form-group mb-3">
         <label for="fullname">Nom et Prenom</label>
         {{ form_widget(form.username,{ 'attr': {'class' : 'form-control','id' : 'fullname'} }) }}

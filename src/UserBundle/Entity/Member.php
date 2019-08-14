@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * Freelancer
+ * Member
  * @ORM\Entity(repositoryClass="UserBundle\Repository\MemberRepository")
  */
 class Member extends User
