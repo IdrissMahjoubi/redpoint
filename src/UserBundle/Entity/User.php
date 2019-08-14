@@ -8,10 +8,13 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="app_user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="type" ,type="text")
+ * @ORM\DiscriminatorMap({"user" = "User", "member" = "Member","company" = "Company"})
+ * @ORM\Table(name="app_user")
  */
+
 class User extends BaseUser
 {
     /**
@@ -108,4 +111,3 @@ class User extends BaseUser
 //            return "false";
 //    }
 }
-

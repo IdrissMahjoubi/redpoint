@@ -28,13 +28,6 @@ class SubCategory
      */
     private $name;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="category_id", type="integer")
-     */
-    private $categoryId;
-
 
     /**
      * Get id.
@@ -71,26 +64,34 @@ class SubCategory
     }
 
     /**
-     * Set categoryId.
+     * Set category.
      *
-     * @param int $categoryId
+     * @param int $category
      *
      * @return SubCategory
      */
-    public function setCategoryId($categoryId)
+    public function setCategory($category)
     {
-        $this->categoryId = $categoryId;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categoryId.
+     * Get category.
      *
      * @return int
      */
-    public function getCategoryId()
+    public function getCategory()
     {
-        return $this->categoryId;
+        return $this->category;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Categories", inversedBy="sub_categories")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id")
+     */
+    private $category;
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace BackendBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -96,5 +97,15 @@ class Categories
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * One product has many features. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="SubCategory", mappedBy="category")
+     */
+    private $sub_categories;
+
+    public function __construct() {
+        $this->sub_categories = new ArrayCollection();
     }
 }

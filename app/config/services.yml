@@ -16,3 +16,17 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    user.registration_completed_subscriber:
+        class: UserBundle\EventListener\RegistrationCompletedSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    user.registration_success_subscriber:
+        class: UserBundle\EventListener\RegistrationSuccessSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
+

@@ -10,4 +10,15 @@ namespace BackendBundle\Repository;
  */
 class SubCategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findCorrespondingSubCategories($category)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT sub_category FROM BackendBundle\Entity\SubCategory sub_category WHERE sub_category.category.id = ' . $category
+            )
+            ->getResult();
+    }
+
+
 }

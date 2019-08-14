@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * Employer
+ * Company
  * @ORM\Entity(repositoryClass="UserBundle\Repository\CompanyRepository")
  */
 class Company extends User
