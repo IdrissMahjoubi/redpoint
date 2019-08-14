@@ -52,6 +52,8 @@ security:
   access_control:
     # back-office
       - { path: ^/fr/admin, roles: ROLE_ADMIN }
+      - { path: ^/fr/, roles: [IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER] }
+
       - { path: ^/private-space, roles: ROLE_USER }
       # front-office
       - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

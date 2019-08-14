@@ -48,7 +48,7 @@ class RegistrationCompletedSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FOSUserEvents::REGISTRATION_SUCCESS => 'onRegistrationSuccess',
+            FOSUserEvents::REGISTRATION_COMPLETED => ['onRegistrationConfirm', -10],
         );
     }
 
@@ -56,7 +56,8 @@ class RegistrationCompletedSubscriber implements EventSubscriberInterface
     public function onRegistrationSuccess(FilterUserResponseEvent $event)
     {
         $user = $event->getUser();
-
+        var_dump($user);
+        die();
         $response = $event->getResponse();
 
 

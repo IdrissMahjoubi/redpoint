@@ -28,6 +28,8 @@ class HomeController extends Controller
 
     public function indexAction()
     {
+        var_dump($this->getUser());
+        die();
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
