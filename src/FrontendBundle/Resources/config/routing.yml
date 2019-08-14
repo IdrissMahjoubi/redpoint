@@ -22,17 +22,22 @@ front_product:
     path:     /product/{id}
     defaults: { _controller: FrontendBundle:Home:product }
 
-front_cart:
-    path:     /cart
-    defaults: { _controller: FrontendBundle:Home:cart }
+front_my_products:
+    path:     /my_products
+    defaults: { _controller: FrontendBundle:Home:myProduct }
 
-front_checkout:
-    path:     /checkout
-    defaults: { _controller: FrontendBundle:Home:checkout }
+front_delete_product:
+    path:     /delete_product/{id}
+    defaults: { _controller: FrontendBundle:Home:deleteProduct }
+
+front_edit_product:
+    path:     /edit_product/{id}
+    defaults: { _controller: FrontendBundle:Home:editProduct }
+
+delete_image:
+    path:     /delete_image/{id}
+    defaults: { _controller: FrontendBundle:Home:deleteImage }
+
 front_contact:
     path:     /contact
     defaults: { _controller: FrontendBundle:Home:contact }
-#
-#pricing:
-#    path:   /pricing
-#    defaults: { _controller: FrontendBundle:Home:pricing }

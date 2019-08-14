@@ -233,9 +233,7 @@ a#scrollUp i{
   padding-left: 15px;
 }
 
-.mainmenu ul li:first-child{
-  padding-left: 0px;
-}
+
 
 .mainmenu ul li a {
 	color: #696763;
@@ -2533,4 +2531,26 @@ h2.title {
 
 #account {
   margin: 30px 0;
+}
+
+.profile-pic {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic:hover .edit {
+  display: block;
+}
+
+.edit {
+  padding-top: 7px;
+  padding-right: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.edit a {
+  color: #e74c3c;
 }

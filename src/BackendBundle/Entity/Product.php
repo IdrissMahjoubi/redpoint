@@ -55,7 +55,7 @@ class Product
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist","remove"}, orphanRemoval=true)
      */
     private $images;
 
