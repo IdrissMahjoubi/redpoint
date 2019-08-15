@@ -74,12 +74,6 @@ class HomeController extends Controller
 
     public function indexAction()
     {
-<<<<<<< HEAD
-        var_dump($this->getUser());
-        die();
-
-=======
->>>>>>> be68984dd256e917cb8b897888a095891db6c7bb
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
@@ -130,26 +124,6 @@ class HomeController extends Controller
 
     }
 
-//    public function postProductAction(Request $request)
-//    {
-//        $product = new Product();
-//        $form = $this->createForm(ProductType::class, $product);
-//        $form->handleRequest($request);
-//
-////        dump($request);die();
-//
-//        if ($request->getMethod() == Request::METHOD_POST) {
-//            if ($form->isSubmitted() && $form->isValid()) {
-//                $em = $this->getDoctrine();
-//                $em->getManager()->persist($product);
-//                $em->getManager()->flush();
-//                return $this->redirectToRoute('homepage');
-//            }
-//        }
-//
-//        return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView()]);
-//
-//    }
 
     public function shopAction()
     {
@@ -159,11 +133,8 @@ class HomeController extends Controller
         foreach ($categories as $item)
         {
             $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
-
         }
 
-
-        return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity]);
         return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity, 'subCategories' => $subcategories]);
     }
 
@@ -187,7 +158,13 @@ class HomeController extends Controller
         $productDetails = $em->getRepository(Product::class)->find($product);
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
-        return $this->render('@Frontend/Home/product.html.twig', ['publicity' => $publicity, 'product' => $productDetails]);
+        $categories = $em->getRepository(Categories::class)->findAll();
+        foreach ($categories as $item)
+        {
+            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
+        }
+
+        return $this->render('@Frontend/Home/product.html.twig', ['subCategories' => $subcategories,'publicity' => $publicity, 'product' => $productDetails]);
     }
 
     public function cartAction()
