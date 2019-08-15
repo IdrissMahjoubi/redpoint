@@ -61,10 +61,10 @@
                             <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{ path('front_checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{ path('front_cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            {% if is_granted("USER_ROLE") %}
-                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Logout</a></li>
+                            {% if (is_granted("IS_AUTHENTICATED_ANONYMOUSLY")) %}
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Login</a></li>
                             {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Logout</a></li>
                             {% endif %}
 
                         </ul>

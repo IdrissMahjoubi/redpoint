@@ -39,7 +39,7 @@ security:
         # We will fix this shortly, but for now, the default
         # would be '/', but we would need it to be e.g.
         # /en/
-        default_target_path: /fr/admin
+        default_target_path: /fr/
 
       logout:
         path: fos_user_security_logout
@@ -51,7 +51,7 @@ security:
 
   access_control:
     # back-office
-      - { path: ^/fr/admin, roles: ROLE_ADMIN }
+      - { path: ^/fr/admin, roles: [ROLE_ADMIN] }
       - { path: ^/fr/, roles: [IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER] }
 
       - { path: ^/private-space, roles: ROLE_USER }

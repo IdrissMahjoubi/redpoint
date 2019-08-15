@@ -30,6 +30,7 @@ class HomeController extends Controller
     {
         var_dump($this->getUser());
         die();
+
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
@@ -50,7 +51,7 @@ class HomeController extends Controller
             }
         }
         die();*/
-        return $this->render('@Frontend/Home/index.html.twig', ['subCategories' => $subcategories, 'categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['subCategories' => $subcategories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
@@ -105,8 +106,16 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+        $categories = $em->getRepository(Categories::class)->findAll();
+        foreach ($categories as $item)
+        {
+            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
+
+        }
+
 
         return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity]);
+        return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity, 'subCategories' => $subcategories]);
     }
 
     public function wishlistAction()
