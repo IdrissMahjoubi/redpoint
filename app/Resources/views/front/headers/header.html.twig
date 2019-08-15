@@ -38,13 +38,8 @@
                             <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> Account</a></li>
                             {% endif %}
                             <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
-<<<<<<< HEAD
-                            <li><a href="{{ path('front_checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="{{ path('front_cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            {% if is_granted("USER") %}
-=======
+
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
->>>>>>> 944ab207878b27521b79c2c604681d3dc907a587
                             <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Logout</a></li>
                             {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Login</a></li>
@@ -74,16 +69,6 @@
                             <li><a href="{{ path('homepage') }}" >Home</a></li>
                             <li><a href="{{ path('font_shop') }}" >Shops</a></li>
                             <li><a href="{{ path('front_contact') }}">Contact</a></li>
-
-                            {#<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>#}
-                                {#<ul role="menu" class="sub-menu">#}
-                                    {#<li><a href="shop.html">Products</a></li>#}
-                                    {#<li><a href="product-details.html">Product Details</a></li>#}
-                                    {#<li><a href="checkout.html">Checkout</a></li>#}
-                                    {#<li><a href="cart.html">Cart</a></li>#}
-                                    {#<li><a href="login.html">Login</a></li>#}
-                                {#</ul>#}
-
                         </ul>
                     </div>
                 </div>
