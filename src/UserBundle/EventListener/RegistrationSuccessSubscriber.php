@@ -9,8 +9,8 @@
 namespace UserBundle\EventListener;
 
 
-use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -30,32 +30,42 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FOSUserEvents::REGISTRATION_COMPLETED => 'onRegistrationConfirm',
+            FOSUserEvents::REGISTRATION_SUCCESS => 'onRegistrationSuccess',
+
         );
     }
 
 
-    public function onRegistrationSuccess(FilterUserResponseEvent $event)
+    public function onRegistrationSuccess(FormEvent $event)
     {
-        $user = $event->getUser();
-
+        /*var_dump($event->getForm()->getData());
+        die();*/
         $response = $event->getResponse();
 
 
-        if ($event->getRequest()->get('account_type') == 'company') {
+        if ($event->getRequest()->get('account_type') == 'member') {
             $member = new Member();
-            $member->loadFromParentObj($user);
+            $member->loadFromParentObj($event->getForm()->getData());
             $member->setType('member');
             $member->setRoles(['ROLE_MEMBER']);
+
+            //$response->setTargetUrl($this->router->generate('homepage'));
+
             return $member;
 
-        } else {
+        } else if ($event->getRequest()->get('account_type') == 'company') {
             $company = new Company();
-            $company->loadFromParentObj($user);
+            $company->loadFromParentObj($event->getForm()->getData());
             $company->setType('company');
             $company->setRoles(['ROLE_COMPANY']);
+            //$response->setTargetUrl($this->router->generate('front_account'));
             return $company;
 
+
+        }
+        else
+        {
+            dump("fuck");
         }
     }
 
