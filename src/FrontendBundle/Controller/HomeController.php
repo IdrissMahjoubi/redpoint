@@ -3,6 +3,7 @@
 namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Gallery;
+use BackendBundle\Entity\Media;
 use BackendBundle\Entity\Product;
 use BackendBundle\Entity\SubCategory;
 use BackendBundle\Entity\Categories;
@@ -26,11 +27,59 @@ class HomeController extends Controller
         $this->translator = $this->get('translator');
     }
 
+    public function myProductAction()
+    {
+        $em = $this->getDoctrine();
+        $products = $em->getRepository(Product::class)->findAll();
+        return $this->render('@Frontend/Home/my_products.html.twig', ['products' => $products]);
+    }
+
+    public function deleteProductAction(Product $product)
+    {
+        $em = $this->getDoctrine()->getManager();
+        foreach ($product->getImages() as $image){
+            $product->removeImage($image);
+        }
+        $em->remove($product);
+        $em->flush();
+        return $this->redirectToRoute('front_my_products');
+    }
+
+    public function editProductAction(Request $request,Product $product)
+    {
+        // Set up required variables
+        $this->initialise();
+
+
+        // Build the form
+        $form = $this->get('form.factory')->create(ProductType::class, $product);
+
+        if ($request->isMethod('POST'))
+        {
+            $form->handleRequest($request);
+            // Check form data is valid
+            if ($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+
+                // Redirect to view page
+                return $this->redirectToRoute('front_my_products');
+            }
+        }
+        $images = $product->getImages()->toArray();
+        return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView(),'images' => $images]);
+
+    }
+
     public function indexAction()
     {
+<<<<<<< HEAD
         var_dump($this->getUser());
         die();
 
+=======
+>>>>>>> be68984dd256e917cb8b897888a095891db6c7bb
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
@@ -149,6 +198,14 @@ class HomeController extends Controller
     public function contactAction()
     {
         return $this->render('@Frontend/Home/contact.html.twig');
+    }
+
+    public function deleteImageAction(Media $media)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $media->getProduct()->removeImage($media);
+        $em->flush();
+        return $this->redirectToRoute('front_edit_product',['id'=>$media->getProduct()->getId()]);
     }
 
     public function checkoutAction()

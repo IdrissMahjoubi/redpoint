@@ -34,12 +34,18 @@
                     <h2 class="or"></h2>
                 </div>
                 <div class="col-sm-4">
-                    <div class="signup-form"><!--sign up form-->
+                    <div class="signup-form">
                         <h2>Sell your product in days ..</h2>
                         <form action="{{ path('front_post_product') }}">
                             <button type="submit" class="btn btn-default">POST A DEAL</button>
                         </form>
-                    </div><!--/sign up form-->
+                    </div>
+                    <div class="signup-form">
+                        <h2>check all your posts</h2>
+                        <form action="{{ path('front_my_products') }}">
+                            <button type="submit" class="btn btn-default">My posts</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

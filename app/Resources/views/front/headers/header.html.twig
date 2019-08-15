@@ -30,39 +30,21 @@
                     <div class="logo pull-left">
                         <a href="{{ path('homepage') }}"><img src="{{ asset('global_assets/images/logo.png') }}" alt="" /></a>
                     </div>
-                    {#<div class="btn-group pull-right">#}
-                        {#<div class="btn-group">#}
-                            {#<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">#}
-                                {#USA#}
-                                {#<span class="caret"></span>#}
-                            {#</button>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="#">Kuwait</a></li>#}
-                                {#<li><a href="#">Other</a></li>#}
-                            {#</ul>#}
-                        {#</div>#}
-
-                        {#<div class="btn-group">#}
-                            {#<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">#}
-                                {#Kuwaiti dinar#}
-                                {#<span class="caret"></span>#}
-                            {#</button>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="#">Dollar</a></li>#}
-                                {#<li><a href="#">Euro</a></li>#}
-                            {#</ul>#}
-                        {#</div>#}
-                    {#</div>#}
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> Account</a></li>
                             <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
+<<<<<<< HEAD
                             <li><a href="{{ path('front_checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{ path('front_cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                             {% if (is_granted("IS_AUTHENTICATED_ANONYMOUSLY")) %}
                             <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Login</a></li>
+=======
+                            {% if is_granted("USER") %}
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Logout</a></li>
+>>>>>>> be68984dd256e917cb8b897888a095891db6c7bb
                             {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Logout</a></li>
                             {% endif %}
