@@ -141,5 +141,5 @@ sub_category_edit:
     path:     sub_category/edit/{id}/
     defaults: { _controller: BackendBundle:SubCategory:editSubCategory}
 sub_category_delete:
-    path:     categories/delete/{id}/
+    path:     sub_category/delete/{id}/
     defaults: { _controller: BackendBundle:SubCategory:deleteSubCategory}

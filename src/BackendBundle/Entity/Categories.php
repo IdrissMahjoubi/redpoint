@@ -43,7 +43,7 @@ class Categories
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\SubCategory", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\SubCategory", mappedBy="category",cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $subCategory;
 
@@ -135,13 +135,10 @@ class Categories
      *
      * @return Categories
      */
-    public function removeSubCategory(SubCategory $subCategory)
+    public function removeSubCategory(SubCategory $subCategory = null)
     {
         if ($this->subCategory->contains($subCategory)) {
             $this->subCategory->removeElement($subCategory);
-            if ($subCategory->getCategory() === $this) {
-                $subCategory->setCategory(null);
-            }
         }
         return $this;
     }
