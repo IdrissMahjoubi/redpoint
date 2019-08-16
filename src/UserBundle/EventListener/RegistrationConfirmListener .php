@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use UserBundle\Entity\Company;
 use UserBundle\Entity\Member;
 
-class RegistrationCompletedSubscriber implements EventSubscriberInterface
+class RegistrationConfirmListener implements EventSubscriberInterface
 {
     private $router;
 
@@ -48,34 +48,17 @@ class RegistrationCompletedSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FOSUserEvents::REGISTRATION_COMPLETED => ['onRegistrationConfirm', -10],
+            FOSUserEvents::REGISTRATION_CONFIRM  => 'onRegistrationConfirm'
         );
     }
 
 
-    public function onRegistrationSuccess(FilterUserResponseEvent $event)
+    public function onRegistrationConfirm(FilterUserResponseEvent $event)
     {
-        $user = $event->getUser();
-        var_dump($user);
-        die();
-        $response = $event->getResponse();
+        $url = $this->router->generate('account_pricing');
 
+        $event->setResponse(new RedirectResponse($url));
 
-        if ($event->getRequest()->get('account_type') == 'company') {
-            $member = new Member();
-            $member->loadFromParentObj($user);
-            $member->setType('member');
-            $member->setRoles(['ROLE_MEMBER']);
-            return $member;
-
-        } else {
-            $company = new Company();
-            $company->loadFromParentObj($user);
-            $company->setType('company');
-            $company->setRoles(['ROLE_COMPANY']);
-            return $company;
-
-        }
     }
 
 

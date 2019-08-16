@@ -6,36 +6,42 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>REDPOINT DEALS</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('global_assets/images/logo.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('global_assets/images/logo.png') }}"/>
 
     {% block stylesheets %}
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/price-range.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/prettyPhoto.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/price-range.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap-grid.css') }}" rel="stylesheet">
+
     {% endblock %}
 
 </head>
 
-    <body>
-    {% include 'front/headers/header.html.twig' %}
+<body>
+{% include 'front/headers/header.html.twig' %}
 
-    {% block body %}
-        {% endblock %}
-        {% block javascripts %}
+{% block body %}
+{% endblock %}
+{% block javascripts %}
 
-            <script src="{{ asset('assets/js/jquery.js') }}"></script>
-            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('assets/js/jquery.scrollUp.min.js') }}"></script>
-            <script src="{{ asset('assets/js/price-range.js') }}"></script>
-            <script src="{{ asset('assets/js/jquery.prettyPhoto.js') }}"></script>
-            <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('assets/js/price-range.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-        {% endblock %}
-        {% include 'front/footers/footer.html.twig' %}
+{% endblock %}
+{% include 'front/footers/footer.html.twig' %}
 
-    </body>
+</body>
 </html>

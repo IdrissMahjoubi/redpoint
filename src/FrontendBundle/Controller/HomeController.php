@@ -4,6 +4,7 @@ namespace FrontendBundle\Controller;
 
 use BackendBundle\Entity\Gallery;
 use BackendBundle\Entity\Media;
+use BackendBundle\Entity\Pricing;
 use BackendBundle\Entity\Product;
 use BackendBundle\Entity\SubCategory;
 use BackendBundle\Entity\Categories;
@@ -74,6 +75,8 @@ class HomeController extends Controller
 
     public function indexAction()
     {
+        var_dump($this->getUser());
+        die();
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
@@ -191,12 +194,12 @@ class HomeController extends Controller
     }
 
 
-//    public function pricingAction()
-//    {
-//        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findAll();
-//
-//        return $this->render('@Frontend/Home/pricing.html.twig', ['princings' => $pricings]);
-//    }
+    public function pricingAction()
+    {
+        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findAll();
+
+        return $this->render('@Frontend/Home/pricing.html.twig', ['princings' => $pricings]);
+    }
 
 
 }

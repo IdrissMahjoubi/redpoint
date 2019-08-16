@@ -45,3 +45,7 @@ front_contact:
 front_checkout:
     path:     /checkout
     defaults: { _controller: FrontendBundle:Home:checkout }
+
+account_pricing:
+    path:     /pricing
+    defaults: { _controller: FrontendBundle:Home:pricing }

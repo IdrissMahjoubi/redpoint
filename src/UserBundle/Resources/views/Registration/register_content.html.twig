@@ -1,42 +1,45 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="login-register-page">
 
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-<!-- Account Type -->
-<div class="form-group mb-3">
-    <div>
+    <div class="account-type">
+        <div>
+            <input type="radio" name="account-type" id="company-radio" class="account-type-radio" value="company"
+                   checked/>
+            <label for="freelancer-radio" class="ripple-effect-dark"><i
+                        class="icon-material-outline-account-circle"></i> Company</label>
+        </div>
 
-        <input type="radio" name="account-type" id="company-radio" class="account-type-radio"  value="company" checked/>
-        <label for="company-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Company</label>
+        <div>
+
+            <input type="radio" name="account-type" id="member-radio" class="account-type-radio" value="member"/>
+            <label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i>
+                Member</label>
+        </div>
     </div>
-
-    <div>
-
-        <input type="radio" name="account-type" id="member-radio" class="account-type-radio" value="member"/>
-        <label for="member-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Member</label>
+    <div class="input-with-icon-left">
+        <i class="icon-material-baseline-mail-outline"></i>
+        {{ form_widget(form.email,{ 'attr': {'class' : 'input-text with-border','name' : 'emailaddress-register', 'id' : 'emailaddress-register','placeholder': 'form.email'|trans} }) }}
     </div>
+    <div class="input-with-icon-left">
+        <i class="icon-material-outline-account-circle"></i>
+        {{ form_widget(form.username,{ 'attr': {'class' : 'input-text with-border','name' : 'username-register', 'id' : 'username-register','placeholder':'form.username'|trans} }) }}
+    </div>
+    <div class="input-with-icon-left">
+        <i class="icon-material-outline-lock"></i>
+        {{ form_widget(form.plainPassword.first,{ 'attr': {'class' : 'input-text with-border','name' : 'password-register', 'id' : 'password-register', 'placeholder': 'form.password'|trans} }) }}
+    </div>
+    <div class="input-with-icon-left">
+        <i class="icon-material-outline-lock"></i>
+        {{ form_widget(form.plainPassword.second,{ 'attr': {'class' : 'input-text with-border','name' : 'password-register', 'id' : 'password-register' ,'placeholder': 'form.password_confirmation'|trans} }) }}
+    </div>
+    <div>
+        <!-- Button -->
+        <button class="button full-width button-sliding-icon ripple-effect margin-top-10"
+                type="submit">{{ 'registration.submit'|trans }} <i class="icon-material-outline-arrow-right-alt"></i>
+        </button>
+    </div>
+    {{ form_end(form) }}
+
 </div>
-    <div class="form-group mb-3">
-        <label for="fullname">Nom et Prenom</label>
-        {{ form_widget(form.username,{ 'attr': {'class' : 'form-control','id' : 'fullname'} }) }}
-    </div>
-
-    <div class="form-group mb-3">
-        <label for="emailaddress">Addresse Email</label>
-        {{ form_widget(form.email,{ 'attr': {'class' : 'form-control'} }) }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form_row(form.plainPassword.first,{ 'attr': {'class' : 'form-control'} }) }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form_row(form.plainPassword.second,{ 'attr': {'class' : 'form-control'} }) }}
-    </div>
-
-    <div class="form-group mb-0 text-center">
-        <input class="btn btn-primary btn-block" type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
-
-{{ form_end(form) }}
-
