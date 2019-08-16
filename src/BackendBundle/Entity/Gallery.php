@@ -179,4 +179,3 @@ class Gallery
         return $this->image;
     }
 }
-

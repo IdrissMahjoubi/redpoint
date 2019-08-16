@@ -17,9 +17,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Product
 {
 
-    function __construct() {
+    public function __construct() {
         $this->images = new ArrayCollection();
+        $this->wishlistUsers = new ArrayCollection();
+
     }
+
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", mappedBy="productWishlist")
+     */
+    private $wishlistUsers;
 
     /**
      * @var int
@@ -67,6 +74,14 @@ class Product
      *
      */
     private $categorie;
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User",cascade={"persist"} )
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
+     *
+     */
+    private $user;
 
 
     /**
@@ -189,4 +204,73 @@ class Product
     }
 
 
+
+    /**
+     * Set user.
+     *
+     * @param \UserBundle\Entity\User|null $user
+     *
+     * @return Product
+     */
+    public function setUser(\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+
+    /**
+     * Get user.
+     *
+     * @return \UserBundle\Entity\User|null
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+
+
+    /**
+     * Add wishlistUser.
+     *
+     * @param \UserBundle\Entity\User $wishlistUser
+     *
+     * @return Product
+     */
+    public function addWishlistUser(\UserBundle\Entity\User $wishlistUser)
+    {
+        if (!$this->wishlistUsers->contains($wishlistUser)) {
+            $this->wishlistUsers[] = $wishlistUser;
+            $wishlistUser->addProductWishlist($this);
+        }
+        return $this;
+    }
+
+    /**
+     * Remove wishlistUser.
+     *
+     * @param \UserBundle\Entity\User $wishlistUser
+     *
+     * @return Product
+     */
+    public function removeWishlistUser(\UserBundle\Entity\User $wishlistUser)
+    {
+        if ($this->wishlistUsers->contains($wishlistUser)) {
+             $this->wishlistUsers->removeElement($wishlistUser);
+            $wishlistUser->removeProductWishlist($this);
+        }
+        return $this;
+    }
+
+    /**
+     * Get wishlistUsers.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWishlistUsers()
+    {
+        return $this->wishlistUsers;
+    }
 }

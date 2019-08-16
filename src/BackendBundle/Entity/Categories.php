@@ -2,6 +2,7 @@
 
 namespace BackendBundle\Entity;
 
+use BackendBundle\Entity\SubCategory;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,6 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categories
 {
+
+    public function __construct()
+    {
+        $this->subCategory = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -34,6 +41,12 @@ class Categories
      * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist", "remove"})
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\SubCategory", mappedBy="category")
+     */
+    private $subCategory;
+
 
 
     /**
@@ -100,12 +113,47 @@ class Categories
     }
 
     /**
-     * One product has many features. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="SubCategory", mappedBy="category")
+     * Add subCategory.
+     *
+     * @param SubCategory $subCategory
+     *
+     * @return Categories
      */
-    private $sub_categories;
+    public function addSubCategory(SubCategory $subCategory)
+    {
+        if (!$this->subCategory->contains($subCategory)) {
+            $this->subCategory[] = $subCategory;
+            $subCategory->setCategory($this);
+        }
+        return $this;
+    }
 
-    public function __construct() {
-        $this->sub_categories = new ArrayCollection();
+    /**
+     * Remove subCategory.
+     *
+     * @param SubCategory $subCategory
+     *
+     * @return Categories
+     */
+    public function removeSubCategory(SubCategory $subCategory)
+    {
+        if ($this->subCategory->contains($subCategory)) {
+            $this->subCategory->removeElement($subCategory);
+            if ($subCategory->getCategory() === $this) {
+                $subCategory->setCategory(null);
+            }
+        }
+        return $this;
+    }
+
+
+    /**
+     * Get subCategory.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
     }
 }

@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -38,12 +39,18 @@ class User extends BaseUser
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="BackendBundle\Entity\Product", inversedBy="wishlistUsers")
+     */
+    private $productWishlist;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
+        $this->productWishlist = new ArrayCollection();
     }
 
     public function setCreatedAt()
@@ -102,12 +109,48 @@ class User extends BaseUser
     {
         $this->type = $type;
     }
+    public function __toString(){
+        return $this->getUsername();
+    }
 
-//    public function __toString()
-//    {
-//        if ($this->get('security.context')->isGranted('ROLE_MEMBER')) {
-//            return "true";
-//        } elseif($this->get('security.context')->isGranted('ROLE_COMPANY')
-//            return "false";
-//    }
+
+    /**
+     * Add productWishlist.
+     *
+     * @param \BackendBundle\Entity\Product $productWishlist
+     *
+     * @return User
+     */
+    public function addProductWishlist(\BackendBundle\Entity\Product $productWishlist)
+    {
+        if (!$this->productWishlist->contains($productWishlist)) {
+            $this->productWishlist[] = $productWishlist;
+        }
+        return $this;
+    }
+
+    /**
+     * Remove productWishlist.
+     *
+     * @param \BackendBundle\Entity\Product $productWishlist
+     *
+     * @return User
+     */
+    public function removeProductWishlist(\BackendBundle\Entity\Product $productWishlist)
+    {
+        if ($this->productWishlist->contains($productWishlist)) {
+             $this->productWishlist->removeElement($productWishlist);
+        }
+        return $this;
+    }
+
+    /**
+     * Get productWishlist.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProductWishlist()
+    {
+        return $this->productWishlist;
+    }
 }

@@ -187,4 +187,3 @@ class Pricing
         return $this->forEnterprise;
     }
 }
-
