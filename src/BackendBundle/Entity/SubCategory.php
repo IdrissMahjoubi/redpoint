@@ -2,6 +2,7 @@
 
 namespace BackendBundle\Entity;
 
+use BackendBundle\Entity\Categories;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,11 @@ class SubCategory
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Categories", inversedBy="sub_categories")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
 
     /**
      * Get id.
@@ -66,11 +72,11 @@ class SubCategory
     /**
      * Set category.
      *
-     * @param int $category
+     * @param Categories $category
      *
      * @return SubCategory
      */
-    public function setCategory($category)
+    public function setCategory(Categories $category)
     {
         $this->category = $category;
 
@@ -80,18 +86,10 @@ class SubCategory
     /**
      * Get category.
      *
-     * @return int
+     * @return Categories
      */
     public function getCategory()
     {
         return $this->category;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Categories", inversedBy="sub_categories")
-     * @ORM\JoinColumn(name="category", referencedColumnName="id")
-     */
-    private $category;
-
-
 }

@@ -81,13 +81,8 @@ class HomeController extends Controller
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
         $categories = $em->getRepository(Categories::class)->findAll();
-        foreach ($categories as $item)
-        {
-            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
 
-        }
-
-        return $this->render('@Frontend/Home/index.html.twig', ['subCategories' => $subcategories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['categories'=>$categories,'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
@@ -124,12 +119,9 @@ class HomeController extends Controller
         $em = $this->getDoctrine();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
         $categories = $em->getRepository(Categories::class)->findAll();
-        foreach ($categories as $item)
-        {
-            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
-        }
 
-        return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity, 'subCategories' => $subcategories]);
+
+        return $this->render('@Frontend/Home/shop.html.twig', ['categories'=>$categories,'publicity' => $publicity, ]);
     }
 
     public function wishlistAddAction(Product $product)
@@ -161,7 +153,6 @@ class HomeController extends Controller
     public function accountAction()
     {
         $user = $this->getUser();
-
         return $this->render('@Frontend/Home/account.html.twig', ['user' => $user]);
 
     }
@@ -173,12 +164,9 @@ class HomeController extends Controller
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
         $categories = $em->getRepository(Categories::class)->findAll();
-        foreach ($categories as $item)
-        {
-            $subcategories[$item->getName()] = $em->getRepository(SubCategory::class)->findBy(['category'=> $item->getId()]);
-        }
 
-        return $this->render('@Frontend/Home/product.html.twig', ['subCategories' => $subcategories,'publicity' => $publicity, 'product' => $productDetails]);
+
+        return $this->render('@Frontend/Home/product.html.twig', ['categories'=>$categories,'publicity' => $publicity, 'product' => $productDetails]);
     }
 
     public function cartAction()

@@ -94,4 +94,3 @@ class Socialmedia
         return $this->instagram;
     }
 }
-
