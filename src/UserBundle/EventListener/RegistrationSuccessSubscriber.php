@@ -38,35 +38,15 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
 
     public function onRegistrationSuccess(FormEvent $event)
     {
-        /*var_dump($event->getForm()->getData());
-        die();*/
-        $response = $event->getResponse();
+        //$url = $this->getTargetPath($event->getRequest()->getSession(), 'main');
 
+        $user = $event->getForm()->getData();
+         if($user->getType() == "company")
+             
 
-        if ($event->getRequest()->get('account_type') == 'member') {
-            $member = new Member();
-            $member->loadFromParentObj($event->getForm()->getData());
-            $member->setType('member');
-            $member->setRoles(['ROLE_MEMBER']);
+        $url = $this->router->generate('account_pricing');
 
-            //$response->setTargetUrl($this->router->generate('homepage'));
-
-            return $member;
-
-        } else if ($event->getRequest()->get('account_type') == 'company') {
-            $company = new Company();
-            $company->loadFromParentObj($event->getForm()->getData());
-            $company->setType('company');
-            $company->setRoles(['ROLE_COMPANY']);
-            //$response->setTargetUrl($this->router->generate('front_account'));
-            return $company;
-
-
-        }
-        else
-        {
-            dump("fuck");
-        }
+        $event->setResponse(new RedirectResponse($url));
     }
 
 

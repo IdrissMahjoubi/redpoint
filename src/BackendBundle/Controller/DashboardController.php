@@ -14,6 +14,6 @@ class DashboardController extends Controller
     {
         $users=$this->getDoctrine()->getRepository(User::class)->findAll();
 
-        return $this->render('@Backend/Users/contact_show.html.twig',['users' => $users]);
+        return $this->render('@Backend/Users/members_show.html.twig',['users' => $users]);
     }
 }

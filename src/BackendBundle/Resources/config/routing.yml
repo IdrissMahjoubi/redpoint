@@ -112,9 +112,13 @@ testimony_edit:
 testimony_delete:
     path:     testimony/delete/{id}/
     defaults: { _controller: BackendBundle:Testimony:deleteTestimony}
-users_show:
-    path:     users/show/
-    defaults: { _controller: BackendBundle:User:showUsers}
+users_show_companies:
+    path:     users/companies/show/
+    defaults: { _controller: BackendBundle:User:showUsersCompanies}
+
+users_show_members:
+    path:     users/members/show/
+    defaults: { _controller: BackendBundle:User:showUsersMembers}
 
 
 

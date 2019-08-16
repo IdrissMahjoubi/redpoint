@@ -17,7 +17,7 @@ class ContactController extends Controller
     {
         $contacts=$this->getDoctrine()->getRepository(Contact::class)->findAll();
 
-        return $this->render('@Backend/Contact/contact_show.html.twig',['contact' => $contacts]);
+        return $this->render('@Backend/Contact/members_show.html.twig',['contact' => $contacts]);
     }
 
 

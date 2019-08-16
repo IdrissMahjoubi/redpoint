@@ -17,5 +17,11 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    user.registration_success_subscriber:
+        class: UserBundle\EventListener\RegistrationSuccessSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
 
 
