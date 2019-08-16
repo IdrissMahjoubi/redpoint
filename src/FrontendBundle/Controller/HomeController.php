@@ -87,13 +87,6 @@ class HomeController extends Controller
 
         }
 
-        /*foreach ($subcategories as $key => $item) {
-            dump('cat '. $key);
-            foreach ($item as $fuck => $value) {
-                dump( ' sub ' . $value->getName());
-            }
-        }
-        die();*/
         return $this->render('@Frontend/Home/index.html.twig', ['subCategories' => $subcategories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
@@ -113,6 +106,7 @@ class HomeController extends Controller
             // Check form data is valid
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+                $product->setUser($this->getUser());
                 $em->persist($product);
                 $em->flush();
 
@@ -138,10 +132,30 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/shop.html.twig', ['publicity' => $publicity, 'subCategories' => $subcategories]);
     }
 
-    public function wishlistAction()
+    public function wishlistAddAction(Product $product)
     {
-        return $this->render('@Frontend/Home/wishlist.html.twig', []);
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $product->addWishlistUser($user);
+        $em->flush();
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
 
+    }
+
+    public function wishlistRemoveAction(Product $product)
+    {
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $product->removeWishlistUser($user);
+        $em->flush();
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
+
+    }
+
+    public function WishlistAction(Request $request)
+    {
+        $user = $this->getUser();
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
     }
 
     public function accountAction()

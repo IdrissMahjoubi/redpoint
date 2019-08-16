@@ -9,7 +9,13 @@ homepage:
 front_wishlist:
     path:     /wishlist
     defaults: { _controller: FrontendBundle:Home:wishlist }
+front_wishlist_add:
+    path:     /wishlist_add/{id}
+    defaults: { _controller: FrontendBundle:Home:wishlistAdd }
 
+front_remove_product_wishlist:
+    path:     /remove_product_wishlist/{id}
+    defaults: { _controller: FrontendBundle:Home:wishlistRemove }
 front_account:
     path:     /account
     defaults: { _controller: FrontendBundle:Home:account }
