@@ -11,6 +11,7 @@ namespace UserBundle\EventListener;
 
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -24,7 +25,6 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
     public function __construct(UrlGeneratorInterface $router)
     {
         $this->router = $router;
-
     }
 
     public static function getSubscribedEvents()
@@ -35,16 +35,16 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
         );
     }
 
-
     public function onRegistrationSuccess(FormEvent $event)
     {
         //$url = $this->getTargetPath($event->getRequest()->getSession(), 'main');
 
         $user = $event->getForm()->getData();
-         if($user->getType() == "company")
-             
+        $user->setEnabled(false);
+        //$this->em->updateUser($user);
 
-        $url = $this->router->generate('account_pricing');
+/*        if ($user->getType() == "company")*/
+            $url = $this->router->generate('account_pricing');
 
         $event->setResponse(new RedirectResponse($url));
     }
