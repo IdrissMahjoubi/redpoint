@@ -29,13 +29,13 @@ class SubCategoryController extends Controller
             }
         }
 
-        return $this->render('@Backend/SubCategory/sub_category_add.html.twig', ['form' => $form->createView()]);
+        return $this->render('@Backend/SubCategory/subcategories_add.html.twig', ['form' => $form->createView()]);
     }
 
     public function showSubCategoryAction()
     {
         $sub_category = $this->getDoctrine()->getRepository(SubCategory::class)->findAll();
-        return $this->render('@Backend/SubCategory/sub_category_show.html.twig', ['sub_category' => $sub_category]);
+        return $this->render('@Backend/SubCategory/subcategories_show.html.twig', ['sub_category' => $sub_category]);
     }
 
 
@@ -55,13 +55,13 @@ class SubCategoryController extends Controller
             return $this->redirectToRoute('sub_category_show');
         }
 
-        return $this->render('@Backend/SubCategory/sub_category_edit.html.twig', array(
+        return $this->render('@Backend/SubCategory/subcategories_edit.html.twig', array(
             'sub_category' => $sub_category,
             'form' => $form->createView(),
         ));
     }
 
-    public function deleteSubCategoryAction(Request $request,SubCategory $sub_category)
+    public function deleteSubCategoryAction(SubCategory $sub_category)
     {
 
         $em=$this->getDoctrine()->getManager();

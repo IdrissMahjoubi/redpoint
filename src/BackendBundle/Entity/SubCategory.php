@@ -30,8 +30,8 @@ class SubCategory
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Categories", inversedBy="sub_categories")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Categories", inversedBy="subCategory")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $category;
 
@@ -76,7 +76,7 @@ class SubCategory
      *
      * @return SubCategory
      */
-    public function setCategory(Categories $category)
+    public function setCategory(Categories $category = null)
     {
         $this->category = $category;
 
