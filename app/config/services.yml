@@ -23,5 +23,11 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    user.registration_initialize_subscriber:
+        class: UserBundle\EventListener\RegistrationInitializeSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
 
 

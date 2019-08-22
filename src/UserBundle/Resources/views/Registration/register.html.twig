@@ -12,12 +12,13 @@
 
                         <div class="text-center w-75 m-auto">
                             <a href="#">
-                                <span><img src="{{ asset('global_assets/images/logo.png') }} " alt="" height="22"></span>
+                                <span><img src="{{ asset('global_assets/images/logo.png') }} " alt=""
+                                           height="22"></span>
                             </a>
                             <p class="text-muted mb-4 mt-3">Crée un compte admin</p>
                         </div>
                         {{ parent() }}
-                            {% include "@User/Registration/register_content.html.twig" %}
+                        {% include "@User/Registration/register_content.html.twig" %}
                     </div> <!-- end card-body -->
                 </div>
                 <!-- end card -->
@@ -25,7 +26,8 @@
                 <div class="row mt-3">
                     <div class="col-12 text-center">
                         <p class="text-muted">avez-vous déja un compte ?
-                            <a href="{{ path('fos_user_security_login') }}" class="text-dark ml-1"><b>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</b></a></p>
+                            <a href="{{ path('fos_user_security_login') }}"
+                               class="text-dark ml-1"><b>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</b></a></p>
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->
@@ -37,6 +39,14 @@
     <!-- end container -->
 </div>
 <!-- end page -->
+<script>
+    (function() {
+        x = localStorage.getItem("account_type");
+        document.getElementById("account-type").value = x;
+
+    })();
+
+</script>
 {% endblock fos_user_content %}
 
 

@@ -9,9 +9,12 @@ use BackendBundle\Entity\Product;
 use BackendBundle\Entity\SubCategory;
 use BackendBundle\Entity\Categories;
 
+use BackendBundle\Entity\Type;
 use BackendBundle\Form\MediaType;
 use BackendBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
@@ -38,7 +41,7 @@ class HomeController extends Controller
     public function deleteProductAction(Product $product)
     {
         $em = $this->getDoctrine()->getManager();
-        foreach ($product->getImages() as $image){
+        foreach ($product->getImages() as $image) {
             $product->removeImage($image);
         }
         $em->remove($product);
@@ -46,7 +49,7 @@ class HomeController extends Controller
         return $this->redirectToRoute('front_my_products');
     }
 
-    public function editProductAction(Request $request,Product $product)
+    public function editProductAction(Request $request, Product $product)
     {
         // Set up required variables
         $this->initialise();
@@ -55,12 +58,10 @@ class HomeController extends Controller
         // Build the form
         $form = $this->get('form.factory')->create(ProductType::class, $product);
 
-        if ($request->isMethod('POST'))
-        {
+        if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             // Check form data is valid
-            if ($form->isValid())
-            {
+            if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
 
@@ -69,7 +70,7 @@ class HomeController extends Controller
             }
         }
         $images = $product->getImages()->toArray();
-        return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView(),'images' => $images]);
+        return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView(), 'images' => $images]);
 
     }
 
@@ -84,7 +85,7 @@ class HomeController extends Controller
 
         $categories = $em->getRepository(Categories::class)->findAll();
 
-        return $this->render('@Frontend/Home/index.html.twig', ['categories'=>$categories,'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
@@ -123,7 +124,7 @@ class HomeController extends Controller
         $categories = $em->getRepository(Categories::class)->findAll();
 
 
-        return $this->render('@Frontend/Home/shop.html.twig', ['categories'=>$categories,'publicity' => $publicity, ]);
+        return $this->render('@Frontend/Home/shop.html.twig', ['categories' => $categories, 'publicity' => $publicity,]);
     }
 
     public function wishlistAddAction(Product $product)
@@ -132,7 +133,7 @@ class HomeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $product->addWishlistUser($user);
         $em->flush();
-        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products' => $user->getProductWishlist()]);
 
     }
 
@@ -142,14 +143,14 @@ class HomeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $product->removeWishlistUser($user);
         $em->flush();
-        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products' => $user->getProductWishlist()]);
 
     }
 
     public function WishlistAction(Request $request)
     {
         $user = $this->getUser();
-        return $this->render('@Frontend/Home/wishlist.html.twig', ['products'=>$user->getProductWishlist()]);
+        return $this->render('@Frontend/Home/wishlist.html.twig', ['products' => $user->getProductWishlist()]);
     }
 
     public function accountAction()
@@ -168,7 +169,7 @@ class HomeController extends Controller
         $categories = $em->getRepository(Categories::class)->findAll();
 
 
-        return $this->render('@Frontend/Home/product.html.twig', ['categories'=>$categories,'publicity' => $publicity, 'product' => $productDetails]);
+        return $this->render('@Frontend/Home/product.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'product' => $productDetails]);
     }
 
     public function cartAction()
@@ -186,7 +187,7 @@ class HomeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $media->getProduct()->removeImage($media);
         $em->flush();
-        return $this->redirectToRoute('front_edit_product',['id'=>$media->getProduct()->getId()]);
+        return $this->redirectToRoute('front_edit_product', ['id' => $media->getProduct()->getId()]);
     }
 
     public function checkoutAction()
@@ -194,13 +195,21 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/checkout.html.twig');
     }
 
-
-    public function pricingAction()
+    public function typeAction()
     {
-        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findAll();
+        return $this->render('@Frontend/Home/account_type.html.twig');
+    }
+
+    public function pricingAction($account_type)
+    {
+        if ($account_type == "member") {
+            $for_enterprise = false;
+        } else if ($account_type == "company") {
+            $for_enterprise = true;
+        }
+        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findBy(['forEnterprise' => $for_enterprise]);
 
         return $this->render('@Frontend/Home/pricing.html.twig', ['princings' => $pricings]);
     }
-
 
 }

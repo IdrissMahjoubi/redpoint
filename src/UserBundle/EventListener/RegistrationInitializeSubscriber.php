@@ -10,6 +10,7 @@ namespace UserBundle\EventListener;
 
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -17,7 +18,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use UserBundle\Entity\Company;
 use UserBundle\Entity\Member;
 
-class RegistrationConfirmListener implements EventSubscriberInterface
+class RegistrationInitializeSubscriber implements EventSubscriberInterface
 {
     private $router;
 
@@ -48,16 +49,16 @@ class RegistrationConfirmListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FOSUserEvents::REGISTRATION_CONFIRM  => 'onRegistrationConfirm'
+            FOSUserEvents::REGISTRATION_INITIALIZE  => 'onRegistrationInitialize'
         );
     }
 
 
-    public function onRegistrationConfirm(FilterUserResponseEvent $event)
+    public function onRegistrationInitialize(GetResponseUserEvent $event)
     {
-        $url = $this->router->generate('account_pricing');
+/*        var_dump($event->getResponse(), $event->getRequest(["HTTP_REFERER"]));die();*/
+            /*account-type*/
 
-        $event->setResponse(new RedirectResponse($url));
 
     }
 

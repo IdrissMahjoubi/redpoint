@@ -53,5 +53,9 @@ front_checkout:
     defaults: { _controller: FrontendBundle:Home:checkout }
 
 account_pricing:
-    path:     /pricing
+    path:     /pricing/{account_type}
     defaults: { _controller: FrontendBundle:Home:pricing }
+
+account_type:
+    path:   /type
+    defaults: { _controller: FrontendBundle:Home:type }

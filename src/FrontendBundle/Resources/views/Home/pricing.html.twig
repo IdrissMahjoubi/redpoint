@@ -32,77 +32,37 @@
             <div class="col-sm-12">
                 <div class="plans">
                     <div class="row col-p0">
+                        {% for pricing in princings %}
                         <div class="col-sm-4">
                             <div class="plan plan-basic">
                                 <div class="plan-header">
                                     <h3 class="plan-price">
-                                        <span class="plan-curency">$</span>49<span class="plan-period">/ month</span>
+                                        <span class="plan-curency">$</span>{{ pricing.price }}<span class="plan-period">/ month</span>
                                     </h3>
-                                    <h2 class="plan-title">Basic</h2>
+                                    <h2 class="plan-title">{{ pricing.name }}</h2>
                                 </div>
                                 <div class="clearfix">
                                     <ul class="plan-features">
-                                        <li>Predefined Responses</li>
-                                        <li>Custom Business Rules</li>
-                                        <li>Screencasting</li>
-                                        <li class="plan-feature-off">Business Hours</li>
-                                        <li class="plan-feature-off">Multiple Ticket forms</li>
-                                        <li class="plan-feature-off">Business rules analysis</li>
-                                        <li class="plan-feature-off">Automated Ticket Sharing</li>
+                                        <li>lorem</li>
+
                                     </ul>
                                 </div>
-                                <div class="plan-register"><a href="#">sign up</a></div>
-                            </div>
+                                <button onclick="readValue()" id="account_type" value="{{ pricing.name}}"><a
+                                            href="{{ path('fos_user_registration_register') }}">Create
+                                        account</a></button>                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="plan plan-professional">
-                                <div class="plan-header">
-                                    <p class="plan-popular">Most Popular</p>
-                                    <h3 class="plan-price">
-                                        <span class="plan-curency">$</span>69<span class="plan-period">/ month</span>
-                                    </h3>
-                                    <h2 class="plan-title">Professional</h2>
-                                </div>
-                                <div class="clearfix">
-                                    <ul class="plan-features">
-                                        <li>Predefined Responses</li>
-                                        <li>Custom Business Rules</li>
-                                        <li>Screencasting</li>
-                                        <li>Business Hours</li>
-                                        <li>Multiple Ticket forms</li>
-                                        <li class="plan-feature-off">Business rules analysis</li>
-                                        <li class="plan-feature-off">Automated Ticket Sharing</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-register"><a href="#">30 days free trial</a></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="plan plan-enterprise">
-                                <div class="plan-header">
-                                    <h3 class="plan-price">
-                                        <span class="plan-curency">$</span>99<span class="plan-period">/ month</span>
-                                    </h3>
-                                    <h2 class="plan-title">Enterprise</h2>
-                                </div>
-                                <div class="clearfix">
-                                    <ul class="plan-features">
-                                        <li>Predefined Responses</li>
-                                        <li>Custom Business Rules</li>
-                                        <li>Screencasting</li>
-                                        <li>Business Hours</li>
-                                        <li>Multiple Ticket forms</li>
-                                        <li>Business rules analysis</li>
-                                        <li>Automated Ticket Sharing</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-register"><a href="#">sign up</a></div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+    <script>
+        function readValue() {
+            var x = localStorage.setItem("account_type",document.getElementById("account_type").value);
+        }
+        /*document.getElementById("demo").valueOf()
+        localStorage.setItem('account_type', account_type.value);*/
+    </script>
 {% endblock %}

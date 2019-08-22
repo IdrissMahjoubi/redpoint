@@ -4,6 +4,7 @@
             <div class="col-sm-8">
                 <div class="signup-form"><!--sign up form-->
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+{#
                     <div class="account-type row">
                             <div class="col-sm-3">
                                 <input type="radio" name="account-type" id="company-radio" class="account-type-radio"
@@ -20,6 +21,9 @@
 
                             </div>
                     </div>
+#}
+
+                    <input type="hidden" name="account-type" id="account-type" value="null" />
                     <div class="input-with-icon-left">
                         {{ form_widget(form.username,{ 'attr': {'class' : 'input-text with-border','name' : 'username-register', 'id' : 'username-register','placeholder':'form.username'|trans} }) }}
                     </div>
@@ -45,3 +49,5 @@
                 </div>
             </div>
         </div>
+
+

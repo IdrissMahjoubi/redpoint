@@ -43,10 +43,8 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
         $user->setEnabled(false);
         //$this->em->updateUser($user);
 
-/*        if ($user->getType() == "company")*/
-            $url = $this->router->generate('account_pricing');
-
-        $event->setResponse(new RedirectResponse($url));
+       /* $url = $this->router->generate('account_pricing');
+        $event->setResponse(new RedirectResponse($url));*/
     }
 
 
