@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 
 
+use BackendBundle\Entity\Media;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,6 +25,15 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255)
+     */
+    private $address;
+
+
 
     /**
      * @var \DateTime
@@ -51,6 +61,37 @@ class User extends BaseUser
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
         $this->productWishlist = new ArrayCollection();
+    }
+    /**
+     * @var Media
+     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
+     *
+     */
+    private $image;
+
+    /**
+     * Set image
+     *
+     * @param Media|null $image
+     *
+     * @return User
+     */
+    public function setImage(Media $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \BackendBundle\Entity\Media|null
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function setCreatedAt()
@@ -152,5 +193,21 @@ class User extends BaseUser
     public function getProductWishlist()
     {
         return $this->productWishlist;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
     }
 }

@@ -27,12 +27,16 @@ class Company extends User
      */
     private $companyName;
 
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="about", type="string", length=255)
      */
     private $about;
+
+
 
     /**
      * Get id
@@ -57,6 +61,8 @@ class Company extends User
 
         return $this;
     }
+
+
 
     /**
      * Get companyName

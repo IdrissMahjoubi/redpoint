@@ -209,7 +209,7 @@ class HomeController extends Controller
         }
         $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findBy(['forEnterprise' => $for_enterprise]);
 
-        return $this->render('@Frontend/Home/pricing.html.twig', ['princings' => $pricings]);
+        return $this->render('@Frontend/Home/pricing.html.twig', ['pricings' => $pricings]);
     }
 
 }
