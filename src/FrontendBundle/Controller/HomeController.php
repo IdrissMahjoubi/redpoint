@@ -74,6 +74,10 @@ class HomeController extends Controller
 
     }
 
+    public function getSubCategoriesAction()
+    {
+    }
+
     public function indexAction()
     {
 
@@ -97,7 +101,7 @@ class HomeController extends Controller
         $product = new Product();
 
         // Build the form
-        $form = $this->get('form.factory')->create(ProductType::class, $product);
+        $form = $this->createForm(ProductType::class, $product);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);

@@ -59,3 +59,7 @@ account_pricing:
 account_type:
     path:   /type
     defaults: { _controller: FrontendBundle:Home:type }
+
+get_sub_categories:
+    path:     /get_sub_categories
+    defaults: { _controller: FrontendBundle:Home:getSubCategories }

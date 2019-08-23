@@ -28,21 +28,21 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="{{ path('homepage') }}"><img src="{{ asset('global_assets/images/logo.png') }}" alt="" /></a>
+                        <a href="{{ path('homepage') }}"><img src="{{ asset('global_assets/images/logo.png') }}"
+                                                              alt=""/></a>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> Account</a></li>
-                            {% endif %}
-                            <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
-
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Logout</a></li>
+                                <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> Account</a></li>
+                                <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
                             {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="{{ path('fos_user_registration_register') }}"><i class="fa fa-lock"></i> Register</a></li>
+
                             {% endif %}
 
                         </ul>
@@ -57,7 +57,8 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -66,8 +67,8 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="{{ path('homepage') }}" >Home</a></li>
-                            <li><a href="{{ path('font_shop') }}" >Shops</a></li>
+                            <li><a href="{{ path('homepage') }}">Home</a></li>
+                            <li><a href="{{ path('font_shop') }}">Shops</a></li>
                             <li><a href="{{ path('front_contact') }}">Contact</a></li>
                         </ul>
                     </div>

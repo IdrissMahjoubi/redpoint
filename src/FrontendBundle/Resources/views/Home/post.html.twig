@@ -42,6 +42,13 @@
                                 {{ form_errors(form.categorie) }}
                             </div>
                         </div>
+                        <div class="row form-group">
+                            {{ form_label(form.subCategory, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            <div class="col col-md-10">{{ form_widget(form.subCategory) }}</div>
+                            <div class="form_errors col-md-12">
+                                {{ form_errors(form.subCategory) }}
+                            </div>
+                        </div>
 
                         <div id="filesProto" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"></div>
 
@@ -70,6 +77,24 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script>
+        let $categorie = $('#backendbundle_product_categorie');
+        $categorie.change(function() {
+            let $form = $(this).closest('form');
+            let data = {};
+            data[$categorie.attr('name')] = $categorie.val();
+            $.ajax({
+                url : $form.attr('action'),
+                type: $form.attr('method'),
+                data : data,
+                success: function(html) {
+                    $('#backendbundle_product_subCategory').replaceWith(
+                        $(html).find('#backendbundle_product_subCategory')
+                    );
+                }
+            });
+        });
+    </script>
     <script>
         let fileCount = '{{ form.images|length }}';
         let removeButton = "<button type='button' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";

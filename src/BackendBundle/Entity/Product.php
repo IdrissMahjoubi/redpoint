@@ -3,6 +3,7 @@
 namespace BackendBundle\Entity;
 
 use BackendBundle\Entity\Categories;
+use BackendBundle\Entity\SubCategory;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -61,6 +62,14 @@ class Product
     private $price;
 
     /**
+     * @var SubCategory
+     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\SubCategory")
+     * @ORM\JoinColumn(name="subCategory_id",referencedColumnName="id")
+     *
+     */
+    private $subCategory;
+
+    /**
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Media", mappedBy="product", cascade={"persist","remove"}, orphanRemoval=true)
      */
@@ -74,6 +83,9 @@ class Product
      *
      */
     private $categorie;
+
+
+
 
     /**
      *
@@ -272,5 +284,29 @@ class Product
     public function getWishlistUsers()
     {
         return $this->wishlistUsers;
+    }
+
+    /**
+     * Set subCategory.
+     *
+     * @param SubCategory|null $subCategory
+     *
+     * @return Product
+     */
+    public function setSubCategory(SubCategory $subCategory = null)
+    {
+        $this->subCategory = $subCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get subCategory.
+     *
+     * @return SubCategory|null
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
     }
 }
