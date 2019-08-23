@@ -12,6 +12,7 @@ namespace UserBundle\EventListener;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -37,30 +38,14 @@ class RegistrationSuccessSubscriber implements EventSubscriberInterface
 
     public function onRegistrationSuccess(FormEvent $event)
     {
-        var_dump($event->getRequest()->request->get('account-type'));
-        die();
+        $form = $event->getForm();
+        $user = $form->getData();
 
-        if ($request->get('account-type') == "member") {
-            $member = new Member();
-            $member->loadFromParentObj($user);
-            $member->setType('member');
-            $member->setRoles(['ROLE_MEMBER']);
-            return $member;
-
-        } else if ($request->get('account-type') == 'company') {
-            $company = new Company();
-            $company->loadFromParentObj($user);
-            $company->setType('company');
-            $company->setRoles(['ROLE_COMPANY']);
-            //$response->setTargetUrl($this->router->generate('front_account'));
-            return $company;
-
-
-        } else {
-            dump("fuck");
-            die();
+        if($user->getType() === 'member'){
+            $user->setRoles(['ROLE_MEMBER']);
+        }else{
+            $user->setRoles(['ROLE_COMPANY']);
         }
-
     }
 
 

@@ -78,11 +78,12 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-        let $categorie = $('#backendbundle_product_categorie');
+        var $categorie = $('#backendbundle_product_categorie');
         $categorie.change(function() {
-            let $form = $(this).closest('form');
-            let data = {};
+            var $form = $(this).closest('form');
+            var data = {};
             data[$categorie.attr('name')] = $categorie.val();
+            console.log(data);
             $.ajax({
                 url : $form.attr('action'),
                 type: $form.attr('method'),

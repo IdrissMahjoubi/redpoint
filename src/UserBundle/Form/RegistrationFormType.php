@@ -10,6 +10,7 @@ namespace UserBundle\Form;
 
 
 use BackendBundle\Entity\Pricing;
+use BackendBundle\Form\MediaType;
 use BackendBundle\Form\PricingType;
 use BackendBundle\Repository\PricingRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,21 +24,12 @@ use FOS\UserBundle\Form\Type\RegistrationFormType as BaseRegistrationFormType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
+use UserBundle\Entity\User;
+use UserBundle\Form\EventListener\packageFieldListener;
 
 
 class RegistrationFormType extends AbstractType
 {
-
-    /**
-     * @var EntityRepository
-     */
-    private $repository;
-
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-       $this->repository = $entityManager->getRepository(Pricing::class);
-   }
-
 
     public function getParent()
     {
@@ -47,39 +39,19 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', ChoiceType::class, array('choices' => ['false' => 'Member', 'true' => 'Company'],
-                'expanded' => true,
-                'multiple' => false));
+            ->add('type', ChoiceType::class, array(
+                'multiple' => false,
+                'data' => 'member',
+                'choices' => [
+                    'Company' => 'company',
+                    'Member' => 'member']
+            ))
+            ->add('address')
+            ->add('package')
+            ->add('image', MediaType::class);
 
-        $formModifier = function (FormInterface $form, $type) {
-            $pricing = $this->repository->getPricingByType($type);
-            $form->add('package', EntityType::class, [
-                'class' => 'BackendBundle:Pricing',
-                'choices' => $pricing,
 
-            ]);
-        };
 
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) use ($formModifier) {
-                // this would be your entity, i.e. SportMeetup
-                $type = $event->getData();
 
-                $formModifier($event->getForm(), $type);
-            }
-        );
-
-        $builder->get('type')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) use ($formModifier) {
-                $type = $event->getForm()->getData()->getType();
-
-                $formModifier($event->getForm()->getParent(), $type);
-            }
-        );
     }
-
-
-
 }
