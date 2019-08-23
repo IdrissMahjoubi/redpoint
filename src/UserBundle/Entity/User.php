@@ -5,6 +5,7 @@ namespace UserBundle\Entity;
 
 
 use BackendBundle\Entity\Media;
+use BackendBundle\Entity\Pricing;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,8 +33,6 @@ class User extends BaseUser
      * @ORM\Column(name="address", type="string", length=255)
      */
     private $address;
-
-
 
     /**
      * @var \DateTime
@@ -146,13 +145,12 @@ class User extends BaseUser
     /**
      * @param mixed $type
      */
+
     public function setType($type)
     {
         $this->type = $type;
     }
-    public function __toString(){
-        return $this->getUsername();
-    }
+
 
 
     /**
@@ -210,4 +208,42 @@ class User extends BaseUser
     {
         $this->address = $address;
     }
+
+
+    /**
+     * @var Pricing
+     * Many Images have one (the same) Product
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Pricing", inversedBy="users")
+     * @ORM\JoinColumn(name="pricing_id", referencedColumnName="id")
+     */
+    private $package;
+
+
+
+
+    /**
+     * Set package.
+     *
+     * @param \BackendBundle\Entity\Pricing|null $package
+     *
+     * @return User
+     */
+    public function setPackage(\BackendBundle\Entity\Pricing $package = null)
+    {
+        $this->package = $package;
+
+        return $this;
+    }
+
+    /**
+     * Get package.
+     *
+     * @return \BackendBundle\Entity\Pricing|null
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+
+
 }

@@ -23,7 +23,17 @@
                     </div>
 #}
 
+{#
                     <input type="hidden" name="account-type" id="account-type" value="null" />
+#}
+                    <div class="input-with-icon-left">
+                        {{ form_widget(form.type,{ 'attr': {'name' : 'type-register', 'placeholder':'Type'|trans} }) }}
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        {{ form_widget(form.package,{ 'attr': {'class' : 'input-text with-border','name' : 'package-register', 'id' : 'username-register','placeholder':'Package'|trans} }) }}
+                    </div>
+
                     <div class="input-with-icon-left">
                         {{ form_widget(form.username,{ 'attr': {'class' : 'input-text with-border','name' : 'username-register', 'id' : 'username-register','placeholder':'form.username'|trans} }) }}
                     </div>
@@ -49,5 +59,7 @@
                 </div>
             </div>
         </div>
+
+
 
 

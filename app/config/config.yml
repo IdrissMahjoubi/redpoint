@@ -12,7 +12,10 @@ imports:
 parameters:
     locale: en
 
-
+fos_user:
+    registration:
+        form:
+            type: UserBundle\Form\RegistrationFormType
 framework:
     #esi: ~
     translator: { fallbacks: ["%locale%"] }
