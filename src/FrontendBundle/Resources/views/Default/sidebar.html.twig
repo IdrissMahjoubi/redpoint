@@ -8,7 +8,7 @@
                 {% if category.subCategory|length == 0 %}
                     <div class="panel panel-default">
                     <div class="panel-heading">
-                    <h4 class="panel-title"><a href="{{ path('get_by_category',{'id':company.id}) }}">{{ category.name }}</a></h4>
+                    <h4 class="panel-title"><a href="{{ path('get_by_category',{'id':category.id}) }}">{{ category.name }}</a></h4>
                     </div>
                     </div>
                 {% else %}

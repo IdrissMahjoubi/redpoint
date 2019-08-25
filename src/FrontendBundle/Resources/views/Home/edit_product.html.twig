@@ -54,27 +54,38 @@
                             </div>
                         </div>
 
-                        {{ form_widget(form.images,{'attr':{'hidden':'true'}}) }}
-
-                        <div id="filesProto" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"></div>
-
                         <div class="row form-group">
-                            <div class="col col-xs-12" id="filesBox">
+                            <label class="col-md-2"> add image </label>
+                            <div class="col col-md-10">{{ form_widget(form.images.vars.prototype) }}</div>
+                            <div class="form_errors col-md-12">
+                                {{ form_errors(form.images.vars.prototype) }}
                             </div>
                         </div>
 
-                        <div class="row form-group">
-                        {% for image in images %}
-                            <div class="col col-xs-3">
-                                    <div class="profile-pic">
-                                    <img height="100" width="100" src="{{ asset('uploads/'~ image.url) }}" alt="">
-                                        <div class="edit">
-                                            <a style="cursor: pointer;" onclick="Confirm('Delete Photo', 'Are you sure you want to delete this photo ?', 'Yes', 'Cancel', '{{ path('delete_image',{ 'id': image.id }) }}') ;return false;" ><i class="fa fa-times fa-2x"></i></a>
-                                        </div>
 
+                        <div id="image-fields-list"
+                             class="row form-group"
+                            data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"
+                            data-widget-tags="{{ '<li></li>'|e }}">
+                            {% for image in form.images %}
+                                <div class="col col-xs-3">
+                                    {{ form_errors(image) }}
+                                    <div class="profile-pic">
+                                    <img height="100" width="100" src="{{ asset('uploads/'~ image.vars.data.url) }}" alt="">
+                                    <div class="delete">
+                                    <a onclick="Confirm('Delete Photo', 'Are you sure you want to delete this photo ?', 'Yes', 'Cancel', '{{ path('delete_image',{ 'id': image.vars.data.id }) }}') ;return false;" ><i class="fa fa-times fa-2x"></i></a>
                                     </div>
-                            </div>
-                        {%  endfor %}
+                                        <div class="edit">
+                                               <a> <i class="fa fa-edit fa-2x"></i>
+                                                {{ form_widget(image,{ 'attr': {'name' : 'myFile'}}) }}
+                                               </a>
+                                        </div>
+                                    </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
+
+
                         </div>
 
                         {# Submit part #}
@@ -91,73 +102,10 @@
                     </div><!--/login form-->
                 </div>
             </div>
-        </div>
     </section><!--/form-->
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script>
-
-        let fileCount = '{{ form.images|length }}';
-        let removeButton = "<button type='button' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";
-
-        function removeFile(ob)
-        {
-            ob.parent().parent().remove();
-        }
-
-        function createAddFile(fileCount)
-        {
-            let newWidget = $("#filesProto").attr('data-prototype'), hideStuff, fileName;
-
-            newWidget = newWidget.replace(/__name__/g, fileCount);
-
-            newWidget = "<div style='display:none'>" + newWidget + "</div>";
-
-            hideStuff = "";
-            hideStuff += "<div class='col col-xs-1' id='jsRemove" + fileCount + "' style='display: none;'>";
-            hideStuff += removeButton;
-            hideStuff += "</div>";
-
-            hideStuff += "<div class='col col-xs-11' id='jsPreview" + fileCount + "'>";
-            hideStuff += "</div>";
-
-            hideStuff += "<div class='col col-xs-12'>";
-            hideStuff += "<button type='button' id='jsBtnUpload" + fileCount + "' class='btn btn-warning'>";
-            hideStuff += "<i class='fa fa-plus'></i> Images";
-            hideStuff += "</button>";
-            hideStuff += "</div>";
-
-            $("#filesBox").append("<div class='row'>" + hideStuff + newWidget + "</div>");
-
-            // On click => Simulate file behaviour
-            $("#jsBtnUpload" + fileCount).on('click', function(e){
-                $('#backendbundle_product_images_' + fileCount + '_file').trigger('click');
-            });
-
-            // Once the file is added
-            $('#backendbundle_product_images_' + fileCount + '_file').on('change', function() {
-                // Show its name
-                fileName = $(this).prop('files')[0].name;
-                $("#jsPreview" + fileCount).append(fileName);
-                // Hide the add file button
-                $("#jsBtnUpload" + fileCount).hide();
-                // Show the remove file button
-                $("#jsRemove" + fileCount).show();
-
-                // Create another instance of add file button and company
-                createAddFile(parseInt(fileCount)+1);
-            });
-        }
-
-        $(document).ready(function(){
-            createAddFile(fileCount);
-            fileCount++;
-        });
-
-
-    </script>
-
     <script src="{{ asset('assets/js/confirmation.js') }}"></script>
 {% endblock %}

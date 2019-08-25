@@ -2544,8 +2544,10 @@ h2.title {
 .profile-pic:hover .edit {
   display: block;
 }
-
-.edit {
+.profile-pic:hover .delete {
+  display: block;
+}
+.delete {
   padding-top: 7px;
   padding-right: 7px;
   position: absolute;
@@ -2554,6 +2556,31 @@ h2.title {
   display: none;
 }
 
+.edit {
+  float: left;
+  padding-top: 7px;
+  padding-left: 7px;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
 .edit a {
+  overflow: hidden;
+  display: inline-block;
   color: #e74c3c;
+}
+
+.delete a {
+  color: #e74c3c;
+  cursor: pointer;
+
+}
+
+.edit input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
 }

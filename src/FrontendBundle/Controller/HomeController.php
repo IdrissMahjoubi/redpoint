@@ -31,7 +31,6 @@ class HomeController extends Controller
     {
         $this->entityManager = $this->getDoctrine()->getManager();
         $this->repository = $this->entityManager->getRepository('BackendBundle:Product');
-        $this->translator = $this->get('translator');
     }
 
     public function myProductAction()
@@ -56,12 +55,9 @@ class HomeController extends Controller
 
     public function editProductAction(Request $request, Product $product)
     {
-        // Set up required variables
-        $this->initialise();
-
 
         // Build the form
-        $form = $this->get('form.factory')->create(ProductType::class, $product);
+        $form = $this->createForm(ProductType::class, $product);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -74,8 +70,7 @@ class HomeController extends Controller
                 return $this->redirectToRoute('front_my_products');
             }
         }
-        $images = $product->getImages()->toArray();
-        return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView(), 'images' => $images]);
+        return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView()]);
 
     }
 
