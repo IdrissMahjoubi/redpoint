@@ -17,6 +17,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\Company;
+use UserBundle\Entity\User;
 
 class HomeController extends Controller
 {
@@ -35,7 +37,9 @@ class HomeController extends Controller
     public function myProductAction()
     {
         $em = $this->getDoctrine();
-        $products = $em->getRepository(Product::class)->findAll();
+        $user = $this->getUser();
+
+        $products = $em->getRepository(Product::class)->findBy(['user'=>$user]);
         return $this->render('@Frontend/Home/my_products.html.twig', ['products' => $products]);
     }
 
@@ -73,6 +77,29 @@ class HomeController extends Controller
         $images = $product->getImages()->toArray();
         return $this->render('@Frontend/Home/edit_product.html.twig', ['form' => $form->createView(), 'images' => $images]);
 
+    }
+
+    public function getByCategoryAction(Categories $category)
+    {
+        $em = $this->getDoctrine();
+        $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+        $categories = $em->getRepository(Categories::class)->findAll();
+        $products = $em->getRepository(Product::class)->findBy(['categories'=>$category]);
+
+        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+
+    }
+
+    public function getBySubCategoryAction(SubCategory $subCategory)
+    {
+        $em = $this->getDoctrine();
+        $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+        $categories = $em->getRepository(Categories::class)->findAll();
+        $products = $em->getRepository(Product::class)->findBy(['subCategory'=>$subCategory]);
+
+        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function getSubCategoriesAction()
@@ -126,11 +153,10 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
-        $companies = $em->getRepository(UserController::class)->findOneBy(['type' => 'publicity']);
+        $companies = $em->getRepository(Company::class)->findAll();
         $categories = $em->getRepository(Categories::class)->findAll();
 
-
-        return $this->render('@Frontend/Home/shop.html.twig', ['categories' => $categories, 'publicity' => $publicity,]);
+        return $this->render('@Frontend/Home/shop.html.twig', ['companies'=>$companies,'categories' => $categories, 'publicity' => $publicity]);
     }
 
     public function wishlistAddAction(Product $product)
@@ -176,6 +202,16 @@ class HomeController extends Controller
 
 
         return $this->render('@Frontend/Home/product.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'product' => $productDetails]);
+    }
+
+    public function productsByShopAction(Company $company)
+    {
+        $em = $this->getDoctrine();
+        $products = $em->getRepository(Product::class)->findBy(['user' => $company]);
+        $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+
+        return $this->render('@Frontend/Home/company_products.html.twig', ['products' => $products, 'publicity' => $publicity]);
+
     }
 
     public function cartAction()

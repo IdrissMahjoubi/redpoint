@@ -32,6 +32,10 @@ front_my_products:
     path:     /my_products
     defaults: { _controller: FrontendBundle:Home:myProduct }
 
+front_products_by_shop:
+    path:     /products_by_shop/{id}
+    defaults: { _controller: FrontendBundle:Home:productsByShop }
+
 front_delete_product:
     path:     /delete_product/{id}
     defaults: { _controller: FrontendBundle:Home:deleteProduct }
@@ -63,3 +67,10 @@ account_type:
 get_sub_categories:
     path:     /get_sub_categories
     defaults: { _controller: FrontendBundle:Home:getSubCategories }
+
+get_by_category:
+    path:     /get_by_category/{id}
+    defaults: { _controller: FrontendBundle:Home:getByCategory }
+get_by_sub_category:
+    path:     /get_by_sub_category/{id}
+    defaults: { _controller: FrontendBundle:Home:getBySubCategory }
