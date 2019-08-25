@@ -2,8 +2,13 @@ fos_user_registration_override:
     path: /register
     defaults: { _controller: UserBundle:Registration:register }
 
+profile_show:
+    path:     profile/show/
+    defaults: { _controller: UserBundle:Profile:show}
+
 profile_edit:
     path:     profile/edit/
-    defaults: { _controller: fos_user.profile.controller:editAction}
+    defaults: { _controller: UserBundle:Profile:edit}
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
