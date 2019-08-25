@@ -80,7 +80,7 @@ class HomeController extends Controller
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
         $categories = $em->getRepository(Categories::class)->findAll();
-        $products = $em->getRepository(Product::class)->findBy(['categories'=>$category]);
+        $products = $em->getRepository(Product::class)->findBy(['categorie'=>$category]);
 
         return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
 
