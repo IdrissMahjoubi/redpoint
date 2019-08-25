@@ -17,23 +17,22 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    user.registration_success_subscriber:
-        class: UserBundle\EventListener\RegistrationSuccessSubscriber
-        arguments: ['@router']
-        tags:
-            - { name: kernel.event_subscriber }
+#    user.registration_success_subscriber:
+#        class: UserBundle\EventListener\RegistrationSuccessSubscriber
+#        arguments: ['@router']
+#        tags:
+#            - { name: kernel.event_subscriber }
+#
+#    user.registration_initialize_subscriber:
+#        class: UserBundle\EventListener\RegistrationInitializeSubscriber
+#        arguments: ['@router']
+#        tags:
+#            - { name: kernel.event_subscriber }
 
-    user.registration_initialize_subscriber:
-        class: UserBundle\EventListener\RegistrationInitializeSubscriber
-        arguments: ['@router']
-        tags:
-            - { name: kernel.event_subscriber }
-
-
-    user.form.registration:
-        class: UserBundle\Form\RegistrationFormType
-        tags:
-            - { name: form.type }
+#    user.form.registration:
+#        class: UserBundle\Form\RegistrationFormType
+#        tags:
+#            - { name: form.type }
 
 
 

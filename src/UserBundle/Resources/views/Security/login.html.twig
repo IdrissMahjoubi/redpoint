@@ -1,22 +1,6 @@
 {% extends '@User/layout.html.twig' %}
 {% block fos_user_content %}
-    {{ parent() }}
-    <section id="form"><!--form-->
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 offset-xl-3">
-                    <div class="login-form">
-                        <h2>Login to your account</h2>
                         {% include('@User/Security/login_content.html.twig') %}
-                    </div>
-                    <span>Don't have an account?
-                        <a href="{{ path('account_type') }}">Sign Up!</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section><!--/form-->
-
 {% endblock fos_user_content %}
 
 

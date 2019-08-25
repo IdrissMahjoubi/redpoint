@@ -13,7 +13,7 @@ class Company extends User
 {
     public function loadFromParentObj( $parentObj )
     {
-        $objValues = get_object_vars($parentObj); // return array of object values
+        $objValues = get_object_vars($parentObj);
         foreach($objValues AS $key=>$value)
         {
             $this->$key = $value;
@@ -38,15 +38,7 @@ class Company extends User
 
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+
 
     /**
      * Set companyName

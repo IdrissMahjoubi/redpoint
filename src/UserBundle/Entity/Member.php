@@ -12,8 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Member extends User
 {
 
-
-    public function loadFromParentObj( $parentObj )
+    public function loadFromParentObj($parentObj )
     {
         $objValues = get_object_vars($parentObj);
         foreach($objValues AS $key=>$value)
@@ -38,15 +37,7 @@ class Member extends User
     private $lastName;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+
 
     /**
      * Set firstName

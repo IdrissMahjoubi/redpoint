@@ -46,6 +46,13 @@
                                 {{ form_errors(form.categorie) }}
                             </div>
                         </div>
+                        <div class="row form-group">
+                            {{ form_label(form.subCategory, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            <div class="col col-md-10">{{ form_widget(form.subCategory) }}</div>
+                            <div class="form_errors col-md-12">
+                                {{ form_errors(form.subCategory) }}
+                            </div>
+                        </div>
 
                         {{ form_widget(form.images,{'attr':{'hidden':'true'}}) }}
 

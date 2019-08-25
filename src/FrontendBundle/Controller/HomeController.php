@@ -2,6 +2,7 @@
 
 namespace FrontendBundle\Controller;
 
+use BackendBundle\Controller\UserController;
 use BackendBundle\Entity\Gallery;
 use BackendBundle\Entity\Media;
 use BackendBundle\Entity\Pricing;
@@ -125,6 +126,7 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+        $companies = $em->getRepository(UserController::class)->findOneBy(['type' => 'publicity']);
         $categories = $em->getRepository(Categories::class)->findAll();
 
 

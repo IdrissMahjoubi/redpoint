@@ -27,6 +27,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use UserBundle\Entity\Company;
+use UserBundle\Entity\Member;
+use UserBundle\Entity\User;
+use UserBundle\Form\UserType;
 
 /**
  * Controller managing the registration.
@@ -36,19 +40,6 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
  */
 class RegistrationController extends Controller
 {
-    private $eventDispatcher;
-    private $formFactory;
-    private $userManager;
-    private $tokenStorage;
-
-    public function __construct(EventDispatcherInterface $eventDispatcher, FactoryInterface $formFactory, UserManagerInterface $userManager, TokenStorageInterface $tokenStorage)
-    {
-        $this->eventDispatcher = $eventDispatcher;
-        $this->formFactory = $formFactory;
-        $this->userManager = $userManager;
-        $this->tokenStorage = $tokenStorage;
-    }
-
     /**
      * @param Request $request
      *
@@ -56,45 +47,30 @@ class RegistrationController extends Controller
      */
     public function registerAction(Request $request)
     {
-        $user = $this->userManager->createUser();
+        $em = $this->getDoctrine()->getManager();
+        $user = new User();
         $user->setEnabled(false);
 
-        $event = new GetResponseUserEvent($user, $request);
-        $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
-
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
-
-        $form = $this->formFactory->createForm();
-        $form->setData($user);
-
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $event = new FormEvent($form, $request);
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+            if($user->getType() === 'member'){
+                $member = new Member();
+                $member->loadFromParentObj($user);
+                $member->setRoles(['ROLE_MEMBER']);
+                $em->persist($member);
+                $em->flush();
+            }else{
+                $company = new Company();
+                $company->loadFromParentObj($user);
+                $company->setRoles(['ROLE_COMPANY']);
+                $em->persist($company);
+                $em->flush();
 
-
-                $this->userManager->updateUser($user);
-
-                if (null === $response = $event->getResponse()) {
-                    $url = $this->generateUrl('fos_user_registration_confirmed');
-                    $response = new RedirectResponse($url);
-                }
-
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-                return $response;
             }
 
-            $event = new FormEvent($form, $request);
-            $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
-
-            if (null !== $response = $event->getResponse()) {
-                return $response;
-            }
+            return $this->redirectToRoute('fos_user_registration_confirmed');
         }
 
         return $this->render('@FOSUser/Registration/register.html.twig', array(

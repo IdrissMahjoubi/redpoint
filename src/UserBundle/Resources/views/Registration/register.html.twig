@@ -1,43 +1,13 @@
 {% extends '@User/layout.html.twig' %}
 {% block fos_user_content %}
-<body class="authentication-bg">
 
-<div class="account-pages mt-5 mb-5">
+<section id="form"><!--form-->
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="card">
-
-                    <div class="card-body p-4">
-
-                        <div class="text-center w-75 m-auto">
-                            <a href="#">
-                                <span><img src="{{ asset('global_assets/images/logo.png') }} " alt=""
-                                           height="22"></span>
-                            </a>
-                            <p class="text-muted mb-4 mt-3">Crée un compte admin</p>
-                        </div>
+        <div class="row">
                         {% include "@User/Registration/register_content.html.twig" %}
-                    </div> <!-- end card-body -->
-                </div>
-                <!-- end card -->
-
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <p class="text-muted">avez-vous déja un compte ?
-                            <a href="{{ path('fos_user_security_login') }}"
-                               class="text-dark ml-1"><b>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</b></a></p>
-                    </div> <!-- end col -->
-                </div>
-                <!-- end row -->
-
-            </div> <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
-    <!-- end container -->
-</div>
-<!-- end page -->
+</section>
 
 {% endblock fos_user_content %}
 
