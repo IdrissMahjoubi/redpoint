@@ -209,6 +209,7 @@ class HomeController extends Controller
 
     }
 
+
     public function cartAction()
     {
         return $this->render('@Frontend/Home/cart.html.twig');

@@ -64,6 +64,7 @@ account_type:
     path:   /type
     defaults: { _controller: FrontendBundle:Home:type }
 
+
 add_image:
     path:   /add_image/{id}
     defaults: { _controller: FrontendBundle:Home:type }
