@@ -37,7 +37,9 @@ class HomeController extends Controller
     public function myProductAction()
     {
         $em = $this->getDoctrine();
-        $products = $em->getRepository(Product::class)->findAll();
+        $user = $this->getUser();
+
+        $products = $em->getRepository(Product::class)->findBy(['user'=>$user]);
         return $this->render('@Frontend/Home/my_products.html.twig', ['products' => $products]);
     }
 
