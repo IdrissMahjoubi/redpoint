@@ -15,24 +15,16 @@
                 <div class="col-sm-8 padding-right">
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Features Items</h2>
-
+                            {% for company in companies %}
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('assets/images/shop/product12.jpg') }}" alt=""/>
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </div>
+                                        <img src="{{ asset('uploads/'~company.image.url)}}" alt="">
+                                        <h2>{{  company.companyName}}</h2>
+                                        <p>{{ company.about}}</p>
+                                        <a href="{{ path('front_products_by_shop',{'id':company.id}) }}" class="btn btn-default add-to-cart"><i
+                                                    class="fa fa-shopping-cart"></i>go to products</a>
                                     </div>
                                 </div>
                                 <div class="choose">
@@ -43,6 +35,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div><!--features_items-->
                     <ul class="pagination">
                         <li class="active"><a href="">1</a></li>
