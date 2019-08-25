@@ -32,26 +32,26 @@ class User extends BaseUser
      *
      * @ORM\Column(name="address", type="string", length=255,nullable=true)
      */
-    private $address;
+    protected $address;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="upated_at", type="datetime")
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity="BackendBundle\Entity\Product", inversedBy="wishlistUsers")
      */
-    private $productWishlist;
+    protected $productWishlist;
 
     public function __construct()
     {
@@ -67,7 +67,7 @@ class User extends BaseUser
      * @ORM\JoinColumn(name="image_id",referencedColumnName="id")
      *
      */
-    private $image;
+    protected $image;
 
     /**
      * Set image
@@ -216,7 +216,7 @@ class User extends BaseUser
      * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\Pricing", inversedBy="users")
      * @ORM\JoinColumn(name="pricing_id", referencedColumnName="id")
      */
-    private $package;
+    protected $package;
 
 
 
