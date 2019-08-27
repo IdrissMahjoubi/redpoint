@@ -60,6 +60,7 @@ class User extends BaseUser
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
         $this->productWishlist = new ArrayCollection();
+
     }
     /**
      * @var Media

@@ -24,4 +24,19 @@ class UserController extends Controller
 
         return $this->render('@Backend/Users/members_show.html.twig',['users' => $users]);
     }
+
+    public function enableUserAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if ($user instanceof Company) {
+                $user->setEnabled(!$user->isEnabled());
+                $em->flush();
+            return $this->redirectToRoute('users_show_companies');
+        }
+        $user->setEnabled(!$user->isEnabled());
+        $em->flush();
+        return $this->redirectToRoute('users_show_members');
+
+    }
+
 }

@@ -11,6 +11,7 @@
 
 namespace UserBundle\Controller;
 
+use BackendBundle\Entity\Pricing;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -50,7 +51,6 @@ class RegistrationController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = new User();
         $user->setEnabled(false);
-
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

@@ -43,12 +43,8 @@ class Pricing
      */
     private $advantages;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="level", type="integer")
-     */
-    private $level;
+
+
 
     /**
      * @var bool
@@ -140,29 +136,7 @@ class Pricing
         return $this->advantages;
     }
 
-    /**
-     * Set level
-     *
-     * @param integer $level
-     *
-     * @return Pricing
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
 
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return int
-     */
-    public function getLevel()
-    {
-        return $this->level;
-    }
 
     /**
      * Set forEnterprise

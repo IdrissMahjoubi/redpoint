@@ -2,52 +2,41 @@
 
 {% block body %}
     <div class="card-body">
-        <h4 class="header-title">Companies List</h4>
+        <h4 class="header-title">Contact</h4>
 
         <div class="table-responsive mt-3">
             <table class="table table-hover table-centered mb-0">
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>E-mail</th>
-                    <th>profile picture</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>advantages</th>
                     <th>action</th>
                 </tr>
                 </thead>
 
 
                 <tbody>
-                {% for item in users %}
+                {% for item in pricing %}
                     <tr>
                         <td>
-                            {{ item.id }}
+                            {{ item.name }}
                         </td>
 
                         <td>
-                            {{ item.username }}
+                            {{ item.price }}
                         </td>
 
                         <td>
-                            {{ item.email }}
+                            {{ item.advantages }}
                         </td>
-                        <td>
-                            <img src="{{ asset('/uploads/'~ item.image.url)  }}" alt="contact-img" height="40" width="40" title="contact-img" class="rounded-circle float-left mr-2">
-                        </td>
-
 
 
                         <td>
                             <div class="btn-group dropdown">
                                 <a href="javascript: void(0);" class="dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="{{ path('enable_user',{ 'id': item.id }) }}"><i class="mdi mdi-pencil mr-1 text-muted"></i>
-                                        {% if item.enabled == true %}
-                                            Disable
-                                        {% else %}
-                                            Enable
-                                        {% endif %}
-                                    </a>
+                                    <a class="dropdown-item" href="{{ path('pricing_edit',{ 'id': item.id}) }}"><i class="mdi mdi-pencil mr-1 text-muted"></i>Edit</a>
                                 </div>
                             </div>
                         </td>

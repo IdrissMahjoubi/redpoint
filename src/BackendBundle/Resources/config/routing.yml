@@ -25,6 +25,13 @@ contact_edit:
     path:     contact/edit/{id}/
     defaults: { _controller: BackendBundle:Contact:editContact}
 
+pricing_show:
+    path:     pricing/show/{for_enterprise}
+    defaults: { _controller: BackendBundle:Pricing:showPricing}
+pricing_edit:
+    path:     pricing/edit/{id}/
+    defaults: { _controller: BackendBundle:Pricing:editPricing}
+
 about:
     path:     about/
     defaults: { _controller: BackendBundle:About:About}
@@ -119,7 +126,9 @@ users_show_companies:
 users_show_members:
     path:     users/members/show/
     defaults: { _controller: BackendBundle:User:showUsersMembers}
-
+enable_user:
+    path:     users/enable/{id}
+    defaults: { _controller: BackendBundle:User:enableUser}
 
 
 categories_add:

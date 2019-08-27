@@ -13,7 +13,7 @@ class PricingType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('price')->add('name')->add('advantages')->add('level')->add('forEnterprise');
+        $builder->add('price')->add('name')->add('advantages')->add('forEnterprise');
     }/**
      * {@inheritdoc}
      */

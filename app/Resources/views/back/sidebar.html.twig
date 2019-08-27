@@ -64,6 +64,22 @@
 
                 <li>
                     <a href="javascript: void(0);">
+                        <i class="mdi mdi-contacts"></i>
+                        <span> Pricing </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ url('pricing_show',{'for_enterprise':'1'}) }}">Company</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('pricing_show',{'for_enterprise':'0'}) }}">Member</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
                         <i class="mdi mdi-image-multiple"></i>
                         <span> Slider </span>
                         <span class="menu-arrow"></span>

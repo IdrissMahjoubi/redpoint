@@ -29,10 +29,8 @@ services:
 #        tags:
 #            - { name: kernel.event_subscriber }
 
-#    user.form.registration:
-#        class: UserBundle\Form\RegistrationFormType
-#        tags:
-#            - { name: form.type }
-
+    UserBundle\Form\UserType:
+        arguments: ['@doctrine.orm.entity_manager']
+        tags: [form.type]
 
 

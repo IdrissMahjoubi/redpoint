@@ -14,9 +14,7 @@ class PricingRepository extends \Doctrine\ORM\EntityRepository
     public function getPricingByType($type)
     {
         $dql = "SELECT p FROM BackendBundle\Entity\Pricing p WHERE p.forEnterprise = '". $type . "'";
-        $packages = $this->getEntityManager()->createQuery(
-            $dql)->getResult();
-
+        $packages = $this->getEntityManager()->createQuery($dql)->getResult();
         return $packages;
     }
 }
