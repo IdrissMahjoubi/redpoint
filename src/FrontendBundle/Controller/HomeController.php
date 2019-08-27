@@ -38,7 +38,7 @@ class HomeController extends Controller
         $em = $this->getDoctrine();
         $user = $this->getUser();
 
-        $products = $em->getRepository(Product::class)->findBy(['user'=>$user]);
+        $products = $em->getRepository(Product::class)->findBy(['owner'=>$user]);
         return $this->render('@Frontend/Home/my_products.html.twig', ['products' => $products]);
     }
 
@@ -97,10 +97,6 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
-    public function getSubCategoriesAction()
-    {
-    }
-
     public function indexAction()
     {
 
@@ -119,7 +115,14 @@ class HomeController extends Controller
     {
         // Set up required variables
         $this->initialise();
+        $user = $this->getUser();
+        if($user instanceof User){
+            $NumberOfProductsLeft=$user->getNumberOfProductsLeft();
+        }
 
+        if (isset($NumberOfProductsLeft) && $NumberOfProductsLeft === 0){
+            return $this->redirectToRoute('upgrade');
+        }
         // New object
         $product = new Product();
 
@@ -131,7 +134,7 @@ class HomeController extends Controller
             // Check form data is valid
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $product->setUser($this->getUser());
+                $product->setOwner($user);
                 $em->persist($product);
                 $em->flush();
 
@@ -139,7 +142,7 @@ class HomeController extends Controller
                 return $this->redirectToRoute('homepage');
             }
         }
-        return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView()]);
+        return $this->render('@Frontend/Home/post.html.twig', ['form' => $form->createView(),'NumberOfProductsLeft' => $NumberOfProductsLeft]);
 
     }
 
@@ -183,8 +186,11 @@ class HomeController extends Controller
     public function accountAction()
     {
         $user = $this->getUser();
-        return $this->render('@Frontend/Home/account.html.twig', ['user' => $user]);
+        if($user instanceof User){
+            $NumberOfProductsLeft=$user->getNumberOfProductsLeft();
+        }
 
+        return $this->render('@Frontend/Home/account.html.twig', ['user' => $user,'NumberOfProductsLeft'=>$NumberOfProductsLeft]);
     }
 
     public function productAction(Product $product)
@@ -202,7 +208,7 @@ class HomeController extends Controller
     public function productsByShopAction(Company $company)
     {
         $em = $this->getDoctrine();
-        $products = $em->getRepository(Product::class)->findBy(['user' => $company]);
+        $products = $em->getRepository(Product::class)->findBy(['owner' => $company]);
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
 
         return $this->render('@Frontend/Home/company_products.html.twig', ['products' => $products, 'publicity' => $publicity]);
@@ -236,6 +242,20 @@ class HomeController extends Controller
     public function typeAction()
     {
         return $this->render('@Frontend/Home/account_type.html.twig');
+    }
+
+    public function upgradeAction()
+    {
+        $user = $this->getUser();
+        if($user instanceof Company)
+        {
+            $for_enterprise='true';
+        }else{
+            $for_enterprise='false';
+        }
+        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findBy(['forEnterprise' => $for_enterprise]);
+
+        return $this->render('@Frontend/Home/upgrade.html.twig',['pricings' => $pricings]);
     }
 
     public function pricingAction($account_type)

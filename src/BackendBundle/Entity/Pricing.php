@@ -30,6 +30,31 @@ class Pricing
     private $price;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="numberOfPosts", type="integer")
+     */
+    private $numberOfPosts;
+
+    /**
+     * @return int
+     */
+    public function getNumberOfPosts()
+    {
+        return $this->numberOfPosts;
+    }
+
+    /**
+     * @param int $numberOfPosts
+     */
+    public function setNumberOfPosts($numberOfPosts)
+    {
+        $this->numberOfPosts = $numberOfPosts;
+    }
+
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)

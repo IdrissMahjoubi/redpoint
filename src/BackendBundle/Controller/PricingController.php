@@ -34,8 +34,8 @@ class PricingController extends Controller
         {
 
             $this->getDoctrine()->getManager()->flush();
-
-            {return $this->redirectToRoute('pricing_show');}
+            $redirectParam = $pricing->getForEnterprise() ? 'true' : 'false';
+            {return $this->redirectToRoute('pricing_show',['for_enterprise'=>$redirectParam]);}
         }
 
         return $this->render('@Backend/Pricing/pricing_edit.html.twig', array(

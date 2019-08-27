@@ -64,6 +64,9 @@ account_type:
     path:   /type
     defaults: { _controller: FrontendBundle:Home:type }
 
+upgrade:
+    path: /upgrade
+    defaults: {_controller: FrontendBundle:Home:upgrade}
 
 add_image:
     path:   /add_image/{id}

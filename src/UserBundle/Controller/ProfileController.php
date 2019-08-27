@@ -15,8 +15,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
+use UserBundle\Entity\Company;
+use UserBundle\Entity\Member;
 use UserBundle\Form\CompanyType;
 use UserBundle\Form\MemberType;
+use UserBundle\Form\UserType;
 
 class ProfileController extends Controller
 {
@@ -42,35 +45,33 @@ class ProfileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
-        if (in_array('ROLE_MEMBER',$user->getRoles()))
+
+        if ($user->hasRole('ROLE_MEMBER'))
         {
             $form = $this->createForm(MemberType::class, $user);
-            $form->setData($user);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $em->persist($user);
-                $em->flush();
+               // $em->persist($user);
+               // $em->flush();
 
             }
 
         }
-        else if (in_array('ROLE_COMPANY',$user->getRoles()))
+        else if ($user->hasRole('ROLE_COMPANY'))
         {
             $form = $this->createForm(CompanyType::class, $user);
-            $form->setData($user);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $em->persist($user);
-                $em->flush();
-
+//                $em->persist($user);
+//                $em->flush();
             }
+
+        }else{
+            $form = $this->createForm(UserType::class, $user);
 
         }
 

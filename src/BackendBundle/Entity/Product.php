@@ -62,8 +62,8 @@ class Product
     private $price;
 
     /**
-     * @var SubCategory
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\SubCategory")
+     *
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\SubCategory" )
      * @ORM\JoinColumn(name="subCategory_id",referencedColumnName="id")
      *
      */
@@ -75,6 +75,13 @@ class Product
      */
     private $images;
 
+    /**
+     * Many Images have one (the same) Product
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="products")
+     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private $owner;
+
 
     /**
      *
@@ -83,17 +90,6 @@ class Product
      *
      */
     private $categorie;
-
-
-
-
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User",cascade={"persist"} )
-     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
-     *
-     */
-    private $user;
 
 
     /**
@@ -217,31 +213,6 @@ class Product
 
 
 
-    /**
-     * Set user.
-     *
-     * @param \UserBundle\Entity\User|null $user
-     *
-     * @return Product
-     */
-    public function setUser(\UserBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-
-    /**
-     * Get user.
-     *
-     * @return \UserBundle\Entity\User|null
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
 
 
     /**
@@ -286,14 +257,39 @@ class Product
         return $this->wishlistUsers;
     }
 
+
     /**
-     * Set subCategory.
+     * Set owner.
      *
-     * @param SubCategory|null $subCategory
+     * @param \UserBundle\Entity\User|null $owner
      *
      * @return Product
      */
-    public function setSubCategory(SubCategory $subCategory = null)
+    public function setOwner(\UserBundle\Entity\User $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner.
+     *
+     * @return \UserBundle\Entity\User|null
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * Set subCategory.
+     *
+     * @param \BackendBundle\Entity\SubCategory|null $subCategory
+     *
+     * @return Product
+     */
+    public function setSubCategory(\BackendBundle\Entity\SubCategory $subCategory = null)
     {
         $this->subCategory = $subCategory;
 
@@ -303,7 +299,7 @@ class Product
     /**
      * Get subCategory.
      *
-     * @return SubCategory|null
+     * @return \BackendBundle\Entity\SubCategory|null
      */
     public function getSubCategory()
     {

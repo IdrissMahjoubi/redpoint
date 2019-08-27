@@ -60,7 +60,6 @@ class User extends BaseUser
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
         $this->productWishlist = new ArrayCollection();
-
     }
     /**
      * @var Media
@@ -69,6 +68,12 @@ class User extends BaseUser
      *
      */
     protected $image;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="BackendBundle\Entity\Product", mappedBy="owner", cascade={"persist","remove"}, orphanRemoval=true)
+     */
+    private $products;
 
     /**
      * Set image
@@ -246,5 +251,58 @@ class User extends BaseUser
         return $this->package;
     }
 
+
+
+    /**
+     * Add product.
+     *
+     * @param \BackendBundle\Entity\Product $product
+     *
+     * @return User
+     */
+    public function addProduct(\BackendBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product.
+     *
+     * @param \BackendBundle\Entity\Product $product
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeProduct(\BackendBundle\Entity\Product $product)
+    {
+        return $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public function getNumberOfProducts()
+    {
+        return count( $this->products->toArray());
+    }
+
+    public function getNumberOfProductsLeft()
+    {
+        $allowed = $this->package->getNumberOfPosts();
+        $userHas = count( $this->products->toArray());
+        return $allowed - $userHas;
+    }
 
 }

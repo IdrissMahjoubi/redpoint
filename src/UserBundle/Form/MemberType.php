@@ -5,9 +5,14 @@ namespace UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use UserBundle\Form\UserType as BaseUserFormType;
 
 class MemberType extends AbstractType
 {
+    public function getParent()
+    {
+        return BaseUserFormType::class;
+    }
     /**
      * {@inheritdoc}
      */
