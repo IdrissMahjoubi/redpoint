@@ -31,6 +31,9 @@ pricing_show:
 pricing_edit:
     path:     pricing/edit/{id}/
     defaults: { _controller: BackendBundle:Pricing:editPricing}
+change_package:
+    path:     change_package/{id}/{pricing}
+    defaults: { _controller: BackendBundle:User:upgradeUser}
 
 about:
     path:     about/

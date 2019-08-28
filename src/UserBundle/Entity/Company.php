@@ -22,7 +22,7 @@ class Company extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="companyName", type="string", length=255)
+     * @ORM\Column(name="companyName", type="string", length=255,nullable=true)
      */
     private $companyName;
 
@@ -31,7 +31,7 @@ class Company extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="about", type="string", length=255)
+     * @ORM\Column(name="about", type="string", length=255,nullable=true)
      */
     private $about;
 

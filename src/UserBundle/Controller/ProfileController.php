@@ -19,6 +19,8 @@ use UserBundle\Entity\Company;
 use UserBundle\Entity\Member;
 use UserBundle\Form\CompanyType;
 use UserBundle\Form\MemberType;
+use UserBundle\Form\ProfileCompanyType;
+use UserBundle\Form\ProfileMemberType;
 use UserBundle\Form\UserType;
 
 class ProfileController extends Controller
@@ -48,26 +50,26 @@ class ProfileController extends Controller
 
         if ($user->hasRole('ROLE_MEMBER'))
         {
-            $form = $this->createForm(MemberType::class, $user);
+            $form = $this->createForm(ProfileMemberType::class, $user);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-               // $em->persist($user);
-               // $em->flush();
-
+                $em->flush();
+            return $this->redirectToRoute('homepage');
             }
 
         }
         else if ($user->hasRole('ROLE_COMPANY'))
         {
-            $form = $this->createForm(CompanyType::class, $user);
+            $form = $this->createForm(ProfileCompanyType::class, $user);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-//                $em->persist($user);
-//                $em->flush();
+                $em->flush();
+                return $this->redirectToRoute('homepage');
+
             }
 
         }else{

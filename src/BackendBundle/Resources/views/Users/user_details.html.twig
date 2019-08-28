@@ -1,0 +1,17 @@
+{% extends 'back_base.html.twig' %}
+
+{% block body %}
+<div class="card-body">
+    <h4 class="header-title"><label>User:</label> {{ user.username }}</h4>
+
+    <div class="mt-3">
+        <select class="browser-default custom-select">
+            <option selected>Select Package</option>
+            {% for item in package %}
+            <option ><a>{{ item.name }}</a></option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+    {% endblock %}
+

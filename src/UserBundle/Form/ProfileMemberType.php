@@ -2,26 +2,30 @@
 
 namespace UserBundle\Form;
 
+use BackendBundle\Form\MediaType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use UserBundle\Form\UserType as BaseUserFormType;
+use UserBundle\Entity\Member;
 
-class CompanyType extends AbstractType
+class ProfileMemberType extends AbstractType
 {
-    public function getParent()
-    {
-        return BaseUserFormType::class;
-    }
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('companyName')->add('about')->add('Save',SubmitType::class,['attr'=>
+        $builder
+            ->add('address')
+            ->add('image', MediaType::class,['required'=>false])
+            ->add('firstName')->add('lastName')
+            ->add('Save',SubmitType::class,['attr'=>
             ['class'=>
-            'button full-width button-sliding-icon ripple-effect margin-top-10'
+                'button full-width button-sliding-icon ripple-effect margin-top-10'
             ]]);
     }/**
      * {@inheritdoc}
@@ -29,7 +33,7 @@ class CompanyType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'UserBundle\Entity\Company'
+            'data_class' => Member::class
         ));
     }
 
@@ -38,7 +42,7 @@ class CompanyType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'userbundle_company';
+        return 'userbundle_member';
     }
 
 

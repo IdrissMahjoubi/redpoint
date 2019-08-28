@@ -50,8 +50,6 @@ class UserType extends AbstractType
             ->add('image', MediaType::class);
 
         $formModifier = function (FormInterface $form, $type) {
-
-
             $packages = $this->repo->getPricingByType($type);
 ;
 
@@ -77,8 +75,6 @@ class UserType extends AbstractType
                 $formModifier($event->getForm()->getParent(), $type);
             }
         );
-
-
     }
 
 

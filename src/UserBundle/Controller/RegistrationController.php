@@ -55,13 +55,13 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if($user->getType() === 'member'){
+            if($user->getType() === 0){
                 $member = new Member();
                 $member->loadFromParentObj($user);
                 $member->setRoles(['ROLE_MEMBER']);
                 $em->persist($member);
                 $em->flush();
-            }else{
+            }else if($user->getType() === 1){
                 $company = new Company();
                 $company->loadFromParentObj($user);
                 $company->setRoles(['ROLE_COMPANY']);
