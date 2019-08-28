@@ -37,10 +37,6 @@ class Categories
     private $name;
 
 
-    /**
-     * @ORM\OneToOne(targetEntity="BackendBundle\Entity\Media", cascade={"persist", "remove"})
-     */
-    private $image;
 
     /**
      * @ORM\OneToMany(targetEntity="BackendBundle\Entity\SubCategory", mappedBy="category",cascade={"persist", "remove"}, orphanRemoval=true)
@@ -81,30 +77,6 @@ class Categories
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set image
-     *
-     * @param Media $image
-     *
-     * @return Categories
-     */
-    public function setImage(Media $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return Media
-     */
-    public function getImage()
-    {
-        return $this->image;
     }
 
     public function __toString()

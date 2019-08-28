@@ -63,7 +63,7 @@ class Product
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\SubCategory" )
+     * @ORM\ManyToOne(targetEntity="BackendBundle\Entity\SubCategory")
      * @ORM\JoinColumn(name="subCategory_id",referencedColumnName="id")
      *
      */

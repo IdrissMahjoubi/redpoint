@@ -15,7 +15,7 @@ class CategoriesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name',TextType::class)->add('image',MediaType::class);
+        $builder->add('name',TextType::class);
     }/**
      * {@inheritdoc}
      */

@@ -40,6 +40,7 @@ class ProductType extends AbstractType
             $form->add('subCategory', EntityType::class, [
                 'class' => SubCategory::class,
                 'placeholder' => '',
+                'required'=>false,
                 'choices' => $subCategory,
             ]);
         };
