@@ -882,7 +882,7 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  width: 60%;
 }
 
 .productinfo{
@@ -1095,7 +1095,6 @@ h2.title {
 .pagination {
   display: inline-block;
   margin-bottom: 25px;
-  margin-top: 0;
   padding-left: 15px;
 }
 

@@ -54,23 +54,32 @@ class RegistrationController extends Controller
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $userExists = $this->getDoctrine()->getRepository(User::class)->findBy(['username' => $user->getUsername()]);
 
-            if($user->getType() === 0){
-                $member = new Member();
-                $member->loadFromParentObj($user);
-                $member->setRoles(['ROLE_MEMBER']);
-                $em->persist($member);
-                $em->flush();
-            }else if($user->getType() === 1){
-                $company = new Company();
-                $company->loadFromParentObj($user);
-                $company->setRoles(['ROLE_COMPANY']);
-                $em->persist($company);
-                $em->flush();
+        if(!$userExists){
+            $userExists = $this->getDoctrine()->getRepository(User::class)->findBy(['email'=>$user->getEmail()]);
+        }
 
+            if (!$userExists){
+                if($user->getType() === 0){
+                    $member = new Member();
+                    $member->loadFromParentObj($user);
+                    $member->setRoles(['ROLE_MEMBER']);
+                    $em->persist($member);
+                    $em->flush();
+                }else if($user->getType() === 1){
+                    $company = new Company();
+                    $company->loadFromParentObj($user);
+                    $company->setRoles(['ROLE_COMPANY']);
+                    $em->persist($company);
+                    $em->flush();
+                }
+                return $this->redirectToRoute('fos_user_registration_confirmed');
+            }else{
+                return $this->render('@FOSUser/Registration/register.html.twig', array(
+                    'form' => $form->createView(),'msg' => 'Username or email exists'
+                ));
             }
-
-            return $this->redirectToRoute('fos_user_registration_confirmed');
         }
 
         return $this->render('@FOSUser/Registration/register.html.twig', array(

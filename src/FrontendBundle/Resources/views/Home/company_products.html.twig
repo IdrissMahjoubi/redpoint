@@ -38,9 +38,6 @@
                         <td class="cart_quantity">
                             <h4><a href="{{ path('front_product',{ 'id': item.id }) }}">{{ item.name }}</a></h4>
                         </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href="{{ path('front_delete_product',{ 'id': item.id }) }}"><i class="fa fa-times"></i></a>
-                        </td>
                     </tr>
                     {% endfor %}
                     </tbody>

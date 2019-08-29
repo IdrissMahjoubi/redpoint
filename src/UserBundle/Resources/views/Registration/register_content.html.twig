@@ -1,8 +1,13 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="col-sm-8">
+    {% if( msg is defined) %}
+    <div class="alert-danger">
+            {{ msg }}
+    </div>
+    {% endif %}
     <div class="signup-form"><!--sign up form-->
-        <h2>New User Signup!</h2>
+        <h2>Signup</h2>
         {{ form_start(form) }}
 
         <div class="input-with-icon-left">

@@ -13,6 +13,7 @@ use BackendBundle\Entity\Categories;
 use BackendBundle\Entity\Type;
 use BackendBundle\Form\MediaType;
 use BackendBundle\Form\ProductType;
+use Knp\Component\Pager\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -97,7 +98,7 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
-    public function indexAction()
+    public function indexAction(Request $request)
     {
 
         $em = $this->getDoctrine();
@@ -105,10 +106,19 @@ class HomeController extends Controller
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
         $products = $em->getRepository(Product::class)->findAll();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+        /**
+         * @var Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $products,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',6)
+        );
 
         $categories = $em->getRepository(Categories::class)->findAll();
 
-        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $result, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function postProductAction(Request $request)
@@ -234,10 +244,6 @@ class HomeController extends Controller
         return $this->redirectToRoute('front_edit_product', ['id' => $media->getProduct()->getId()]);
     }
 
-    public function checkoutAction()
-    {
-        return $this->render('@Frontend/Home/checkout.html.twig');
-    }
 
     public function typeAction()
     {
@@ -258,16 +264,6 @@ class HomeController extends Controller
         return $this->render('@Frontend/Home/upgrade.html.twig',['pricings' => $pricings]);
     }
 
-    public function pricingAction($account_type)
-    {
-        if ($account_type == "member") {
-            $for_enterprise = false;
-        } else if ($account_type == "company") {
-            $for_enterprise = true;
-        }
-        $pricings = $this->getDoctrine()->getRepository(Pricing::class)->findBy(['forEnterprise' => $for_enterprise]);
 
-        return $this->render('@Frontend/Home/pricing.html.twig', ['pricings' => $pricings]);
-    }
 
 }
