@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new BackendBundle\BackendBundle(),
             new UserBundle\UserBundle(),
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
             new FrontendBundle\FrontendBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),

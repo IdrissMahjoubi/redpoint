@@ -295,7 +295,10 @@ class User extends BaseUser
      */
     public function getNumberOfProducts()
     {
-        return count( $this->products->toArray());
+        if($this->products){
+            return count($this->products->toArray());
+        }
+        return 0;
     }
 
     public function getNumberOfProductsLeft()

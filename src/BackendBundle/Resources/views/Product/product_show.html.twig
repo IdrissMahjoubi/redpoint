@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="card-body">
-        <h4 class="header-title">Contact</h4>
+        <h4 class="header-title">Products</h4>
 
         <div class="table-responsive mt-3">
             <table class="table table-hover table-centered mb-0">
@@ -10,15 +10,15 @@
                 <tr>
                     <th>name</th>
                     <th>price</th>
-                    <th>number</th>
-                    <th>advantages</th>
+                    <th>web Id</th>
+                    <th>category</th>
                     <th>action</th>
                 </tr>
                 </thead>
 
 
                 <tbody>
-                {% for item in pricing %}
+                {% for item in products %}
                     <tr>
                         <td>
                             {{ item.name }}
@@ -27,16 +27,16 @@
                             {{ item.price }}
                         </td>
                         <td>
-                            {{ item.numberOfPosts }}
+                            <img src="{{ asset('/uploads/'~ item.images[0].url)  }}" alt="contact-img" height="40" width="40" title="contact-img" class="rounded-circle float-left mr-2">
                         </td>
                         <td>
-                            {{ item.advantages }}
+                            {{ item.categorie }}
                         </td>
                         <td>
                             <div class="btn-group dropdown">
                                 <a href="javascript: void(0);" class="dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="{{ path('pricing_edit',{ 'id': item.id}) }}"><i class="mdi mdi-pencil mr-1 text-muted"></i>Edit</a>
+                                    <a class="dropdown-item" href="{{ path('product_delete_back',{ 'id': item.id}) }}"><i class="mdi mdi-delete mr-1 text-muted"></i>Delete</a>
                                 </div>
                             </div>
                         </td>

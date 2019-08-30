@@ -75,27 +75,48 @@ class HomeController extends Controller
 
     }
 
-    public function getByCategoryAction(Categories $category)
+    public function getByCategoryAction(Request $request,Categories $category)
     {
         $em = $this->getDoctrine();
+        $dql = "SELECT p FROM BackendBundle:Product p WHERE p.categorie = '". $category->getId() . "'";
+        $query = $em->getManager()->createQuery($dql);
+        dump($query);
+
+        /**
+         * @var Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',6)
+        );
+
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
         $categories = $em->getRepository(Categories::class)->findAll();
-        $products = $em->getRepository(Product::class)->findBy(['categorie'=>$category]);
-
-        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $result, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
 
     }
 
-    public function getBySubCategoryAction(SubCategory $subCategory)
+    public function getBySubCategoryAction(Request $request,SubCategory $subCategory)
     {
         $em = $this->getDoctrine();
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
         $categories = $em->getRepository(Categories::class)->findAll();
-        $products = $em->getRepository(Product::class)->findBy(['subCategory'=>$subCategory]);
-
-        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $products, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
+        $dql = "SELECT p FROM BackendBundle:Product p WHERE p.subCategory = '". $subCategory->getId() . "'";
+        $query = $em->getManager()->createQuery($dql);
+        /**
+         * @var Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',6)
+        );        return $this->render('@Frontend/Home/index.html.twig', ['categories' => $categories, 'publicity' => $publicity, 'products' => $result, 'sliderOne' => $sliders[0], 'sliderTwo' => $sliders[1], 'sliderThree' => $sliders[2]]);
     }
 
     public function indexAction(Request $request)
@@ -104,14 +125,17 @@ class HomeController extends Controller
         $em = $this->getDoctrine();
 
         $sliders = $em->getRepository(Gallery::class)->findBy(['type' => 'slider']);
-        $products = $em->getRepository(Product::class)->findAll();
         $publicity = $em->getRepository(Gallery::class)->findOneBy(['type' => 'publicity']);
+
+        $dql = 'SELECT p FROM BackendBundle:Product p';
+        $query = $em->getManager()->createQuery($dql);
+
         /**
          * @var Paginator
          */
         $paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
-            $products,
+            $query,
             $request->query->getInt('page',1),
             $request->query->getInt('limit',6)
         );

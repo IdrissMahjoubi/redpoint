@@ -41,7 +41,11 @@ class Pricing
      */
     public function getNumberOfPosts()
     {
+        if($this->numberOfPosts !== null)
+        {
         return $this->numberOfPosts;
+        }
+        return 0;
     }
 
     /**

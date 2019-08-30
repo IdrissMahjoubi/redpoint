@@ -83,19 +83,6 @@ gallery_front_delete:
     path:     gallery/front/delete/{id}/
     defaults: { _controller: BackendBundle:GalleryFront:deleteGallery}
 
-prof_add:
-    path:     prof/add/
-    defaults: { _controller: BackendBundle:Prof:addProf}
-prof_show:
-    path:     prof/show/
-    defaults: { _controller: BackendBundle:Prof:showProf}
-prof_edit:
-    path:     prof/edit/{id}/
-    defaults: { _controller: BackendBundle:Prof:editProf}
-prof_delete:
-    path:     prof/delete/{id}/
-    defaults: { _controller: BackendBundle:Prof:deleteProf}
-
 
 partenaire_add:
     path:     partenaire/add/
@@ -159,3 +146,11 @@ sub_category_edit:
 sub_category_delete:
     path:     sub_category/delete/{id}/
     defaults: { _controller: BackendBundle:SubCategory:deleteSubCategory}
+
+product_show_back:
+    path:     product/show/
+    defaults: { _controller: BackendBundle:Product:showProduct}
+
+product_delete_back:
+    path:     product/delete/{id}
+    defaults: { _controller: BackendBundle:Product:deleteProduct}
