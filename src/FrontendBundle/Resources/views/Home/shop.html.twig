@@ -14,7 +14,7 @@
 
                 <div class="col-sm-8 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">السلع المعروضة</h2>
                             {% for company in companies %}
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -24,7 +24,7 @@
                                         <h2>{{  company.companyName}}</h2>
                                         <p>{{ company.about}}</p>
                                         <a href="{{ path('front_products_by_shop',{'id':company.id}) }}" class="btn btn-default add-to-cart"><i
-                                                    class="fa fa-shopping-cart"></i>go to products</a>
+                                                    class="fa fa-shopping-cart"></i>عرض المنتجات</a>
                                     </div>
                                 </div>
 

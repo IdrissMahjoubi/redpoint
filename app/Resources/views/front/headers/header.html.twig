@@ -36,12 +36,12 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
+                                <li><a href="{{ path('front_account') }}"><i class="fa fa-user"></i> الحساب </a></li>
+                                <li><a href="{{ path('front_wishlist') }}"><i class="fa fa-star"></i> قائمتي المفضلة</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i>الخروج</a></li>
                             {% else %}
-                                <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> Login</a></li>
-                                <li><a href="{{ path('fos_user_registration_override') }}"><i class="fa fa-lock"></i> Register</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-lock"></i> تسجيل الدخول</a></li>
+                                <li><a href="{{ path('fos_user_registration_override') }}"><i class="fa fa-lock"></i>  إنشاء حساب جديد </a></li>
 
                             {% endif %}
 
@@ -59,7 +59,7 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
                                 data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
+                            <span class="sr-only">تبديل الملاحة</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -67,10 +67,10 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="{{ path('homepage') }}">Home</a></li>
-                            <li><a href="{{ path('font_shop') }}">Shops</a></li>
-                            <li><a href="{{ path('upgrade') }}">Packages</a></li>
-                            <li><a href="{{ path('front_contact') }}">Contact</a></li>
+                            <li><a href="{{ path('homepage') }}">الصفحة الرئيسية</a></li>
+                            <li><a href="{{ path('font_shop') }}">محلات</a></li>
+                            <li><a href="{{ path('upgrade') }}">التسعير</a></li>
+                            <li><a href="{{ path('front_contact') }}">اتصل بنا</a></li>
                         </ul>
                     </div>
                 </div>

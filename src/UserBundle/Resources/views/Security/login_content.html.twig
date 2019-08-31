@@ -9,27 +9,27 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="login-form"><!--login form-->
-                    <h2>Login to your account</h2>
+                    <h2>تسجيل الدخول إلى حسابك</h2>
                     <form action="{{ path("fos_user_security_check") }}" method="post">
 
                         {% if csrf_token %}
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                         {% endif %}
-                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                            <label for="username">اسم المستخدم</label>
                             <input class="input-text with-border" type="text" id="username" name="_username"
                                    value="{{ last_username }}" required="required" autocomplete="username"/>
-                         <label for="password">{{ 'security.login.password'|trans }}</label>
+                         <label for="password">كلمة المرور</label>
                             <input class="input-text with-border" type="password" id="password" name="_password"
                                    required="required" autocomplete="current-password"/>
                         <span>
                         <div class="form-group mb-3">
                             <input class="checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                         </div>
-                            Keep me signed in
+                           احتفظ بتسجيل الدخول
 							</span>
                         <!-- Button -->
                         <button class="button full-width button-sliding-icon ripple-effect margin-top-10"
-                                type="submit">{{ 'security.login.submit'|trans }}
+                                type="submit">تسجيل الدخول
                         </button>
                     </form>
                 </div><!--/login form-->

@@ -36,16 +36,16 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
-                                Product Name: <h2>{{ product.name }}</h2>
-                                Description: <h4>{{ product.description }}</h4>
-                                Category: <h4>{{ product.categorie }}</h4>
-                                Sub Category: <h4>{{ product.subCategory }}</h4>
+                                اسم المنتج <h2>{{ product.name }}</h2>
+                                وصف <h4>{{ product.description }}</h4>
+                                فئة <h4>{{ product.categorie }}</h4>
+                                الفئة الفرعية <h4>{{ product.subCategory }}</h4>
                                 <span>
 									<span>{{ product.price }}KWD</span>
 								</span>
-                                <p><b>Name:</b> {{ product.owner.username }}</p>
-                                <p><b>Number:</b> 34 34 34 34</p>
-                                <p><b>E-mail:</b> {{  product.owner.email}}</p>
+                                <p><b>اسم المالك</b></p><h4>{{ product.owner.username }}</h4>
+                                    <p><b>رقم الهاتف</b></p><h4> 34 34 34 34</h4>
+                                        <p><b>البريد الإلكتروني</b></p><h4> {{  product.owner.email}}</h4>
                             </div><!--/product-information-->
                         </div>
                     </div><!--/product-details-->

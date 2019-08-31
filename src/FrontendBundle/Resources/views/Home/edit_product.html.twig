@@ -11,20 +11,21 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="login-form"><!--login form-->
-                        <h2>Make a post</h2>
+                        <h2> تعديل المنتج</h2>
                         {{ form_start(form) }}
                         {{ form_errors(form) }}
 
                         {# The Folder.name field #}
                         <div class="row form-group">
-                            {{ form_label(form.name, null, {'label_attr': {'class': 'col-md-2'}}) }}
+
+                            {{ form_label(form.name, 'اسم المنتج', {'label_attr': {'class': 'col-md-2'}}) }}
                             <div class="col col-md-10">{{ form_widget(form.name) }}</div>
                             <div class="form_errors col-md-12">
                                 {{ form_errors(form.name) }}
                             </div>
                         </div>
                         <div class="row form-group">
-                            {{ form_label(form.description, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            {{ form_label(form.description, 'وصف', {'label_attr': {'class': 'col-md-2'}}) }}
                             <div class="col col-md-10">
                                 {{ form_widget(form.description) }}
                             </div>
@@ -33,21 +34,21 @@
                             </div>
                         </div>
                         <div class="row form-group">
-                            {{ form_label(form.price, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            {{ form_label(form.price, 'السعر', {'label_attr': {'class': 'col-md-2'}}) }}
                             <div class="col col-md-10">{{ form_widget(form.price) }}</div>
                             <div class="form_errors col-md-12">
                                 {{ form_errors(form.price) }}
                             </div>
                         </div>
                         <div class="row form-group">
-                            {{ form_label(form.categorie, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            {{ form_label(form.categorie, 'فئة', {'label_attr': {'class': 'col-md-2'}}) }}
                             <div class="col col-md-10">{{ form_widget(form.categorie) }}</div>
                             <div class="form_errors col-md-12">
                                 {{ form_errors(form.categorie) }}
                             </div>
                         </div>
                         <div class="row form-group">
-                            {{ form_label(form.subCategory, null, {'label_attr': {'class': 'col-md-2'}}) }}
+                            {{ form_label(form.subCategory, 'الفئة الفرعية', {'label_attr': {'class': 'col-md-2'}}) }}
                             <div class="col col-md-10">{{ form_widget(form.subCategory) }}</div>
                             <div class="form_errors col-md-12">
                                 {{ form_errors(form.subCategory) }}
@@ -55,7 +56,7 @@
                         </div>
 
                         <div class="row form-group">
-                            <label class="col-md-2"> add image </label>
+                            <label class="col-md-2"> أضف صورة</label>
                             <div class="col col-md-10">{{ form_widget(form.images.vars.prototype) }}</div>
                             <div class="form_errors col-md-12">
                                 {{ form_errors(form.images.vars.prototype) }}
@@ -91,10 +92,10 @@
                         {# Submit part #}
                         <div class="row form-group">
                             <div class="form_cancel col-md-offset-8 col-md-2 col-xs-4">
-                                <a href="{{ path('homepage') }}" class="btn btn-default btn-block">Cancel</a>
+                                <a href="{{ path('homepage') }}" class="btn btn-default btn-block">إلغاء</a>
                             </div>
                             <div class="form_submit col-md-2 col-xs-8">
-                                <input type="submit" value="Validate" class="btn btn-warning btn-block" />
+                                <input type="submit" value="نشر" class="btn btn-warning btn-block" />
                             </div>
                         </div>
 

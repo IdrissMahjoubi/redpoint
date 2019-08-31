@@ -71,7 +71,7 @@
             {% include('@Frontend/Default/sidebar.html.twig') %}
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Featured Items</h2>
+                        <h2 class="title text-center">السلع المعروضة</h2>
                         {%  for product in products %}
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -80,20 +80,20 @@
                                         <img src="{{ asset('uploads/'~product.images[0].url)}}" alt="" />
                                         <h2>{{ product.price }} KWD</h2>
                                         <p>{{  product.name}}</p>
-                                        <a href="{{ path('front_product',{ 'id': product.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Item</a>
+                                        <a href="{{ path('front_product',{ 'id': product.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>شاهد تفاصيل المنتج</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>{{ product.price }} KWD</h2>
                                             <p>{{ product.description }}</p>
-                                            <a href="{{ path('front_product',{ 'id': product.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Item</a>
+                                            <a href="{{ path('front_product',{ 'id': product.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>شاهد تفاصيل المنتج</a>
                                         </div>
                                     </div>
                                 </div>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li><a href="{{ path('front_wishlist_add',{ 'id': product.id }) }}"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                        <li><a href="{{ path('front_wishlist_add',{ 'id': product.id }) }}"><i class="fa fa-plus-square"></i>أضف إلى القائمة</a></li>
                                     </ul>
                                 </div>
                                 {% endif %}

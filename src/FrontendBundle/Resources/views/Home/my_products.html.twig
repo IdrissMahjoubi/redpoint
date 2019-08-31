@@ -7,17 +7,17 @@
 
 
             <div class="review-payment">
-                <h2>My products</h2>
+                <h2>منتجاتي</h2>
             </div>
 
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
                     <tr class="cart_menu">
-                        <td class="image">Image</td>
-                        <td class="description">description</td>
-                        <td class="price">Price</td>
-                        <td class="quantity">Item</td>
+                        <td class="image">صورة</td>
+                        <td class="description">وصف</td>
+                        <td class="price">السعر</td>
+                        <td class="quantity">اسم العنصر</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -37,9 +37,6 @@
                         </td>
                         <td class="cart_quantity">
                             <h4><a href="{{ path('front_edit_product',{ 'id': item.id }) }}">{{ item.name }}</a></h4>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href="{{ path('front_delete_product',{ 'id': item.id }) }}"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
